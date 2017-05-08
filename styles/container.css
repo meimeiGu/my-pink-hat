@@ -120,3 +120,74 @@ slider-ul>li {
     text-align: justify;
     letter-spacing: 1px
 }
+
+#g-base .goods-detail{
+    position: relative;
+    width: 100%;
+    margin-top: .05rem;
+    line-height: .2rem;
+    font-size: .13rem;
+    overflow: hidden;
+    color: #58595b;
+    text-align: justify
+}
+
+#g-base .goods-detail-info{
+    position: relative;
+    width: 100%;
+    height: auto
+}
+
+.goods-servers {
+    position: relative;
+    width: 100%;
+    padding: 0 .1rem;
+    background-color: #fff
+}
+
+.goods-servers span {
+    color: #58595b;
+    font-size: .12rem
+}
+
+.goods-servers .servers-list {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: .41rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    font-size: 0;
+    border-top: 1px solid #f2f2f2;
+    overflow: hidden
+}
+
+.goods-servers .servers-item {
+    position: relative;
+    display: inline-block;
+    height: .12rem;
+    line-height: 1;
+    margin: 0 .2rem 0 .16rem
+}
+
+.goods-servers .servers-item:before {
+    color: #e02e24;
+    position: absolute;
+    left: -.16rem
+}
+
+.goods-servers .servers-item:last-child {
+    margin-right: auto
+}
+
+.icon-gou{
+    color: #e02e24;
+    position: absolute;
+    left: -.16rem;
+    font-size: 1.15em
+}

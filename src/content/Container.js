@@ -4,6 +4,7 @@
 import React from 'react'
 import BigImage from './BigImage'
 import GoodsInfo from './GoodsInfo'
+import GoodsServer from './GoodsServer'
 import '../../styles/container.css'
 
 class Container extends React.Component{
@@ -15,6 +16,7 @@ class Container extends React.Component{
             <div className="goods-container">
                 <BigImage/>
                 <GoodsInfo/>
+                <GoodsServer/>
             </div>
         )
     }
