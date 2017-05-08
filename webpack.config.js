@@ -3,7 +3,7 @@
  */
 
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
     devtool: 'eval-source-map',
     entry:  __dirname + "/src/app/main.js",//已多次提及的唯一入口文件
@@ -15,27 +15,29 @@ module.exports = {
         loaders: [
             {
                 test: /\.json$/,
+                exclude: /^node_modules$/,
                 loader: "json-loader"
             }
             ,
             {
                 test: /\.js$/,
+                exclude: /^node_modules$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',//在webpack的module部分的loaders里进行配置即可
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader?modules'//跟前面相比就在后面加上了?modules
+                exclude: /^node_modules$/,
+                loader: 'style-loader!css-loader'//跟前面相比就在后面加上了?modules
             }
 
         ]
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin()//热加载插件
+        new webpack.HotModuleReplacementPlugin(),
+        new OpenBrowserPlugin({ url: 'http://localhost:8080' })
     ],
-
-
     devServer: {
         historyApiFallback: true,
         inline: true,

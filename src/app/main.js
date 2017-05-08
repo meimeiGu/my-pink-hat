@@ -1,9 +1,9 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import Title from '../index/Title.js'
-
+import Container from '../content/Container'
+import '../../styles/global.css'
 ReactDom.render(
-	<Title />,
+	<Container />,
     document.getElementById('root')
 )
