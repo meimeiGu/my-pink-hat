@@ -4,8 +4,10 @@
 import React from 'react'
 import BigImage from './BigImage'
 import GoodsInfo from './GoodsInfo'
+import LocalGroups from './LocalGroups'
 import GoodsServer from './GoodsServer'
 import '../../styles/container.css'
+import GoodsBottom from './GoodsBottom'
 
 class Container extends React.Component{
     constructor(props) {
@@ -17,6 +19,8 @@ class Container extends React.Component{
                 <BigImage/>
                 <GoodsInfo/>
                 <GoodsServer/>
+                <LocalGroups/>
+                <GoodsBottom/>
             </div>
         )
     }
