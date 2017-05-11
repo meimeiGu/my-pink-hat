@@ -1,12 +1,8 @@
 /**
  * Created by wmm on 2017/5/9.
  */
-/**
- * Created by wmm on 2017/5/9.
- */
 import React from 'react'
 import '../../styles/container.css'
-
 
 class GoodsBottom extends React.Component{
     constructor(props) {
