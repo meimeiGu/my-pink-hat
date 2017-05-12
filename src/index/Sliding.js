@@ -13,13 +13,13 @@ class Sliding extends React.Component{
         return(
             <div id="sliding">
                 <ul className="slider-outer">
-                    <li className="slider-html">
+                    {/*<li className="slider-html">
                         <img src="../../images/slider/a.jpeg"/>
                     </li>
-                    <li className="slider-html">
+                    <li className="slider-html ">
                         <img src="../../images/slider/b.jpeg"/>
                     </li>
-                    <li className="slider-html slider-active">
+                    <li className="slider-html ">
                         <img src="../../images/slider/d.jpeg"/>
                     </li>
                     <li className="slider-html">
@@ -27,8 +27,8 @@ class Sliding extends React.Component{
                     </li>
                     <li className="slider-html">
                         <img src="../../images/slider/g.jpeg"/>
-                    </li>
-                    <li className="slider-html">
+                    </li>*/}
+                    <li className="slider-html slider-active">
                         <img src="../../images/slider/h.jpeg"/>
                     </li>
                 </ul>

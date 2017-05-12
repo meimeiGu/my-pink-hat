@@ -4,6 +4,7 @@
 import React from 'react'
 import '../../styles/index.css'
 import Sliding from './Sliding'
+import MainView from './MainView'
 
 
 
@@ -16,6 +17,7 @@ class MainContent extends React.Component{
             <div id="mainIndex">
                 <div id="indexRecommend">
                 <Sliding/>
+                <MainView/>
                 </div>
             </div>
         )
