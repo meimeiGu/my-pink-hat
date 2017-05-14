@@ -14,6 +14,9 @@ class MainView extends React.Component{
             <section id="goods_list" className="main-view index-section">
                 <div className="list-wrapper">
                     <ListItem/>
+                    <ListItem/>
+                    <ListItem/>
+                    <ListItem/>
 
                 </div>
             </section>

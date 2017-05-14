@@ -276,9 +276,13 @@
 }
 
 #goods_list  .detail .right-side .icon-jiantouyou{
-    position: relative;
-    line-height: .31rem;
-    font-size: 0.15rem;
+    display: block;
+    position: absolute;
+    line-height: .35rem;
+    font-size: 0.18rem;
     text-align: center;
     vertical-align: middle;
+    top: -0.004rem;
+    right: 0.14rem;
+
 }
