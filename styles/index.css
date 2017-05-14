@@ -66,7 +66,8 @@
     position: relative;
     width: 100%;
     display: block;
-    overflow-y: hidden
+    overflow-y: hidden;
+    height: 1.4rem;
 }
 
 #sliding .slider-outer {
@@ -93,9 +94,9 @@
 }
 
 .slider-outer>li {
-  /*  position: absolute;
+    position: absolute;
     top: 0;
-    left: 0;*/
+    left: 0;
     display: -ms-flexbox;
     display: flex;
     display: -moz-box;
@@ -107,14 +108,23 @@
     box-align: center;
 }
 
-.slider-active{
-    display: block;
-    position: relative;
+#sliding .slider-outer .slider-active{
     transform: translateZ(0px) translateX(0px);
     overflow: auto;
     transition: -webkit-transform 600ms ease;
 }
 
+#sliding .slider-outer .slider-prev{
+    transform: translateZ(0px) translateX(-640px);
+    overflow: auto;
+    transition: -webkit-transform 600ms ease;
+}
+
+#sliding .slider-outer .slider-next{
+    transform: translateZ(0px) translateX(640px);
+    overflow: auto;
+    transition: -webkit-transform 600ms ease;
+}
 .slider-dot-wrap{
     height: 6px;
     margin: 0;
