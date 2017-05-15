@@ -30,22 +30,22 @@ class Sliding extends React.Component{
             <div id="sliding">
                 <ul className="slider-outer">
                     <li className="slider-html" data-index = {1}>
-                        <img src="../../images/slider/a.jpeg"/>
+                        <img src="../../images/slider/a.jpg" />
                     </li>
                     <li className="slider-html slider-prev" data-index = {2}>
-                        <img src="../../images/slider/b.jpeg"/>
+                        <img src="../../images/slider/b.jpg"/>
                     </li>
                     <li className="slider-html slider-active" data-index = {3}>
-                        <img src="../../images/slider/d.jpeg"/>
+                        <img src="../../images/slider/d.jpg"/>
                     </li>
                     <li className="slider-html slider-next" data-index = {4}>
-                        <img src="../../images/slider/f.jpeg"/>
+                        <img src="../../images/slider/f.jpg"/>
                     </li>
                     <li className="slider-html" data-index = {5}>
-                        <img src="../../images/slider/g.jpeg"/>
+                        <img src="../../images/slider/g.jpg"/>
                     </li>
                     <li className="slider-html" data-index = {6}>
-                        <img src="../../images/slider/h.jpeg"/>
+                        <img src="../../images/slider/h.jpg"/>
                     </li>
                 </ul>
 
