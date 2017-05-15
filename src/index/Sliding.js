@@ -5,19 +5,12 @@ import React from 'react'
 import '../../styles/global.css'
 import '../../styles/index.css'
 
-/*class SlidingJS extends React.Component{
-    autoMove = () =>{
-
-
-    }
-
-}*/
 class Sliding extends React.Component{
     constructor(props) {
         super(props);
         this.state = {}
     }
-/*    autoPlay = () =>{
+ /*   autoPlay = () =>{
 
 
     }
