@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import '../../styles/index.css'
+import { Link } from 'react-router-dom'
 
 class ListItem extends React.Component{
     constructor(props) {
@@ -27,7 +28,7 @@ class ListItem extends React.Component{
                     </div>
                     <div className="right-side">
                         <div className="enter-button">
-                            去开团
+                            <Link to="/goods">去开团</Link>
                             <i className="iconfont icon-jiantouyou"></i>
                         </div>
                     </div>

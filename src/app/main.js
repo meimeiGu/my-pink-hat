@@ -1,15 +1,16 @@
-
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router'
+import { Link, Route,  HashRouter } from 'react-router-dom'
 import Container from '../content/Container';
 import IndexContainer from '../index/IndexContainer'
 import '../../styles/global.css'
 ReactDom.render((
-	<Router history={hashHistory}>
-		<Route path="/" component={IndexContainer}/>
+	<HashRouter>
+		<div>
+		<Route exact path="/" component={IndexContainer}/>
 		<Route path="/goods" component={Container}/>
+		</div>
+	</HashRouter>),
 
-	</Router>),
     document.getElementById('root')
 )
