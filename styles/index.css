@@ -282,7 +282,11 @@
     color: #fff;
     background-color: #e02e24;
     vertical-align: middle;
+}
 
+#goods_list .list-item .detail .right-side .enter-button a{
+    font-size: .14rem;
+    color: #fff;
 }
 
 #goods_list  .detail .right-side .icon-jiantouyou{

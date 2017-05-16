@@ -3,7 +3,8 @@
  */
 import React from 'react'
 import '../../styles/container.css'
-import { Link, Route,  HashRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 class GoodsBottom extends React.Component{
     constructor(props) {
         super(props);
@@ -12,12 +13,12 @@ class GoodsBottom extends React.Component{
     render(){
         return(
             <div className="goods-bottom">
-                <HashRouter>
+                <Link to="/" >
                 <div className="goods-home">
                     <i className="iconfont icon-shouye3"></i>
                     <span>首页</span>
                 </div>
-                <HashRouter/>
+                </Link>
                 <div className="goods-unlike">
                     <i className="iconfont icon-jushoucang"></i>
                     <span>收藏</span>

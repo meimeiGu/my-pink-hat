@@ -191,4 +191,17 @@ html {
     }
 }
 
+*,a {
+    -webkit-tap-highlight-color: transparent
+}
 
+a {
+    /*color: #333;*/
+    background-color: transparent;
+    text-decoration: none
+}
+
+a:active,a:hover,a:visited {
+    text-decoration: none;
+    outline: 0
+}
