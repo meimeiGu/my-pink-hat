@@ -4,6 +4,8 @@ import { Link, Route,  HashRouter } from 'react-router-dom'
 import Container from '../content/Container';
 import IndexContainer from '../index/IndexContainer'
 import '../../styles/global.css'
+import '../../styles/index.css'
+import '../../styles/container.css'
 ReactDom.render((
 	<HashRouter>
 		<div>

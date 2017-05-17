@@ -2,7 +2,6 @@
  * Created by wmm on 2017/5/8.
  */
 import React from 'react';
-import '../../styles/container.css'
 const GoodsServer = () =>{
     return(
         <div className="goods-servers">
@@ -24,8 +23,6 @@ const GoodsServer = () =>{
                     假一赔十
                 </span>
             </div>
-
-
     </div>
     )
 }

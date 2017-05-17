@@ -5,7 +5,6 @@ import React from 'react'
 import Price from './Price'
 import GoodsName from './GoodsName'
 import GoodsDetail from './GoodsDetail'
-import '../../styles/container.css'
 class GoodsInfo extends React.Component{
     constructor(props) {
         super(props);

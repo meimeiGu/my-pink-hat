@@ -2,7 +2,6 @@
  * Created by wmm on 2017/5/8.
  */
 import React from 'react'
-import '../../styles/container.css'
 class Price extends React.Component{
     constructor(props) {
         super(props);

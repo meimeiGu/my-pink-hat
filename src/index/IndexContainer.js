@@ -5,7 +5,6 @@ import React from 'react'
 import Navigation from './Navigation'
 import MainContent from './MainContent'
 import '../../styles/global.css'
-import '../../styles/index.css'
 
 class IndexContainer extends React.Component{
     constructor(props) {

@@ -2,7 +2,6 @@
  * Created by wmm on 2017/5/9.
  */
 import React from 'react'
-import '../../styles/container.css'
 import { Link } from 'react-router-dom'
 
 class GoodsBottom extends React.Component{
