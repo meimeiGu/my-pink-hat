@@ -326,6 +326,13 @@ slider-ul>li {
     z-index: 10001
 }
 
+.goods-bottom a{
+    position: relative;
+    display: block;
+    width: .46rem;
+    height: 100%;
+}
+
 .goods-buy span:before,.goods-chat span:before,.goods-chat-disable span:before,.goods-home span:before,.goods-like span:before,.goods-mall span:before,.goods-unlike span:before {
     content: "";
     top: -.25rem
