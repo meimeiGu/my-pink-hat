@@ -11,7 +11,7 @@ class BigImage extends React.Component{
             <div className="goods-banner">
                 <ul className="slider-ul" >
                     <li className="slider-li">
-                        <img  src="../../images/2.jpg"/>
+                        <img  src="./images/2.jpg"/>
                     </li>
                 </ul>
             </div>

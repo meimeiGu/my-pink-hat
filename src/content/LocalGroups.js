@@ -3,7 +3,6 @@
  */
 import React from 'react'
 import LocalGropuItem from './LocalGroupItem'
-
 class LocalGroups extends React.Component{
     constructor(props) {
         super(props);

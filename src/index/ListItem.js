@@ -12,7 +12,7 @@ class ListItem extends React.Component{
         return(
             <div className="list-item">
                 <div className="goods-image">
-                <img src="../../images/list-item/11.jpeg"/>
+                <img src="./images/list-item/11.jpeg"/>
                 </div>
                 <p className="goods-name">
                     【品牌清仓】【亏本冲量】【南极人】AB版双面 可水洗夏被 夏凉被亲肤柔软夏被空调被 舒适透气可直接水洗机洗

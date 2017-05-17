@@ -17,8 +17,7 @@ module.exports = {
                 test: /\.json$/,
                 exclude: /^node_modules$/,
                 loader: "json-loader"
-            }
-            ,
+            },
             {
                 test: /\.js$/,
                 exclude: /^node_modules$/,
@@ -30,15 +29,14 @@ module.exports = {
                 exclude: /^node_modules$/,
                 loader: 'style-loader!css-loader'//跟前面相比就在后面加上了?modules
             }
-
         ]
     },
-
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new OpenBrowserPlugin({ url: 'http://localhost:8080' })
     ],
     devServer: {
+        contentBase: "./",//本地服务器所加载的页面所在的目录
         historyApiFallback: true,
         inline: true,
         hot: true

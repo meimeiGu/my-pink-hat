@@ -7,7 +7,6 @@ import GoodsInfo from './GoodsInfo'
 import LocalGroups from './LocalGroups'
 import GoodsServer from './GoodsServer'
 import GoodsBottom from './GoodsBottom'
-
 class Container extends React.Component{
     constructor(props) {
         super(props);
