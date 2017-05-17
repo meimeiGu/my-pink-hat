@@ -4,7 +4,8 @@
   "description": "bishe",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --devtool eval --progress --hot"
+    "start": "webpack-dev-server --devtool eval --progress --hot",
+    "start" : "webpack"
   },
   "repository": {
     "type": "git",
