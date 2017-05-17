@@ -2,7 +2,6 @@
  * Created by wmm on 2017/5/11.
  */
 import React from 'react'
-import '../../styles/index.css'
 class Navigation extends React.Component{
     constructor(props) {
         super(props);

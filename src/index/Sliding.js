@@ -3,8 +3,6 @@
  */
 import React from 'react'
 import '../../styles/global.css'
-import '../../styles/index.css'
-
 class Sliding extends React.Component{
     constructor(props) {
         super(props);

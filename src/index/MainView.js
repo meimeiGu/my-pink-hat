@@ -3,7 +3,6 @@
  */
 import React from 'react'
 import ListItem from './ListItem'
-import '../../styles/index.css'
 
 class MainView extends React.Component{
     constructor(props) {
