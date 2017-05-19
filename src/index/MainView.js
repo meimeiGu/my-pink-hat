@@ -4,7 +4,7 @@
 import React from 'react'
 import ListItem from './ListItem'
 import axios from 'axios';
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.headers.get['Content-Type'] = 'application/xhtml+xml,application/xml';
 class MainView extends React.Component{
     constructor(props) {
         super(props);
@@ -12,9 +12,10 @@ class MainView extends React.Component{
 
     componentDidMount () {
         axios({
-            method:'POST',
-            url:'localhost/my-pink-hat/admin/index.php/Index/index_data',
+            method:'GET',
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/index_data',
             headers: {
+             'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
              'Access-Control-Allow-Origin': '*',
              'Access-Control-Allow-Credentials': 'true',
              'Content-Type': 'application/x-www-form-urlencoded',
