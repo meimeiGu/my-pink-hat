@@ -9,13 +9,10 @@ class Sliding extends React.Component{
         this.state = {}
     }
  /*   autoPlay = () =>{
-
-
     }
     componentDidMount = () =>{
         this.autoPlay();
     }*/
-
     render(){
         return(
             <div id="sliding">

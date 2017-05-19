@@ -33,7 +33,7 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+     /*   new OpenBrowserPlugin({ url: 'http://localhost:8080' })*/
     ],
     devServer: {
         contentBase: "./",//本地服务器所加载的页面所在的目录
