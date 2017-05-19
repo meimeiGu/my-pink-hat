@@ -124,72 +124,7 @@ img {
     vertical-align: top
 }
 
-@media only screen and (max-width: 480px) {
-    html {
-        font-size:128px
-    }
-}
 
-@media only screen and (max-width: 414px) {
-    html {
-        font-size:110.4px
-    }
-}
-
-@media only screen and (max-width: 412px) {
-    html {
-        font-size:109.87px
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    html {
-        font-size:106.67px
-    }
-}
-
-@media only screen and (max-width: 393px) {
-    html {
-        font-size:104.8px
-    }
-}
-
-@media only screen and (max-width: 375px) {
-    html {
-        font-size:100px
-    }
-}
-
-@media only screen and (max-width: 360px) {
-    html {
-        font-size:96px
-    }
-}
-
-@media only screen and (max-width: 345px) {
-    html {
-        font-size:92px
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    html {
-        font-size:85.33px
-    }
-}
-
-html {
-    font-size: calc(100vw / 3.75);
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%
-}
-
-@media only screen and (min-width: 640px) {
-    html {
-        font-size:170.67px
-    }
-}
 * {
     outline: 0;
     margin: 0
@@ -232,7 +167,7 @@ audio:not([controls]) {
 }
 
 a {
-    /*color: #333;*/
+    color: #58595b;
     background-color: transparent;
     text-decoration: none
 }

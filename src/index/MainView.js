@@ -3,11 +3,30 @@
  */
 import React from 'react'
 import ListItem from './ListItem'
-
+import axios from 'axios';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 class MainView extends React.Component{
     constructor(props) {
         super(props);
     }
+
+    componentDidMount () {
+        axios({
+            method:'POST',
+            url:'localhost/my-pink-hat/admin/index.php/Index/index_data',
+            headers: {
+             'Access-Control-Allow-Origin': '*',
+             'Access-Control-Allow-Credentials': 'true',
+             'Content-Type': 'application/x-www-form-urlencoded',
+
+             }
+
+        }).then((data) => {
+            console.log(data);
+        });
+
+    }
+
     render(){
         return(
             <section id="goods_list" className="main-view index-section">

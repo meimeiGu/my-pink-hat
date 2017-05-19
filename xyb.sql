@@ -20,11 +20,11 @@ CREATE TABLE `xyb_user` (
 DROP TABLE IF EXISTS `xyb_gbgoods`;
 CREATE TABLE `xyb_gbgoods` (
   `gbgoods_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '团购商品编号',
-  `gbgoods_name` varchar(20) DEFAULT NULL COMMENT '团购商品名称',  
+  `gbgoods_name` varchar(200) DEFAULT NULL COMMENT '团购商品名称',
   `gbgoods_originprice` decimal(10,2) DEFAULT NULL  COMMENT '团购商品原价', 
   `gbgoods_price` decimal(10,2) DEFAULT NULL COMMENT '团购商品价格',
   `gbgoods_gbprice` decimal(10,2) DEFAULT NULL COMMENT '团购商品团购价',
-  `gbgoods_pic` varchar(50) DEFAULT NULL COMMENT '轮播图片',
+  `gbgoods_pic` varchar(500) DEFAULT NULL COMMENT '轮播图片',
   `gbgoods_pnum` tinyint(4) DEFAULT NULL COMMENT '规定团购人数',
   `gbgoods_gbnum` int(11) DEFAULT NULL COMMENT '已团人数',
   `gbgoods_num` int(30) DEFAULT NULL COMMENT '剩余数量',
