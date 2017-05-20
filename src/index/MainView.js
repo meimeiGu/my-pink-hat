@@ -13,7 +13,11 @@ class MainView extends React.Component{
     componentDidMount () {
         axios({
             method:'GET',
+<<<<<<< HEAD
             url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/index_data',
+=======
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/index_data',
+>>>>>>> a1b78071ee58d56b11f044d0c2747fd670873d8f
             headers: {
              'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
              'Access-Control-Allow-Origin': '*',
