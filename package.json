@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --devtool eval --progress --hot",
+<<<<<<< HEAD
     "start":"webpack"
+=======
+    "start" : "webpack"
+>>>>>>> bbd0c94b92abeb9daebea739804bdbef0f76fa5b
   },
   "repository": {
     "type": "git",
