@@ -3,27 +3,53 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 class ListItem extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+            data:[]
+        }
     }
+
+
+    componentDidMount () {
+        axios({
+         method:'GET',
+         params:{id:this.props.index},
+         url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/data_details',
+         headers: {
+         'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
+         'Access-Control-Allow-Origin': '*',
+         'Access-Control-Allow-Credentials': 'true',
+         'Content-Type': 'application/x-www-form-urlencoded',
+
+         }
+
+         }).then((response) => {
+         console.log(response.data[0]);
+            this.setState({data:response.data[0]})
+         });
+
+    }
+
     render(){
         return(
             <div className="list-item">
                 <div className="goods-image">
-                <img src="./images/list-item/11.jpeg"/>
+                <img src={"http://oq57snhhw.bkt.clouddn.com/"+this.state.data.gbgoods_pic}/>
                 </div>
                 <p className="goods-name">
-                    【品牌清仓】【亏本冲量】【南极人】AB版双面 可水洗夏被 夏凉被亲肤柔软夏被空调被 舒适透气可直接水洗机洗
+                    {this.state.data.gbgoods_name}
                 </p>
                 <div className="detail">
                     <div className="left-side">
                         <div className="sale-price">
                             <i>￥</i>
-                            18.9
+                            {this.state.data.gbgoods_gbprice}
                         </div>
-                        <div className="group-buy">已团8901件</div>
+                        <div className="group-buy">已团{this.state.data.gbgoods_gbnum}件</div>
                     </div>
                     <div className="right-side">
                         <div className="enter-button">

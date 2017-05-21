@@ -8,6 +8,9 @@ axios.defaults.headers.get['Content-Type'] = 'application/xhtml+xml,application/
 class MainView extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+            allData : [],
+        };
 
     }
 
@@ -23,35 +26,18 @@ class MainView extends React.Component{
 
              }
 
-        }).then((data) => {
-            console.log(data);
+        }).then((response) => {
+            this.setState({allData: response.data});
         });
-
-        axios({
-            method:'GET',
-            url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/data_details?id=1',
-            headers: {
-                'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': 'true',
-                'Content-Type': 'application/x-www-form-urlencoded',
-
-            }
-
-        }).then((data) => {
-            console.log(data);
-    });
-
     }
 
     render(){
         return(
             <section id="goods_list" className="main-view index-section">
                 <div className="list-wrapper">
-                    <ListItem/>
-                    <ListItem/>
-                    <ListItem/>
-                    <ListItem/>
+                    {this.state.allData.map((item) => {
+                        return(<ListItem index={item.gbgoods_id} key={item.gbgoods_id.toString()}/>)
+                })}
 
                 </div>
             </section>
