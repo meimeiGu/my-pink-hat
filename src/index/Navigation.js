@@ -12,7 +12,7 @@ class Navigation extends React.Component{
                 <div className="ns-edge"></div>
                 <ul className="ns-content">
                     <li className="ns-tab-item">
-                        <span className="cur-tab">首页shouye</span>
+                        <span className="cur-tab">首页</span>
                     </li>
                 </ul>
 

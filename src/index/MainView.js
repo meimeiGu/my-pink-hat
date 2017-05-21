@@ -8,12 +8,13 @@ axios.defaults.headers.get['Content-Type'] = 'application/xhtml+xml,application/
 class MainView extends React.Component{
     constructor(props) {
         super(props);
+
     }
 
     componentDidMount () {
         axios({
             method:'GET',
-            url:'http://127.0.0.1/my-pink-hat-xyb/admin/index.php/Index/index_data',
+            url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/index_data',
             headers: {
              'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
              'Access-Control-Allow-Origin': '*',
@@ -25,6 +26,21 @@ class MainView extends React.Component{
         }).then((data) => {
             console.log(data);
         });
+
+        axios({
+            method:'GET',
+            url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/data_details?id=1',
+            headers: {
+                'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': 'true',
+                'Content-Type': 'application/x-www-form-urlencoded',
+
+            }
+
+        }).then((data) => {
+            console.log(data);
+    });
 
     }
 
