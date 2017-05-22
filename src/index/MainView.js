@@ -4,7 +4,6 @@
 import React from 'react'
 import ListItem from './ListItem'
 import axios from 'axios';
-axios.defaults.headers.get['Content-Type'] = 'application/xhtml+xml,application/xml';
 class MainView extends React.Component{
     constructor(props) {
         super(props);
@@ -19,11 +18,10 @@ class MainView extends React.Component{
             method:'GET',
             url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/index_data',
             headers: {
-             'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*',
-             'Access-Control-Allow-Origin': '*',
-             'Access-Control-Allow-Credentials': 'true',
-             'Content-Type': 'application/x-www-form-urlencoded',
-
+             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+             /*'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*!/!*',*/
+             /*'Access-Control-Allow-Origin': '*',*/
+            /* 'Access-Control-Allow-Credentials': 'true',*/
              }
 
         }).then((response) => {
@@ -36,7 +34,7 @@ class MainView extends React.Component{
             <section id="goods_list" className="main-view index-section">
                 <div className="list-wrapper">
                     {this.state.allData.map((item) => {
-                        return(<ListItem index={item.gbgoods_id} key={item.gbgoods_id.toString()}/>)
+                        return(<ListItem data={item} key={item.gbgoods_id.toString() }/>)
                 })}
 
                 </div>

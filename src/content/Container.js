@@ -7,15 +7,32 @@ import GoodsInfo from './GoodsInfo'
 import LocalGroups from './LocalGroups'
 import GoodsServer from './GoodsServer'
 import GoodsBottom from './GoodsBottom'
+import axios from 'axios';
 class Container extends React.Component{
     constructor(props) {
         super(props);
+        this.state={detailData:[]}
     }
+
+    componentDidMount() {
+        let id = this.props.location.pathname.slice(7);
+        axios({
+            method:'GET',
+            url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/data_details?id='+id,
+            headers: {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+
+        }).then((response) => {
+            this.setState({detailData: response.data[0]});
+        });
+    }
+
     render(){
         return(
             <div className="goods-container">
-                <BigImage/>
-                <GoodsInfo/>
+                <BigImage imgName={this.state.detailData.gbgoods_pic}/>
+                <GoodsInfo goodsInfo={this.state.detailData}/>
                 <GoodsServer/>
                 <LocalGroups/>
                 <GoodsBottom/>

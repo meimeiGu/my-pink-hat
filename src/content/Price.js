@@ -11,12 +11,12 @@ class Price extends React.Component{
             <div className="goods-price-group">
                 <span className="goods-now-price">
                     <i>￥</i>
-                    35.8
+                    {this.props.gb_price}
                 </span>
                 <span className="goods-market-price">
-                    <del>￥268</del>
+                    <del>￥{this.props.price}</del>
                 </span>
-                <span className="goods-sales">已团26458件·2人团</span>
+                <span className="goods-sales">已团{this.props.gb_num}件·{this.props.num}人团</span>
             </div>
         )
 

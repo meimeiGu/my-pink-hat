@@ -7,10 +7,11 @@ class IndexController extends Controller {
         $result = $gbgoods -> select();
         $this->ajaxReturn($result,'JSON');
     }
-    public function data_details(){
-        $id  = I('id');
-        $gbgoods = M('Gbgoods');
-        $result = $gbgoods->where("gbgoods_id={$id}")-> select();
-        $this->ajaxReturn($result,'JSON');
-    }
+     public function data_details(){
+            $id  = I('id');
+            $gbgoods = M('Gbgoods');
+            $result = $gbgoods->where("gbgoods_id={$id}")-> select();
+            $this->ajaxReturn($result,'JSON');
+        }
+
 }
