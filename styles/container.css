@@ -1,0 +1,527 @@
+.goods-container{
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 0 0 .54rem;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+}
+
+.goods-banner:after {
+    position: absolute;
+    width: 100%;
+    left: 0
+}
+.goods-banner:after {
+    content: "";
+    display: block;
+    height: .06rem;
+    bottom: 0;
+    /*background-image: url("/assets/img/banner_shadow-6b35717b62.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
+    z-index: 10001
+}
+
+
+.slider-ul,.slider-ul>li {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    overflow: hidden;
+    padding: 0
+}
+
+slider-ul {
+    display: block;
+    position: relative;
+
+}
+
+slider-ul>li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -ms-flexbox;
+    display: flex;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-pack: center;
+    box-pack: center;
+    -webkit-box-align: center;
+    box-align: center
+}
+
+@charset "UTF-8";#g-base {
+    position: relative
+}
+
+#g-base .goods-name {
+    word-wrap: break-word;
+    word-break: break-all
+}
+
+#g-base {
+    padding: .1rem;
+    background-color: #fff
+}
+
+#g-base .goods-price-group{
+    height: .24rem;
+    margin-top: .03rem;
+    font-size: 0;
+    color: #e02e24
+}
+
+#g-base .goods-price-group .goods-now-price{
+    position: relative;
+    display: inline-block;
+    height: .24rem;
+    line-height: .24rem;
+    font-size: .24rem
+}
+
+#g-base .goods-price-group .goods-now-price i {
+    font-size: .23rem;
+    margin: 0 -.03rem
+}
+
+#g-base .goods-price-group .goods-market-price,#g-base .goods-price-group .goods-sales{
+    height: 100%;
+    line-height: .24rem;
+    font-size: .13rem;
+    color: #58595b;
+    position: relative;
+    display: inline-block
+}
+
+
+#g-base .goods-price-group .goods-market-price {
+    margin-left: .06rem
+}
+
+#g-base .goods-price-group .goods-sales {
+    float: right;
+    top: .03rem
+}
+
+
+#g-base .goods-name {
+    margin-top: .1rem;
+    font-size: .14rem;
+    line-height: 1.4;
+    color: #151516;
+    overflow: hidden;
+    font-weight: 600;
+    text-align: justify;
+    letter-spacing: 1px
+}
+
+#g-base .goods-detail{
+    position: relative;
+    width: 100%;
+    margin-top: .05rem;
+    line-height: .2rem;
+    font-size: .13rem;
+    overflow: hidden;
+    color: #58595b;
+    text-align: justify
+}
+
+#g-base .goods-detail-info{
+    position: relative;
+    width: 100%;
+    height: auto
+}
+
+.goods-servers {
+    position: relative;
+    width: 100%;
+    padding: 0 .1rem;
+    background-color: #fff
+}
+
+.goods-servers span {
+    color: #58595b;
+    font-size: .12rem
+}
+
+.goods-servers .servers-list {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: .41rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+    font-size: 0;
+    border-top: 1px solid #f2f2f2;
+    overflow: hidden
+}
+
+.goods-servers .servers-item {
+    position: relative;
+    display: inline-block;
+    height: .12rem;
+    line-height: 1;
+    margin: 0 .2rem 0 .16rem
+}
+
+.goods-servers .servers-item:before {
+    color: #e02e24;
+    position: absolute;
+    left: -.16rem
+}
+
+.goods-servers .servers-item:last-child {
+    margin-right: auto
+}
+
+.icon-gou{
+    color: #e02e24;
+    position: absolute;
+    left: -.16rem;
+    font-size: 1.15em
+}
+
+#local-groups {
+    position: relative;
+    max-width: 640px;
+    padding: 0 .1rem;
+    margin-top: .08rem;
+    background-color: #fff
+}
+
+#local-groups p {
+    position: relative;
+    width: 100%;
+    height: .4rem;
+    line-height: .4rem;
+    color: #151516;
+    font-size: .14rem
+}
+
+.local-group-item {
+    position: relative;
+    width: 100%;
+    height: .6rem;
+    padding: .07rem 0;
+    border-top: 1px solid #f2f2f2
+}
+
+.local-group-detail,.local-group-img {
+    height: .45rem;
+    float: left;
+    position: relative
+}
+
+.local-group-img {
+    display: block;
+    width: .45rem;
+    margin-right: .1rem;
+    border-radius: 100%
+}
+
+.local-group-detail {
+    width: 2rem;
+    padding: .06rem 0
+}
+
+
+.local-group-detail-name .local-group-name ,.local-group-detail-name .local-group-left-num{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+}
+
+.local-group-detail-name {
+    position: relative;
+    width: 100%;
+    height: .15rem;
+    line-height: 1;
+    font-size: 0;
+    padding: 0
+}
+
+.local-group-detail-name span {
+    position: relative;
+    display: inline-block
+}
+
+.local-group-detail-name .local-group-name {
+    float: left;
+    width: 100%;
+    font-size: .14rem;
+    color: #151516;
+    text-align: left
+}
+
+.local-group-detail-name .local-group-left-num {
+    float: right;
+    width: .81rem;
+    font-size: .12rem;
+    padding-top: .02rem;
+    color: #ff2741;
+    text-align: right
+}
+
+.local-group-detail-timer {
+    position: relative;
+    width: 100%;
+    height: .12rem;
+    line-height: 1.2;
+    margin-top: .05rem;
+    font-size: 0;
+    padding: 0
+}
+
+.local-group-detail-timer span {
+    position: relative;
+    display: inline-block
+}
+
+.local-group-detail-timer .local-group-timer {
+    float: left;
+    width: 100%;
+    font-size: .12rem;
+    color: #58595b;
+    overflow: hidden;
+    text-align: left
+}
+
+.local-group-btn{
+    position: absolute;
+    width: .68rem;
+    height: .29rem;
+    line-height: .29rem;
+    color: #e02e24;
+    top: .15rem;
+    right: 0;
+    font-size: .14rem;
+    text-align: center;
+    border: 1px solid #ff2741;
+    border-radius: .03rem
+}
+
+.goods-bottom {
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    max-width: 640px;
+    height: .54rem;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 10001
+}
+
+.goods-bottom a{
+    position: relative;
+    display: block;
+    width: .46rem;
+    height: 100%;
+}
+
+.goods-buy span:before,.goods-chat span:before,.goods-chat-disable span:before,.goods-home span:before,.goods-like span:before,.goods-mall span:before,.goods-unlike span:before {
+    content: "";
+    top: -.25rem
+}
+
+.goods-buy span,.goods-chat span,.goods-chat-disable span,.goods-home span,.goods-like span,.goods-mall span,.goods-unlike span {
+    line-height: .12rem;
+    color: #58595b;
+    bottom: .08rem;
+    right: 0;
+    text-align: center;
+    display: block
+}
+
+.goods-buy, .goods-chat, .goods-chat-disable, .goods-like, .goods-unlike{
+    border-top: 1px solid #f2f2f2;
+    border-left: 1px solid #f2f2f2;
+}
+
+.goods-home{
+    position: relative;
+    width: .46rem;
+    height: 100%;
+    border-top: 1px solid #f2f2f2
+}
+
+.goods-home span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .11rem;
+    left: 0
+}
+
+.goods-mall{
+    position: relative;
+    width: .46rem;
+    height: 100%;
+    border-top: 1px solid #f2f2f2
+}
+
+.goods-mall span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .11rem;
+    left: 0
+}
+
+.goods-like {
+    position: relative;
+    width: .46rem;
+    height: 100%
+}
+
+.goods-like span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .11rem;
+    left: 0
+}
+
+.goods-unlike {
+    position: relative;
+    width: .46rem;
+    height: 100%
+}
+
+.goods-unlike span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .11rem;
+    left: 0
+}
+
+.goods-buy {
+    position: relative;
+    width: .46rem;
+    height: 100%
+}
+
+.goods-buy span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .1rem;
+    left: 0
+}
+
+.goods-chat {
+    position: relative;
+    width: .46rem;
+    height: 100%
+}
+
+.goods-chat span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .11rem;
+    left: 0
+}
+
+.goods-chat-disable {
+    position: relative;
+    width: .46rem;
+    height: 100%
+}
+
+.goods-chat-disable span {
+    position: absolute;
+    width: 100%;
+    height: .12rem;
+    font-size: .11rem;
+    left: 0
+}
+
+
+.goods-direct,.goods-group {
+    height: 100%;
+    padding-top: .08rem;
+    text-align: center;
+    position: relative;
+    color: #fff
+}
+
+.goods-direct {
+    width: .98rem;
+    font-size: 0;
+    background-color: #f3aba7
+}
+
+.goods-direct span {
+    position: relative;
+    display: block;
+    line-height: 1;
+    font-size: .15rem;
+    color: #fff
+}
+
+.goods-direct .goods-price {
+    margin-bottom: .04rem;
+    font-weight: 500;
+    font-size: .17rem
+}
+
+.goods-direct .goods-price i {
+    margin: 0 -.02rem;
+    font-size: .16rem
+}
+
+.goods-group {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    font-size: 0;
+    background-color: #e02e24
+}
+
+.goods-group span {
+    position: relative;
+    display: block;
+    line-height: 1;
+    font-size: .15rem;
+    color: #fff
+}
+
+.goods-group .goods-price {
+    margin-bottom: .04rem;
+    font-weight: 500;
+    font-size: .17rem
+}
+
+.goods-group .goods-price i {
+    margin: 0 -.02rem;
+    font-size: .16rem
+}
+
+.goods-bottom .icon-shouye3,.goods-bottom .icon-jushoucang,.goods-bottom .icon-kefu{
+    position: absolute;
+    display: block;
+    width: .22rem;
+    height: .2rem;
+    left: .12rem;
+    font-size: .24rem;
+}
+.goods-bottom .icon-kefu{
+    color: #e02e24;
+}
