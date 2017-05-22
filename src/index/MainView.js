@@ -19,9 +19,15 @@ class MainView extends React.Component{
             url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/index_data',
             headers: {
              'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+<<<<<<< HEAD
              /*'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*!/!*',*/
              /*'Access-Control-Allow-Origin': '*',*/
             /* 'Access-Control-Allow-Credentials': 'true',*/
+=======
+             'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*!/!*',
+             'Access-Control-Allow-Origin': '*',
+             'Access-Control-Allow-Credentials': 'true',
+>>>>>>> 02aa070564332d9d294b856f928e0e40ae5d77fd
              }
 
         }).then((response) => {

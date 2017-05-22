@@ -3,6 +3,11 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
+<<<<<<< HEAD
+=======
+import Container from '../content/Container';
+import axios from 'axios';
+>>>>>>> 02aa070564332d9d294b856f928e0e40ae5d77fd
 
 class ListItem extends React.Component{
     constructor(props) {
@@ -30,9 +35,14 @@ class ListItem extends React.Component{
                         <div className="group-buy">已团{this.props.data.gbgoods_gbnum}件</div>
                     </div>
                     <div className="right-side">
+<<<<<<< HEAD
                         <Link to={`/goods/${this.props.data.gbgoods_id}`}>
                         <div className="enter-button" >
                             去开团
+=======
+                        <div className="enter-button" onClick={this.openGoods}>
+                            {/*<Link to="/goods">*/}去开团{/*</Link>*/}
+>>>>>>> 02aa070564332d9d294b856f928e0e40ae5d77fd
                             <i className="iconfont icon-jiantouyou"></i>
                         </div></Link>
                     </div>
