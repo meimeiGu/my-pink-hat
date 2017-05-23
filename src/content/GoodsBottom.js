@@ -3,9 +3,14 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BuySelector from '../buyGoods/BuySelector'
 class GoodsBottom extends React.Component{
     constructor(props) {
         super(props);
+    }
+
+    signalBuy () {
+        return <BuySelector/>
     }
 
     render(){
@@ -25,17 +30,17 @@ class GoodsBottom extends React.Component{
                     <i className="iconfont icon-kefu"></i>
                     <span>客服</span>
                 </div>
-                <div className="goods-direct">
+                <div className="goods-direct" onClick={this.signalBuy}>
                     <span className="goods-price">
                         <i>￥</i>
-                        49.9
+                        {this.props.sPrice}
                     </span>
                     <span>单独购买</span>
                 </div>
-                <div className="goods-group">
+                <div className="goods-group" onClick={this.signalBuy}>
                      <span className="goods-price">
                         <i>￥</i>
-                        26.9
+                         {this.props.gb_price}
                     </span>
                     <span>一键开团</span>
                 </div>

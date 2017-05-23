@@ -33,11 +33,8 @@ class ListItem extends React.Component{
                         <Link to={`/goods/${this.props.data.gbgoods_id}`}>
                         <div className="enter-button" >
                             去开团
-
-                        <div className="enter-button" onClick={this.openGoods}>
-
                             <i className="iconfont icon-jiantouyou"></i>
-                        </div></div></Link>
+                        </div></Link>
                     </div>
                 </div>
             </div>

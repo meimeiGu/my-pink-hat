@@ -7,6 +7,7 @@ import GoodsInfo from './GoodsInfo'
 import LocalGroups from './LocalGroups'
 import GoodsServer from './GoodsServer'
 import GoodsBottom from './GoodsBottom'
+import BuySelector from '../buyGoods/BuySelector'
 import axios from 'axios';
 class Container extends React.Component{
     constructor(props) {
@@ -35,7 +36,8 @@ class Container extends React.Component{
                 <GoodsInfo goodsInfo={this.state.detailData}/>
                 <GoodsServer/>
                 <LocalGroups/>
-                <GoodsBottom/>
+                <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice}/>
+                <BuySelector/>
             </div>
         )
     }
