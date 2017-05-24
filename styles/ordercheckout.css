@@ -87,7 +87,10 @@
     background-color: #fff;
     overflow: hidden
 }
-
+.oc-goods, .oc-goods-mall {
+    width: 100%;
+    position: relative;
+}
 .oc-goods>div:last-of-type {
     border-bottom: none
 }
