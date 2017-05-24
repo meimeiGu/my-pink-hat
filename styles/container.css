@@ -594,8 +594,227 @@ slider-ul>li {
 
 .buy-selector-container{
     position: relative;
-    width: 100%;
     height: 100%;
     padding: 0 .1rem;
     background-color: #fff
+}
+
+.goods-selector-head{
+    position: relative;
+    width: 100%;
+    height: .83rem;
+    border-bottom: 1px solid #f2f2f2
+}
+
+.goods-selector-head img{
+    position: absolute;
+    height: 1.01rem;
+    width: 1.01rem;
+    top: -.3rem;
+    left: 0;
+    border: 2px solid #fff;
+    border-radius: .05rem;
+    box-shadow: 0 0 .02rem #58595b;
+    z-index: 1
+}
+
+.goods-selector-head-content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: .23rem 0 0 1.11rem
+}
+
+.goods-selector-price {
+    position: relative;
+    width: 100%;
+    height: .18rem;
+    margin-bottom: .05rem;
+    line-height: 1;
+    font-size: .18rem;
+    color: #e02e24
+}
+
+.goods-selector-desc{
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: .12rem;
+    line-height: 1;
+    color: #151516;
+    word-break: break-all;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical
+}
+
+.goods-selector-close {
+    position: absolute;
+    width: .34rem;
+    height: .34rem;
+    padding: .1rem;
+    top: 0;
+    right: -.1rem
+}
+
+.icon-cha:before {
+    position: relative;
+    left: 0.1rem;
+    font-size: 0.16rem;
+}
+
+#buy-selector-body {
+    position: relative;
+    width: 100%;
+    max-height: 3.08rem
+}
+
+#buy-selector-body.buy-selector-body2 {
+    position: absolute;
+    max-height: none;
+    width: auto;
+    top: .83rem;
+    left: .1rem;
+    right: .1rem;
+    bottom: .48rem
+}
+
+.goods-selector-number,.goods-option {
+    border-bottom: 1px solid #f2f2f2
+}
+
+.goods-option{
+    position: relative;
+    width: 100%;
+    padding: .06rem 0 .03rem
+}
+
+.goods-key{
+    font-size: .13rem;
+    color: #151516;
+    text-align: left
+}
+
+.goods-value-list{
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: .08rem
+}
+
+.goods-value-list :last-child {
+    margin-right: 0
+}
+
+.goods-value{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: .28rem;
+    padding: 0 .09rem;
+    margin: 0 .15rem .07rem 0;
+    font-size: .12rem;
+    color: #151516;
+    line-height: .28rem;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: .06rem
+}
+
+.goods-value-selected {
+    color: #fff;
+    background-color: #e02e24
+}
+
+.goods-selector-number{
+    position: relative;
+    width: 100%;
+    height: .56rem;
+    margin-bottom: .23rem;
+    line-height: .56rem;
+    font-size: 0
+}
+
+.goods-selector-number span{
+    display: inline-block;
+    font-size: .13rem;
+    color: #151516
+}
+
+.goods-selector-reduce{
+    position: absolute;
+    height: .25rem;
+    width: .31rem;
+    right: .82rem;
+    top: .15rem;
+    border-radius: .02rem;
+    background-color: #e0e0e0
+}
+
+
+.icon-jian:before{
+    position: absolute;
+    top: -0.145rem;
+    left: .026rem;
+    font-size: 0.26rem;
+}
+
+.goods-selector-increase,.goods-selector-input {
+    height: .25rem;
+    top: .15rem;
+    border-radius: .02rem;
+    position: absolute
+}
+
+.goods-selector-input,.goods-selector-reduce-disable {
+    background-color: #f2f2f2
+}
+
+.goods-selector-reduce-disable:before {
+    background-position: -.94rem -.65rem
+}
+
+.goods-selector-input {
+    width: .47rem;
+    right: .33rem;
+    line-height: normal;
+    font-size: .12rem;
+    margin: 0;
+    padding: .06px 0;
+    color: #151516;
+    text-align: center
+}
+
+.goods-selector-increase{
+    width: .31rem;
+    right: 0;
+    background-color: #e0e0e0
+}
+
+.icon-iconfuben13:before {
+    position: absolute;
+    top: -0.17rem;
+    left: .01rem;
+    font-size: 0.3rem;
+}
+
+.goods-selector-increase-disable {
+    background-color: #f2f2f2
+}
+
+.goods-selector-increase-disable:before {
+    background-position: -.94rem -.4rem
+}
+
+.buy-selector-bottom{
+    position: absolute;
+    width: 100%;
+    height: .48rem;
+    left: 0;
+    bottom: 0;
+    line-height: .48rem;
+    font-size: .18rem;
+    color: #fff;
+    background-color: #e02e24;
+    text-align: center
 }

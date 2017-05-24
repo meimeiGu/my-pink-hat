@@ -210,3 +210,17 @@ a:active,a:hover,a:visited {
         transform: rotateZ(360deg)
     }
 }
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.oc-body {
+    background-color: #f2f2f2;
+}
