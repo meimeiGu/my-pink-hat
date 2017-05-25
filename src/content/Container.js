@@ -17,19 +17,19 @@ class Container extends React.Component{
         this.groupBuy = this.groupBuy.bind(this);
     }
 
-    signalBuy() {
-        this.setState({signal:true})
+    signalBuy(params) {
+        this.setState({signal:params})
     }
 
-    groupBuy() {
-        this.setState({group:true})
+    groupBuy(params) {
+        this.setState({group:params})
     }
 
     componentDidMount() {
         let id = this.props.location.pathname.slice(7);
         axios({
             method:'GET',
-            url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/data_details?id='+id,
+            url:'http://localhost/my-pink-hat/admin/index.php/api/index/allgbdata?gbgoods_id='+id,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }
@@ -47,8 +47,8 @@ class Container extends React.Component{
                 <GoodsServer/>
                 <LocalGroups/>
                 <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
-                {this.state.signal?<BuySelector/>:null}
-                {this.state.group?<BuySelector/>:null}
+                {this.state.signal?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>:null}
+                {this.state.group?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy} />:null}
 
             </div>
         )

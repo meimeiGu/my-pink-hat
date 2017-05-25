@@ -19,7 +19,7 @@ class BuySelector extends React.Component{
          <section className="buy-selector-bg">
              <div className="buy-selector-main">
                  <div className="buy-selector-container buy-selector-main-show">
-                     <BuySelectorHead/>
+                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy}/>
                      <BuySelectorBody/>
                      <div className="buy-selector-bottom">确定</div>
                  </div>

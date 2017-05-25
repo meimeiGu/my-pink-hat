@@ -31,14 +31,14 @@ class GoodsBottom extends React.Component{
                     <i className="iconfont icon-kefu"></i>
                     <span>客服</span>
                 </div>
-                <div className="goods-direct" onClick={()=>{this.props.signalBuy()}}>
+                <div className="goods-direct" onClick={()=>{this.props.signalBuy(true)}}>
                     <span className="goods-price">
                         <i>￥</i>
                         {this.props.sPrice}
                     </span>
                     <span>单独购买</span>
                 </div>
-                <div className="goods-group" onClick={()=>{this.props.groupBuy()}}>
+                <div className="goods-group" onClick={()=>{this.props.groupBuy(true)}}>
                      <span className="goods-price">
                         <i>￥</i>
                          {this.props.gb_price}

@@ -16,7 +16,7 @@ class MainView extends React.Component{
     componentDidMount () {
         axios({
             method:'GET',
-            url:'http://127.0.0.1/my-pink-hat/admin/index.php/Index/index_data',
+            url:'http://localhost/my-pink-hat/admin/index.php/api/index/allgbdata?gbgoods_id=all',
             headers: {
              'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
            /*'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*!/!*',*/

@@ -16,7 +16,7 @@ class BuySelectorHead extends React.Component{
                     <div className="goods-selector-price">￥49</div>
                     <div className="goods-selector-desc">请选择 类型 期刊</div>
                 </div>
-                <div className="goods-selector-close">
+                <div className="goods-selector-close" onClick={()=>{this.props.signalBuy(false);this.props.groupBuy(false)}} >
                     <i className="iconfont icon-cha"></i>
                 </div>
 
