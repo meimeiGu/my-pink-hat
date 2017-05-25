@@ -12,7 +12,17 @@ import axios from 'axios';
 class Container extends React.Component{
     constructor(props) {
         super(props);
-        this.state={detailData:[]}
+        this.state={detailData:[],signal:false,group:false}
+        this.signalBuy = this.signalBuy.bind(this);
+        this.groupBuy = this.groupBuy.bind(this);
+    }
+
+    signalBuy() {
+        this.setState({signal:true})
+    }
+
+    groupBuy() {
+        this.setState({group:true})
     }
 
     componentDidMount() {
@@ -36,8 +46,10 @@ class Container extends React.Component{
                 <GoodsInfo goodsInfo={this.state.detailData}/>
                 <GoodsServer/>
                 <LocalGroups/>
-                <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice}/>
-                <BuySelector/>
+                <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
+                {this.state.signal?<BuySelector/>:null}
+                {this.state.group?<BuySelector/>:null}
+
             </div>
         )
     }

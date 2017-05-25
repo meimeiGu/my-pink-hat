@@ -9,9 +9,10 @@ class GoodsBottom extends React.Component{
         super(props);
     }
 
-    signalBuy () {
+ /*   signalBuy () {
+        console.log('hhh')
         return <BuySelector/>
-    }
+    }*/
 
     render(){
         return(
@@ -30,14 +31,14 @@ class GoodsBottom extends React.Component{
                     <i className="iconfont icon-kefu"></i>
                     <span>客服</span>
                 </div>
-                <div className="goods-direct" onClick={this.signalBuy}>
+                <div className="goods-direct" onClick={()=>{this.props.signalBuy()}}>
                     <span className="goods-price">
                         <i>￥</i>
                         {this.props.sPrice}
                     </span>
                     <span>单独购买</span>
                 </div>
-                <div className="goods-group" onClick={this.signalBuy}>
+                <div className="goods-group" onClick={()=>{this.props.groupBuy()}}>
                      <span className="goods-price">
                         <i>￥</i>
                          {this.props.gb_price}
