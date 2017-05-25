@@ -6,9 +6,17 @@ import OcAddress from './OcAddress'
 import OcGoods from './OcGoods'
 import OcPayment from './OcPayment'
 import OcBottom from './OcBottom'
+import EditAddress from './EditAddress'
 class OrderContainer extends React.Component{
     constructor(props) {
         super(props);
+        this.state={editAddress:false}
+        this.openEditAddress = this.openEditAddress.bind(this);
+    }
+
+    openEditAddress(params) {
+        this.setState({editAddress:params})
+
     }
 
     componentDidMount(){
@@ -17,10 +25,11 @@ class OrderContainer extends React.Component{
     render(){
         return(
             <div >
-                <OcAddress/>
+                <OcAddress open={this.openEditAddress}/>
                 <OcGoods/>
                 <OcPayment/>
                 <OcBottom/>
+                {this.state.editAddress?<EditAddress open={this.openEditAddress}/>:null}
             </div>
         )
     }

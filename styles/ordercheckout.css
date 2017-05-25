@@ -9,7 +9,7 @@
 
 .oc-address {
     margin-bottom: .08rem;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .oc-address-container {
@@ -409,4 +409,186 @@
 
 .oc-pay-final .oc-final-amount i {
     font-size: .18rem
+}
+
+#edit-address {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 610px;
+    top: 0;
+    left: 0;
+    background: rgba(60,60,60,.9);
+    z-index: 99999
+}
+
+.edit-main{
+    position: fixed;
+    top: 35%;
+    left: 6.5%;
+    width: 87%;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    color: #151516;
+    font-size: 0
+}
+
+.edit-main .edit-title {
+    position: relative;
+    height: 51px;
+    line-height: 50px;
+    font-size: 17px;
+    border-bottom: 1px solid #ededed
+}
+
+.edit-main .add-mobile,.edit-main .add-name {
+    padding: 10px 0 10px 17px;
+    font-size: 15px;
+    line-height: normal;
+    height: 45px;
+    text-align: left;
+    display: inline-block;
+    position: relative
+}
+
+.edit-main .edit-receiver {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #ededed;
+}
+
+.edit-main .add-name {
+    width: 50%;
+    border-right: 1px solid #ededed;
+    border-radius: 0
+}
+
+.edit-main .add-mobile {
+    width: 48%
+}
+.edit-main .add-save {
+    position: relative;
+    display: inline-block;
+    width: 91%;
+    height: 43px;
+    line-height: 43px;
+    margin: 15px 0;
+    font-size: 17px;
+    color: #fff;
+    background-color: #e02e24;
+    border-radius: 5px
+}
+
+.edit-main .add-close {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    padding: 14px 15px 15px 14px;
+    top: -10px;
+    right: 3px;
+}
+
+.edit-main .icon-cha:before {
+    position: relative;
+    font-size: 0.16rem;
+    color: #cccccc;
+}
+
+.oc-address-info {
+    position: relative;
+    width: 100%;
+    min-height: .74rem;
+    background-color: #fff;
+    color: #151516;
+    font-size: .13rem;
+    overflow-x: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.oc-address-info .oc-address-location {
+    width: .44rem;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-items: center
+}
+.oc-address-info .oc-address-location .icon-address:before {
+    font-size: .25rem;
+    color: #e02e24;
+    line-height: 0.2rem;
+}
+
+.oc-address-info .oc-address-main-info {
+    width: 2.9rem;
+    display: inline-block;
+    height: auto;
+    padding: .14rem 0
+}
+
+.oc-address-info .oc-address-main-info .oc-address-receiver {
+    position: relative;
+    width: 100%;
+    margin-bottom: .03rem;
+    font-size: 0
+}
+
+.oc-address-info .oc-address-main-info .oc-address-receiver .oc-address-receiver-name {
+    font-size: .16rem;
+    font-weight: 700;
+    margin-right: .11rem
+}
+
+.oc-address-info .oc-address-main-info .oc-address-receiver .oc-address-receiver-mobile {
+    font-size: .14rem
+}
+
+.oc-address-info .oc-address-right-arrow {
+    width: .31rem;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-items: center
+}
+
+.oc-address-info .icon-jiantouyou:before {
+    position: absolute;
+    display: inline-block;
+    left: 3.2rem;
+    top: 0.11rem;
+    font-size: 0.3rem;
+}
+
+.control-show{
+    display: block
 }
