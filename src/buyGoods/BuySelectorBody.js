@@ -7,14 +7,22 @@ import BuySelectorNum from './BuySelectorNum'
 class BuySelectorBody extends React.Component{
     constructor(props) {
         super(props);
+        console.log(this.props.skus.length+'h')
 
     }
+
+
 
     render(){
         return(
             <div id="goods-selector-body">
-            <GoodsOption skus={this.props.skus}/>
-            <GoodsOption/>
+
+               {/*存在多种选择的时候扩展
+                {this.props.skus.map((item) => {
+                    return(<GoodsOption sku={item} key={item.gbsku_id.toString()}/>)
+                })}*/}
+                <GoodsOption skus={this.props.skus} />
+
             <BuySelectorNum/>
             </div>
 

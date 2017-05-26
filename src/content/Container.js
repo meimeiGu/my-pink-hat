@@ -37,7 +37,7 @@ class Container extends React.Component{
         }).then((response) => {
 
           this.setState({detailData: response.data});
-            console.log(response.data)
+
 
         });
     }
