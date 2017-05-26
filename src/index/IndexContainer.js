@@ -4,6 +4,7 @@
 import React from 'react'
 import Navigation from './Navigation'
 import MainContent from './MainContent'
+import Footer from './Footer'
 import '../../styles/global.css'
 
 class IndexContainer extends React.Component{
@@ -14,6 +15,7 @@ class IndexContainer extends React.Component{
         return(
             <div id="index-content">
                 <Navigation />
+                <Footer/>
                 <MainContent />
             </div>
         )
