@@ -592,3 +592,19 @@
 .control-show{
     display: block
 }
+
+.add-toast {
+    position: absolute;
+    display: block;
+    left: 20%;
+    top: 85px;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    background-color: rgba(0,0,0,.8);
+    color: #F0F0F0;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 24px -1px #383838
+}
