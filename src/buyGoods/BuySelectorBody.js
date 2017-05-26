@@ -13,7 +13,7 @@ class BuySelectorBody extends React.Component{
     render(){
         return(
             <div id="goods-selector-body">
-            <GoodsOption/>
+            <GoodsOption skus={this.props.skus}/>
             <GoodsOption/>
             <BuySelectorNum/>
             </div>

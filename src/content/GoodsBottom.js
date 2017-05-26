@@ -7,12 +7,18 @@ import BuySelector from '../buyGoods/BuySelector'
 class GoodsBottom extends React.Component{
     constructor(props) {
         super(props);
+        this.handleSignal = this.handleSignal.bind(this);
+        this.handleGroup = this.handleGroup.bind(this);
     }
 
- /*   signalBuy () {
-        console.log('hhh')
-        return <BuySelector/>
-    }*/
+   handleSignal() {
+       this.props.signalBuy(true)
+   }
+
+    handleGroup() {
+        this.props.groupBuy(true)
+    }
+
 
     render(){
         return(
@@ -31,14 +37,14 @@ class GoodsBottom extends React.Component{
                     <i className="iconfont icon-kefu"></i>
                     <span>客服</span>
                 </div>
-                <div className="goods-direct" onClick={()=>{this.props.signalBuy(true)}}>
+                <div className="goods-direct" onClick={()=>{this.handleSignal()}}>
                     <span className="goods-price">
                         <i>￥</i>
                         {this.props.sPrice}
                     </span>
                     <span>单独购买</span>
                 </div>
-                <div className="goods-group" onClick={()=>{this.props.groupBuy(true)}}>
+                <div className="goods-group" onClick={()=>{this.handleGroup()}}>
                      <span className="goods-price">
                         <i>￥</i>
                          {this.props.gb_price}

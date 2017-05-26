@@ -11,9 +11,6 @@ class BuySelector extends React.Component{
 
     }
 
-    componentDidMount() {
-
-    }
 
     render(){
         return(
@@ -21,7 +18,7 @@ class BuySelector extends React.Component{
              <div className="buy-selector-main">
                  <div className="buy-selector-container buy-selector-main-show">
                      <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy}/>
-                     <BuySelectorBody/>
+                     <BuySelectorBody skus={this.props.skus}/>
                      <Link to={`/orderCheckout`}>
                      <div className="buy-selector-bottom">确定</div>
                      </Link>

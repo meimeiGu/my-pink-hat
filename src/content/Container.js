@@ -29,13 +29,16 @@ class Container extends React.Component{
         let id = this.props.location.pathname.slice(7);
         axios({
             method:'GET',
-            url:'http://localhost/my-pink-hat/admin/index.php/api/index/allgbdata?gbgoods_id='+id,
+            url:'http://localhost/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id='+id,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }
 
         }).then((response) => {
-            this.setState({detailData: response.data[0]});
+
+          this.setState({detailData: response.data});
+            console.log(response.data)
+
         });
     }
 
@@ -46,9 +49,9 @@ class Container extends React.Component{
                 <GoodsInfo goodsInfo={this.state.detailData}/>
                 <GoodsServer/>
                 <LocalGroups/>
-                <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
-                {this.state.signal?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>:null}
-                {this.state.group?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy} />:null}
+                <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} skuNum = {this.state.detailData.gbgoods_skunum} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
+                {this.state.signal?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus}/>:null}
+                {this.state.group?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus}/>:null}
 
             </div>
         )

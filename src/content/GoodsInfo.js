@@ -14,7 +14,6 @@ class GoodsInfo extends React.Component{
     render(){
         return(
             <section id="g-base">
-                {console.log(this.props)}
                 <Price price={this.props.goodsInfo.gbgoods_originprice} gb_price={this.props.goodsInfo.gbgoods_gbprice} gb_num={this.props.goodsInfo.gbgoods_gbnum} num={this.props.goodsInfo.gbgoods_pnum}/>
                 <GoodsName name={this.props.goodsInfo.gbgoods_name}/>
                 <GoodsDetail detail={this.props.goodsInfo.gbgoods_details}/>
