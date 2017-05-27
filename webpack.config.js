@@ -4,8 +4,9 @@
 
 var webpack = require('webpack');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var CompressionWebpackPlugin = require('compression-webpack-plugin');
 module.exports = {
-    devtool: 'eval-source-map',
+    /*devtool: 'eval-source-map',*/
     entry:  __dirname + "/src/app/main.js",//已多次提及的唯一入口文件
     output: {
         path: __dirname + "/dist",//打包后的文件存放的地方
@@ -34,6 +35,21 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
      /*   new OpenBrowserPlugin({ url: 'http://localhost:8080' })*/
+      /*  new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            compress: {
+                warnings: false
+            }
+        }),
+        new CompressionWebpackPlugin({ //gzip 压缩
+            asset: '[path].gz[query]',
+            algorithm: 'gzip',
+            test: new RegExp(
+                '\\.(js|css)$'    //压缩 js 与 css
+            ),
+            threshold: 10240,
+            minRatio: 0.8
+        })*/
     ],
     devServer: {
         contentBase: "./",//本地服务器所加载的页面所在的目录

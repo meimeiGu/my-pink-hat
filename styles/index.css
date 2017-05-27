@@ -308,7 +308,6 @@
 .footer {
     width: 100%;
     max-width: 640px;
-    height: 49px;
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -359,7 +358,6 @@
 .footer .nav-controller i {
     display: block;
     font-size: 1.5em;
-    margin-bottom: 3px
 }
 
 #goods_list .list-bottom {
@@ -370,4 +368,16 @@
     font-size: 0.1rem;
     color: #9c9c9c;
 
+}
+
+.footer .icon-shouye3:before{
+    font-size: 0.2rem;
+    margin-bottom: -0.04rem;
+    display: block;
+}
+
+.footer .icon-gerenzhongxin:before{
+    font-size: 0.2rem;
+    margin-bottom: -0.04rem;
+    display: block;
 }
