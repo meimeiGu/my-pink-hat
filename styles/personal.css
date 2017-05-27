@@ -83,7 +83,7 @@
     float: left;
     height: inherit;
     text-align: center;
-    width: 25%
+    width: 20%
 }
 
 .personal-wrapper .p-wrapper-item .p-wrap-title {
@@ -93,7 +93,7 @@
     position: relative
 }
 
-.personal-wrapper .icon-Team:before,.personal-wrapper .icon-daipingjia7:before,.personal-wrapper .icon-daichuli1:before,.personal-wrapper .icon-daiqueren:before{
+.personal-wrapper .icon-Team:before,.personal-wrapper .icon-daipingjia7:before,.personal-wrapper .icon-daichuli1:before,.personal-wrapper .icon-daiqueren:before,.personal-wrapper .icon-daifukuan1:before{
     font-size: 0.25rem;
     display: inline-block;
     margin-top: 0.05rem;
