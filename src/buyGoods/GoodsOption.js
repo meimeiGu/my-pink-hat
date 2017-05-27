@@ -11,13 +11,11 @@ class GoodsOption extends React.Component{
     }
 
     componentWillMount() {
-        console.log('2')
         this.state.skus = this.props.skus;
         this.state.skus.map((item) => {
             item.choice=false;
         })
         this.setState({skus:this.state.skus})
-        console.log(this.state.skus)
     }
 
     userChoice(id) {
@@ -40,7 +38,6 @@ class GoodsOption extends React.Component{
                 <div className="goods-value-list">
                     {
                         this.state.skus.map((item) => {
-                        console.log('3')
                         const classStr = classNames({
                             'goods-value': true,
                             'goods-value-selected':item.choice,
