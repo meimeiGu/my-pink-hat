@@ -26,8 +26,7 @@ class Container extends React.Component{
     }
 
     componentDidMount() {
-        let id = this.props.location.query.id;
-        console.log(this.props.location.query.love)
+        let id = this.props.location.pathname.slice(7);
         axios({
             method:'GET',
             url:'http://localhost/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id='+id,

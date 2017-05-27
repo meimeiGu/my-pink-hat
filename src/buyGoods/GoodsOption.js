@@ -42,7 +42,7 @@ class GoodsOption extends React.Component{
                             'goods-value': true,
                             'goods-value-selected':item.choice,
                         });
-                        return(<span  className={classStr} onClick={()=>{this.userChoice(item.gbsku_id)}} key={item.gbsku_id.toString()}>{item.gbsku_name}</span>)
+                        return(<span  className={classStr} onClick={()=>{this.userChoice(item.gbsku_id);this.props.info(item.gbsku_id)}} key={item.gbsku_id.toString()} >{item.gbsku_name}</span>)
                     })}
                 </div>
 

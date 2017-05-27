@@ -21,7 +21,7 @@ class BuySelectorBody extends React.Component{
                 {this.props.skus.map((item) => {
                     return(<GoodsOption sku={item} key={item.gbsku_id.toString()}/>)
                 })}*/}
-                <GoodsOption skus={this.props.skus} />
+                <GoodsOption skus={this.props.skus} info={this.props.info} />
 
             <BuySelectorNum/>
             </div>

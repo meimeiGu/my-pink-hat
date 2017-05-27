@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e16eadde3fe788f50d67"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "12c93416c85473dea723"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -971,6 +971,34 @@ module.exports = invariant;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1041,34 +1069,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
 
 /***/ }),
 /* 5 */
@@ -1577,7 +1577,7 @@ var _prodInvariant = __webpack_require__(27);
 var ReactCurrentOwner = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 function isNative(fn) {
   // Based on isNative() from Lodash
@@ -2729,7 +2729,7 @@ var _assign = __webpack_require__(7);
 var PooledClass = __webpack_require__(25);
 
 var emptyFunction = __webpack_require__(12);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var didWarnForAddedNewProperty = false;
 var isProxySupported = typeof Proxy === 'function';
@@ -3500,7 +3500,7 @@ var _assign = __webpack_require__(7);
 
 var ReactCurrentOwner = __webpack_require__(17);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 var canDefineProperty = __webpack_require__(59);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -4429,7 +4429,7 @@ module.exports = DOMLazyTree;
 var ReactRef = __webpack_require__(401);
 var ReactInstrumentation = __webpack_require__(14);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 /**
  * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -4612,7 +4612,7 @@ var ReactPropTypes = __webpack_require__(457);
 var ReactVersion = __webpack_require__(460);
 
 var onlyChild = __webpack_require__(463);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
@@ -5212,7 +5212,7 @@ var EventPluginUtils = __webpack_require__(83);
 
 var accumulateInto = __webpack_require__(153);
 var forEachAccumulated = __webpack_require__(154);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var getListener = EventPluginHub.getListener;
 
@@ -7960,7 +7960,7 @@ var _prodInvariant = __webpack_require__(6);
 var ReactErrorUtils = __webpack_require__(87);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 /**
  * Injected dependencies:
@@ -8260,7 +8260,7 @@ var React = __webpack_require__(33);
 var PropTypes = propTypesFactory(React.isValidElement);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var hasReadOnlyValue = {
   'button': true,
@@ -8537,7 +8537,7 @@ var ReactInstrumentation = __webpack_require__(14);
 var ReactUpdates = __webpack_require__(16);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 function enqueueUpdate(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
@@ -9066,7 +9066,7 @@ module.exports = shouldUpdateReactComponent;
 var _assign = __webpack_require__(7);
 
 var emptyFunction = __webpack_require__(12);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var validateDOMNesting = emptyFunction;
 
@@ -9647,7 +9647,7 @@ var ReactNoopUpdateQueue = __webpack_require__(99);
 var canDefineProperty = __webpack_require__(59);
 var emptyObject = __webpack_require__(34);
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -9764,7 +9764,7 @@ module.exports = ReactComponent;
 
 
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 function warnNoop(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -10216,10 +10216,20 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
     function BuySelector(props) {
         _classCallCheck(this, BuySelector);
 
-        return _possibleConstructorReturn(this, (BuySelector.__proto__ || Object.getPrototypeOf(BuySelector)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (BuySelector.__proto__ || Object.getPrototypeOf(BuySelector)).call(this, props));
+
+        _this.state = { goods: '' };
+        _this.userChoiceInfo = _this.userChoiceInfo.bind(_this);
+
+        return _this;
     }
 
     _createClass(BuySelector, [{
+        key: 'userChoiceInfo',
+        value: function userChoiceInfo(id) {
+            this.setState({ goods: id });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react3.default.createElement(
@@ -10231,8 +10241,8 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
                     _react3.default.createElement(
                         'div',
                         { className: 'buy-selector-container buy-selector-main-show' },
-                        _react3.default.createElement(_BuySelectorHead2.default, { signalBuy: this.props.signalBuy, groupBuy: this.props.groupBuy }),
-                        _react3.default.createElement(_BuySelectorBody2.default, { skus: this.props.skus }),
+                        _react3.default.createElement(_BuySelectorHead2.default, { signalBuy: this.props.signalBuy, groupBuy: this.props.groupBuy, skus: this.props.skus, selectd: this.state.goods }),
+                        _react3.default.createElement(_BuySelectorBody2.default, { skus: this.props.skus, info: this.userChoiceInfo }),
                         _react3.default.createElement(
                             _reactRouterDom.Link,
                             { to: '/orderCheckout' },
@@ -10252,7 +10262,7 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = BuySelector;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 108 */
@@ -10413,7 +10423,7 @@ var Footer = _wrapComponent('Footer')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = Footer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 110 */
@@ -11309,7 +11319,7 @@ var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 136 */
@@ -11433,7 +11443,7 @@ module.exports = function(isValidElement) {
 
 var emptyFunction = __webpack_require__(12);
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var ReactPropTypesSecret = __webpack_require__(80);
 var checkPropTypes = __webpack_require__(356);
@@ -12235,7 +12245,7 @@ var ReactDOMComponentTree = __webpack_require__(8);
 var ReactInstrumentation = __webpack_require__(14);
 
 var quoteAttributeValueForBrowser = __webpack_require__(427);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
 var illegalAttributeNameCache = {};
@@ -12502,7 +12512,7 @@ var LinkedValueUtils = __webpack_require__(85);
 var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(16);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var didWarnValueLink = false;
 var didWarnValueDefaultValue = false;
@@ -12990,7 +13000,7 @@ var instantiateReactComponent = __webpack_require__(157);
 var invariant = __webpack_require__(2);
 var setInnerHTML = __webpack_require__(58);
 var shouldUpdateReactComponent = __webpack_require__(94);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 var ROOT_ATTR_NAME = DOMProperty.ROOT_ATTRIBUTE_NAME;
@@ -13793,7 +13803,7 @@ var ReactHostComponent = __webpack_require__(147);
 
 var getNextDebugID = __webpack_require__(462);
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 // To avoid a cyclic dependency, we create the final class in this module
 var ReactCompositeComponentWrapper = function (element) {
@@ -14040,7 +14050,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(390);
 var getIteratorFn = __webpack_require__(424);
 var invariant = __webpack_require__(2);
 var KeyEscapeUtils = __webpack_require__(84);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var SEPARATOR = '.';
 var SUBSEPARATOR = ':';
@@ -14522,7 +14532,7 @@ var checkReactTypeSpec = __webpack_require__(461);
 
 var canDefineProperty = __webpack_require__(59);
 var getIteratorFn = __webpack_require__(167);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -14934,8 +14944,7 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            var id = this.props.location.query.id;
-            console.log(this.props.location.query.love);
+            var id = this.props.location.pathname.slice(7);
             (0, _axios2.default)({
                 method: 'GET',
                 url: 'http://localhost/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id=' + id,
@@ -14969,7 +14978,7 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = Container;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 169 */
@@ -15062,7 +15071,7 @@ var IndexContainer = _wrapComponent('IndexContainer')(function (_React$Component
 }(_react3.default.Component));
 
 exports.default = IndexContainer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 170 */
@@ -15172,7 +15181,7 @@ var JoinGroupContainer = _wrapComponent('JoinGroupContainer')(function (_React$C
 }(_react3.default.Component));
 
 exports.default = JoinGroupContainer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 171 */
@@ -15287,7 +15296,7 @@ var OrderContainer = _wrapComponent('OrderContainer')(function (_React$Component
 }(_react3.default.Component));
 
 exports.default = OrderContainer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 172 */
@@ -15373,7 +15382,7 @@ var OrdersContainer = _wrapComponent('OrdersContainer')(function (_React$Compone
 }(_react3.default.Component));
 
 exports.default = OrdersContainer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 173 */
@@ -15462,7 +15471,7 @@ var PersonalContainer = _wrapComponent('PersonalContainer')(function (_React$Com
 }(_react3.default.Component));
 
 exports.default = PersonalContainer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 174 */
@@ -16561,7 +16570,7 @@ _reactDom2.default.render(_react2.default.createElement(
 		'div',
 		null,
 		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _IndexContainer2.default }),
-		_react2.default.createElement(_reactRouterDom.Route, { path: '/goods', component: _Container2.default }),
+		_react2.default.createElement(_reactRouterDom.Route, { path: '/goods/:id', component: _Container2.default }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/orderCheckout', component: _OrderContainer2.default }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/joinGroup', component: _JoinGroupContainer2.default }),
 		_react2.default.createElement(_reactRouterDom.Route, { path: '/personal', component: _PersonalContainer2.default }),
@@ -16647,7 +16656,7 @@ var BuySelectorBody = _wrapComponent('BuySelectorBody')(function (_React$Compone
             return _react3.default.createElement(
                 'div',
                 { id: 'goods-selector-body' },
-                _react3.default.createElement(_GoodsOption2.default, { skus: this.props.skus }),
+                _react3.default.createElement(_GoodsOption2.default, { skus: this.props.skus, info: this.props.info }),
                 _react3.default.createElement(_BuySelectorNum2.default, null)
             );
         }
@@ -16657,7 +16666,7 @@ var BuySelectorBody = _wrapComponent('BuySelectorBody')(function (_React$Compone
 }(_react3.default.Component));
 
 exports.default = BuySelectorBody;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 200 */
@@ -16690,12 +16699,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var _components = {
     BuySelectorHead: {
-        displayName: "BuySelectorHead"
+        displayName: 'BuySelectorHead'
     }
 };
 
 var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
-    filename: "A:/wamp/www/my-pink-hat/src/buyGoods/BuySelectorHead.js",
+    filename: 'A:/wamp/www/my-pink-hat/src/buyGoods/BuySelectorHead.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
@@ -16710,44 +16719,68 @@ function _wrapComponent(id) {
    */
 
 
-var BuySelectorHead = _wrapComponent("BuySelectorHead")(function (_React$Component) {
+var BuySelectorHead = _wrapComponent('BuySelectorHead')(function (_React$Component) {
     _inherits(BuySelectorHead, _React$Component);
 
     function BuySelectorHead(props) {
         _classCallCheck(this, BuySelectorHead);
 
-        return _possibleConstructorReturn(this, (BuySelectorHead.__proto__ || Object.getPrototypeOf(BuySelectorHead)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (BuySelectorHead.__proto__ || Object.getPrototypeOf(BuySelectorHead)).call(this, props));
+
+        _this.state = { price: '' };
+
+        return _this;
     }
 
     _createClass(BuySelectorHead, [{
-        key: "render",
-        value: function render() {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
             var _this2 = this;
 
+            if (this.props.selectd) {
+                this.props.skus.map(function (item) {
+                    if (item.gbsku_id == _this2.props.selectd) {
+                        _this2.setState({ price: item.gbsku_price });
+                    }
+                });
+            } else {
+                var data = [];
+                this.props.skus.map(function (item) {
+                    data.push(parseInt(item.gbsku_price));
+                });
+                this.setState({ price: Math.min.apply(null, data) });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
             return _react3.default.createElement(
-                "div",
-                { className: "goods-selector-head" },
-                _react3.default.createElement("img", { src: "http://localhost/my-pink-hat/images/buyGoods/233.jpg" }),
+                'div',
+                { className: 'goods-selector-head' },
+                _react3.default.createElement('img', { src: 'http://localhost/my-pink-hat/images/buyGoods/233.jpg' }),
                 _react3.default.createElement(
-                    "div",
-                    { className: "goods-selector-head-content" },
+                    'div',
+                    { className: 'goods-selector-head-content' },
                     _react3.default.createElement(
-                        "div",
-                        { className: "goods-selector-price" },
-                        "\uFFE549"
+                        'div',
+                        { className: 'goods-selector-price' },
+                        '\uFFE5',
+                        this.state.price
                     ),
                     _react3.default.createElement(
-                        "div",
-                        { className: "goods-selector-desc" },
-                        "\u8BF7\u9009\u62E9\u7C7B\u578B"
+                        'div',
+                        { className: 'goods-selector-desc' },
+                        '\u8BF7\u9009\u62E9\u7C7B\u578B'
                     )
                 ),
                 _react3.default.createElement(
-                    "div",
-                    { className: "goods-selector-close", onClick: function onClick() {
-                            _this2.props.signalBuy(false);_this2.props.groupBuy(false);
+                    'div',
+                    { className: 'goods-selector-close', onClick: function onClick() {
+                            _this3.props.signalBuy(false);_this3.props.groupBuy(false);
                         } },
-                    _react3.default.createElement("i", { className: "iconfont icon-cha" })
+                    _react3.default.createElement('i', { className: 'iconfont icon-cha' })
                 )
             );
         }
@@ -16757,7 +16790,7 @@ var BuySelectorHead = _wrapComponent("BuySelectorHead")(function (_React$Compone
 }(_react3.default.Component));
 
 exports.default = BuySelectorHead;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 201 */
@@ -16893,7 +16926,7 @@ var BuySelectorNum = _wrapComponent('BuySelectorNum')(function (_React$Component
 }(_react3.default.Component));
 
 exports.default = BuySelectorNum;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 202 */
@@ -17009,7 +17042,7 @@ var GoodsOption = _wrapComponent('GoodsOption')(function (_React$Component) {
                         return _react3.default.createElement(
                             'span',
                             { className: classStr, onClick: function onClick() {
-                                    _this2.userChoice(item.gbsku_id);
+                                    _this2.userChoice(item.gbsku_id);_this2.props.info(item.gbsku_id);
                                 }, key: item.gbsku_id.toString() },
                             item.gbsku_name
                         );
@@ -17023,7 +17056,7 @@ var GoodsOption = _wrapComponent('GoodsOption')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = GoodsOption;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 203 */
@@ -17111,7 +17144,7 @@ var BigImage = _wrapComponent("BigImage")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = BigImage;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 204 */
@@ -17285,7 +17318,7 @@ var GoodsBottom = _wrapComponent('GoodsBottom')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = GoodsBottom;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 205 */
@@ -17411,7 +17444,7 @@ var GoodsInfo = _wrapComponent('GoodsInfo')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = GoodsInfo;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 207 */
@@ -17450,62 +17483,114 @@ exports.default = GoodsName;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(module) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(1);
+var _react2 = __webpack_require__(1);
 
-var _react2 = _interopRequireDefault(_react);
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformHmr3 = __webpack_require__(5);
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _reactRouterDom = __webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Created by wmm on 2017/5/9.
- */
-var LocalGropuItem = function LocalGropuItem() {
-    return _react2.default.createElement(
-        'div',
-        { className: 'local-group-item' },
-        _react2.default.createElement('img', { className: 'local-group-img', src: './images/h.png' }),
-        _react2.default.createElement(
-            'div',
-            { className: 'local-group-detail' },
-            _react2.default.createElement(
-                'div',
-                { className: 'local-group-detail-name' },
-                _react2.default.createElement(
-                    'span',
-                    { className: 'local-group-name' },
-                    '\u5495\u5495\u5C0F\u52C7'
-                )
-            ),
-            _react2.default.createElement(
-                'div',
-                { className: 'local-group-detail-timer' },
-                _react2.default.createElement(
-                    'span',
-                    { className: 'local-group-timer' },
-                    '\u8FD8\u5DEE1\u4EBA\uFF0C\u5269\u4F5923:47:32'
-                )
-            )
-        ),
-        _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/joinGroup' },
-            _react2.default.createElement(
-                'div',
-                { className: 'local-group-btn' },
-                '\u53BB\u53C2\u56E2'
-            )
-        )
-    );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+    LocalGropuItem: {
+        displayName: 'LocalGropuItem'
+    }
 };
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+    filename: 'A:/wamp/www/my-pink-hat/src/content/LocalGroupItem.js',
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+    return function (Component) {
+        return _reactTransformHmr2(Component, id);
+    };
+} /**
+   * Created by wmm on 2017/5/9.
+   */
+
+
+var LocalGropuItem = _wrapComponent('LocalGropuItem')(function (_React$Component) {
+    _inherits(LocalGropuItem, _React$Component);
+
+    function LocalGropuItem(props) {
+        _classCallCheck(this, LocalGropuItem);
+
+        var _this = _possibleConstructorReturn(this, (LocalGropuItem.__proto__ || Object.getPrototypeOf(LocalGropuItem)).call(this, props));
+
+        _this.state = {};
+
+        return _this;
+    }
+
+    _createClass(LocalGropuItem, [{
+        key: 'render',
+        value: function render() {
+            return _react3.default.createElement(
+                'div',
+                { className: 'local-group-item' },
+                _react3.default.createElement('img', { className: 'local-group-img', src: './images/h.png' }),
+                _react3.default.createElement(
+                    'div',
+                    { className: 'local-group-detail' },
+                    _react3.default.createElement(
+                        'div',
+                        { className: 'local-group-detail-name' },
+                        _react3.default.createElement(
+                            'span',
+                            { className: 'local-group-name' },
+                            '\u5495\u5495\u5C0F\u52C7'
+                        )
+                    ),
+                    _react3.default.createElement(
+                        'div',
+                        { className: 'local-group-detail-timer' },
+                        _react3.default.createElement(
+                            'span',
+                            { className: 'local-group-timer' },
+                            '\u8FD8\u5DEE1\u4EBA\uFF0C\u5269\u4F5923:47:32'
+                        )
+                    )
+                ),
+                _react3.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/joinGroup' },
+                    _react3.default.createElement(
+                        'div',
+                        { className: 'local-group-btn' },
+                        '\u53BB\u53C2\u56E2'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return LocalGropuItem;
+}(_react3.default.Component));
+
 exports.default = LocalGropuItem;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 209 */
@@ -17592,7 +17677,7 @@ var LocalGroups = _wrapComponent('LocalGroups')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = LocalGroups;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 210 */
@@ -17697,7 +17782,7 @@ var Price = _wrapComponent("Price")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = Price;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 211 */
@@ -17811,7 +17896,7 @@ var ListItem = _wrapComponent('ListItem')(function (_React$Component) {
                         { className: 'right-side' },
                         _react3.default.createElement(
                             _reactRouterDom.Link,
-                            { to: { pathname: "/goods", query: { id: this.props.data.gbgoods_id, love: 'wmm' } } },
+                            { to: { pathname: '/goods/' + this.props.data.gbgoods_id, query: { id: this.props.data.gbgoods_id } } },
                             _react3.default.createElement(
                                 'div',
                                 { className: 'enter-button' },
@@ -17829,7 +17914,7 @@ var ListItem = _wrapComponent('ListItem')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = ListItem;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 212 */
@@ -17919,7 +18004,7 @@ var MainContent = _wrapComponent('MainContent')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = MainContent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 213 */
@@ -18037,7 +18122,7 @@ var MainView = _wrapComponent('MainView')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = MainView;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 214 */
@@ -18127,7 +18212,7 @@ var Navigation = _wrapComponent("Navigation")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = Navigation;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 215 */
@@ -18260,7 +18345,7 @@ var Sliding = _wrapComponent('Sliding')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = Sliding;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 216 */
@@ -18401,7 +18486,7 @@ var GroupBuy = _wrapComponent("GroupBuy")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = GroupBuy;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 217 */
@@ -18534,7 +18619,7 @@ var GroupGoodsInfo = _wrapComponent('GroupGoodsInfo')(function (_React$Component
 }(_react3.default.Component));
 
 exports.default = GroupGoodsInfo;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 218 */
@@ -18650,7 +18735,7 @@ var GroupNotice = _wrapComponent("GroupNotice")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = GroupNotice;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 219 */
@@ -18740,7 +18825,7 @@ var GroupUser = _wrapComponent("GroupUser")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = GroupUser;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 220 */
@@ -18892,7 +18977,7 @@ var EditAddress = _wrapComponent('EditAddress')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = EditAddress;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 221 */
@@ -19021,7 +19106,7 @@ var OcAddress = _wrapComponent("OcAddress")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OcAddress;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 222 */
@@ -19121,7 +19206,7 @@ var OcBottom = _wrapComponent("OcBottom")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OcBottom;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 223 */
@@ -19254,7 +19339,7 @@ var OcGoods = _wrapComponent('OcGoods')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OcGoods;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 224 */
@@ -19385,7 +19470,7 @@ var OcGoodsNum = _wrapComponent('OcGoodsNum')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OcGoodsNum;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 225 */
@@ -19477,7 +19562,7 @@ var OcPayment = _wrapComponent("OcPayment")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OcPayment;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 226 */
@@ -19559,7 +19644,7 @@ var OrderList = _wrapComponent('OrderList')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OrderList;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 227 */
@@ -19721,7 +19806,7 @@ var OrdersItem = _wrapComponent("OrdersItem")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OrdersItem;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 228 */
@@ -19851,7 +19936,7 @@ var OrdersNav = _wrapComponent("OrdersNav")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = OrdersNav;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 229 */
@@ -19945,7 +20030,7 @@ var MainView = _wrapComponent('MainView')(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = MainView;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 230 */
@@ -20034,7 +20119,7 @@ var PersonalHead = _wrapComponent("PersonalHead")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = PersonalHead;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 231 */
@@ -20138,7 +20223,7 @@ var PersonalList = _wrapComponent("PersonalList")(function (_React$Component) {
 }(_react3.default.Component));
 
 exports.default = PersonalList;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 232 */
@@ -20292,7 +20377,7 @@ var PersonalOrders = _wrapComponent('PersonalOrders')(function (_React$Component
 }(_react3.default.Component));
 
 exports.default = PersonalOrders;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 233 */
@@ -26216,7 +26301,7 @@ var nodeUtil = (function() {
 
 module.exports = nodeUtil;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
 
 /***/ }),
 /* 324 */
@@ -27807,7 +27892,7 @@ function pathToRegexp (path, keys, options) {
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
-  var warning = __webpack_require__(3);
+  var warning = __webpack_require__(4);
   var ReactPropTypesSecret = __webpack_require__(80);
   var loggedTypeFailures = {};
 }
@@ -28493,7 +28578,7 @@ var camelizeStyleName = __webpack_require__(237);
 var dangerousStyleValue = __webpack_require__(420);
 var hyphenateStyleName = __webpack_require__(244);
 var memoizeStringOnly = __webpack_require__(247);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
@@ -29588,7 +29673,7 @@ var instantiateReactComponent = __webpack_require__(157);
 var KeyEscapeUtils = __webpack_require__(84);
 var shouldUpdateReactComponent = __webpack_require__(94);
 var traverseAllChildren = __webpack_require__(160);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var ReactComponentTreeHook;
 
@@ -29797,7 +29882,7 @@ var emptyObject = __webpack_require__(34);
 var invariant = __webpack_require__(2);
 var shallowEqual = __webpack_require__(70);
 var shouldUpdateReactComponent = __webpack_require__(94);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var CompositeTypes = {
   ImpureClass: 0,
@@ -30697,7 +30782,7 @@ var ReactVersion = __webpack_require__(404);
 var findDOMNode = __webpack_require__(421);
 var getHostComponentFromComposite = __webpack_require__(155);
 var renderSubtreeIntoContainer = __webpack_require__(428);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 ReactDefaultInjection.inject();
 
@@ -30832,7 +30917,7 @@ var invariant = __webpack_require__(2);
 var isEventSupported = __webpack_require__(93);
 var shallowEqual = __webpack_require__(70);
 var validateDOMNesting = __webpack_require__(95);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var Flags = ReactDOMComponentFlags;
 var deleteListener = EventPluginHub.deleteListener;
@@ -31985,7 +32070,7 @@ var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(16);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var didWarnValueLink = false;
 var didWarnCheckedLink = false;
@@ -32270,7 +32355,7 @@ module.exports = ReactDOMInput;
 var DOMProperty = __webpack_require__(21);
 var ReactComponentTreeHook = __webpack_require__(10);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var warnedProperties = {};
 var rARIA = new RegExp('^(aria)-[' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -32368,7 +32453,7 @@ module.exports = ReactDOMInvalidARIAHook;
 
 var ReactComponentTreeHook = __webpack_require__(10);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var didWarnValueNull = false;
 
@@ -32421,7 +32506,7 @@ var React = __webpack_require__(33);
 var ReactDOMComponentTree = __webpack_require__(8);
 var ReactDOMSelect = __webpack_require__(144);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 var didWarnInvalidOptionChildren = false;
 
 function flattenChildren(children) {
@@ -32939,7 +33024,7 @@ var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(16);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var didWarnValueLink = false;
 var didWarnValDefaultVal = false;
@@ -33243,7 +33328,7 @@ var DOMProperty = __webpack_require__(21);
 var EventPluginRegistry = __webpack_require__(53);
 var ReactComponentTreeHook = __webpack_require__(10);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 if (process.env.NODE_ENV !== 'production') {
   var reactProps = {
@@ -33364,7 +33449,7 @@ var ReactComponentTreeHook = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(9);
 
 var performanceNow = __webpack_require__(249);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var hooks = [];
 var didHookThrowForEvent = {};
@@ -34188,7 +34273,7 @@ module.exports = ReactInjection;
 
 
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 if (process.env.NODE_ENV !== 'production') {
   var processingChildContext = false;
@@ -35251,7 +35336,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var ReactUpdateQueue = __webpack_require__(88);
 
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 function warnNoop(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -36696,7 +36781,7 @@ var ReactPropTypeLocationNames = __webpack_require__(399);
 var ReactPropTypesSecret = __webpack_require__(151);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var ReactComponentTreeHook;
 
@@ -36784,7 +36869,7 @@ module.exports = checkReactTypeSpec;
 
 
 var CSSProperty = __webpack_require__(140);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 var styleWarnings = {};
@@ -36876,7 +36961,7 @@ var ReactInstanceMap = __webpack_require__(42);
 
 var getHostComponentFromComposite = __webpack_require__(155);
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 /**
  * Returns the DOM node rendered by this element.
@@ -36937,7 +37022,7 @@ module.exports = findDOMNode;
 
 var KeyEscapeUtils = __webpack_require__(84);
 var traverseAllChildren = __webpack_require__(160);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var ReactComponentTreeHook;
 
@@ -39290,7 +39375,7 @@ var ReactNoopUpdateQueue = __webpack_require__(99);
 
 var emptyObject = __webpack_require__(34);
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var MIXINS_KEY = 'mixins';
 
@@ -40303,7 +40388,7 @@ var ReactPropTypeLocationNames = __webpack_require__(166);
 var ReactPropTypesSecret = __webpack_require__(458);
 
 var invariant = __webpack_require__(2);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var ReactComponentTreeHook;
 
@@ -40468,7 +40553,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(164);
 var getIteratorFn = __webpack_require__(167);
 var invariant = __webpack_require__(2);
 var KeyEscapeUtils = __webpack_require__(452);
-var warning = __webpack_require__(3);
+var warning = __webpack_require__(4);
 
 var SEPARATOR = '.';
 var SUBSEPARATOR = ':';

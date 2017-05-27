@@ -31,7 +31,7 @@ class ListItem extends React.Component{
                     </div>
                     <div className="right-side">
                         {/*<Link to={`/goods/${this.props.data.gbgoods_id}`}>*/}
-                        <Link to={{ pathname: "/goods", query: {id: this.props.data.gbgoods_id} }} >
+                        <Link to={{ pathname: `/goods/${this.props.data.gbgoods_id}`, query: {id: this.props.data.gbgoods_id} }} >
                         <div className="enter-button" >
                             去开团
                             <i className="iconfont icon-jiantouyou"></i>

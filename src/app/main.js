@@ -18,7 +18,7 @@ ReactDom.render((
 	<HashRouter>
 		<div>
 		<Route exact path="/" component={IndexContainer}/>
-		<Route path="/goods" component={Container}/>
+		<Route path="/goods/:id" component={Container}/>
 		<Route path="/orderCheckout" component={OrderContainer}/>
 		<Route path="/joinGroup" component={JoinGroupContainer}/>
 		<Route path="/personal" component={PersonalContainer}/>
