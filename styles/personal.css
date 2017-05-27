@@ -35,3 +35,136 @@
     font-size: .16rem;
     line-height: .16rem
 }
+
+.personal-orders {
+    background-color: #fff;
+    position: relative;
+    width: 100%
+}
+
+.personal-orders .p-orders {
+    height: .45rem;
+    line-height: .45rem;
+    margin-left: .12rem;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #ededed
+}
+
+.personal-orders .p-orders .p-all-orders {
+    color: #151516;
+    float: left;
+    font-size: .16rem
+}
+
+.personal-orders .p-orders .p-all-orders-look,.personal-orders .p-orders .p-unpaied-orders {
+    color: #9c9c9c;
+    float: right;
+    font-size: .13rem;
+    margin-right: .24rem
+}
+.personal-orders .icon-jiantouyou:before{
+    position: absolute;
+    top: -0.019rem;
+    right: -0.04rem;
+    font-size: .3rem;
+}
+
+.personal-wrapper {
+    height: .66rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+
+.personal-wrapper .p-wrapper-item {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: inherit;
+    text-align: center;
+    width: 25%
+}
+
+.personal-wrapper .p-wrapper-item .p-wrap-title {
+    color: #151516;
+    font-size: .12rem;
+    line-height: .12rem;
+    position: relative
+}
+
+.personal-wrapper .icon-Team:before,.personal-wrapper .icon-daipingjia7:before,.personal-wrapper .icon-daichuli1:before,.personal-wrapper .icon-daiqueren:before{
+    font-size: 0.25rem;
+    display: inline-block;
+    margin-top: 0.05rem;
+    color: #BFBFBF;
+}
+
+.personal-wrapper .icon-daipingjia7:before{
+    font-size: 0.29rem;
+    margin-top: 0.0rem;
+    margin-bottom: -0.015rem;
+}
+.personal-list {
+    background-color: #fff;
+    height: auto;
+    margin-top: .1rem;
+    padding-left: .12rem;
+    position: relative;
+    width: 100%;
+}
+.personal-list li {
+    position: relative;
+    display: block;
+    height: .45rem;
+    line-height: .45rem;
+    border-bottom: 1px solid #ededed
+}
+
+.personal-list li:last-child {
+    border-bottom: none
+}
+
+.personal-list li:before {
+    font-size: .12rem;
+    color: #9c9c9c;
+    line-height: 1;
+    position: absolute;
+    top: .165rem
+}
+
+.personal-list li .p-after-sales, .personal-list li .p-return-money{
+    color: #151516;
+    font-size: .16rem;
+    margin-left: .3rem;
+    position: relative;
+    padding-top: .02rem
+}
+
+.personal-list .icon-jiantouyou:before{
+    position: absolute;
+    color: #9c9c9c;
+    right: .09rem;
+    font-size: 0.4rem;
+
+}
+
+.personal-list .icon-tuikuan1:before{
+    font-size: 0.2rem;
+    margin-top: 0.1rem;
+    text-align: center;
+    color: #FC7568;
+    margin-left: -0.14rem;
+    margin-right: 0.05rem;
+
+}
+
+.personal-list .icon-kefu1:before{
+    font-size: 0.2rem;
+    margin-top: 0.1rem;
+    text-align: center;
+    color: #1ECD16;
+    margin-left: -0.14rem;
+    margin-right: 0.05rem;
+
+}

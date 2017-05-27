@@ -1,9 +1,6 @@
 /**
  * Created by wmm on 2017/5/26.
  */
-/**
- * Created by wmm on 2017/5/23.
- */
 import React from 'react'
 
 

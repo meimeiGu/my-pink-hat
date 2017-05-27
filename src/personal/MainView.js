@@ -3,6 +3,8 @@
  */
 import React from 'react'
 import PersonalHead from './PersonalHead'
+import PersonalOrders from './PersonalOrders'
+import PersonalList from './PersonalList'
 
 class MainView extends React.Component{
     constructor(props) {
@@ -18,6 +20,8 @@ class MainView extends React.Component{
         return(
             <section className="main-view container">
                 <PersonalHead/>
+                <PersonalOrders/>
+                <PersonalList/>
             </section>
 
         )
