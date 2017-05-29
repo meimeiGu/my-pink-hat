@@ -21,33 +21,28 @@ class EditAddress extends React.Component{
     }
 
     saveAddress() {
-    if(document.getElementById('name').checkValidity() && document.getElementById('mobile').checkValidity()) {
-
+        if(document.getElementById('name').checkValidity() && document.getElementById('mobile').checkValidity()) {
         this.props.open(false)
-
-    }else {
+    }
+    else {
         if (!document.getElementById('name').value) {
             this.setState({content: '名字不能为空'})
         }
         else if (!document.getElementById('mobile').value) {
             this.setState({content: '电话号码不能为空'})
-
         }
         else  {
             this.setState({content: '请输入有效的电话号码'})
-
         }
         this.props.open(true)
-
         if(!this.state.content){
             this.timer = setTimeout(
                 () =>{
                     this.toastShow()
                 },3000
-            )
+             )
+            }
         }
-
-    }
 
     }
     render(){

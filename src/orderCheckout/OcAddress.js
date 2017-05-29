@@ -30,11 +30,8 @@ class OcAddress extends React.Component{
         <section id="oc-address" className="oc-address">
             <div className="oc-address-container" onClick={()=>{this.props.open(true)}}>
                 {this.state.readAddress?editAddress:addAddress}
-
             </div>
-
         </section>)
-
     }
 }
 

@@ -8,19 +8,19 @@ const GoodsServer = () =>{
             <div className="servers-list">
                 <span className="servers-item">
                     <i className="iconfont icon-gou"></i>
-                    全场包邮
+                    面向师生
                  </span>
                 <span className="servers-item">
                     <i className="iconfont icon-gou"></i>
-                    七天退还
+                    诚信经营
                 </span>
                 <span className="servers-item">
                     <i className="iconfont icon-gou"></i>
-                    48小时发货
+                    24小时处理
                 </span>
                 <span className="servers-item">
                     <i className="iconfont icon-gou"></i>
-                    假一赔十
+                    无效退款
                 </span>
             </div>
     </div>

@@ -14,10 +14,10 @@ class GroupGoodsInfo extends React.Component{
         return(
             <div className="group-detail-goods">
                 <div className="group-detail-goods-info-wrapper">
-                    <img className="group-detail-goods-img" src="http://localhost/my-pink-hat/images/ll.jpg"/>
+                    <img className="group-detail-goods-img" src="http://localhost/my-pink-hat/images/r.jpg"/>
                     <div className="group-detail-goods-info">
                         <div className="group-detail-goods-title">
-                            【品牌清仓】【卡帝乐鳄鱼家纺】可水洗夏被 夏凉被亲肤柔软夏被空调被 多规格可选
+                            专利申请，包括发明专利、实用新型专利、外观专利，学生、微企可申请国家补贴...
                         </div>
                         <div className="group-detail-goods-group-info" data-reactid="13"></div>
                         <div className="group-detail-goods-sales-info">
@@ -27,7 +27,7 @@ class GroupGoodsInfo extends React.Component{
                         <div className="group-detail-goods-price-info">
                             <div className="price">
                                 <span className="unit" >￥</span>
-                                <span className="num" >8.6</span>
+                                <span className="num" >2200</span>
                             </div>
                             <span className="group-member-num group-price-gap">
                             拼团省290.4元

@@ -13,7 +13,7 @@ class LocalGropuItem extends React.Component {
     render() {
         return (
             <div className="local-group-item">
-                <img className="local-group-img" src="./images/h.png"/>
+                <img className="local-group-img" src="./images/hhmmd.jpg"/>
                 <div className="local-group-detail">
                     <div className="local-group-detail-name">
                         <span className="local-group-name">咕咕小勇</span>

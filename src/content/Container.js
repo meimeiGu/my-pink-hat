@@ -27,6 +27,7 @@ class Container extends React.Component{
 
     componentDidMount() {
         let id = this.props.location.pathname.slice(7);
+/*        let id  = this.props.location.query.id;*/
         axios({
             method:'GET',
             url:'http://localhost/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id='+id,
@@ -52,7 +53,6 @@ class Container extends React.Component{
                 <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} skuNum = {this.state.detailData.gbgoods_skunum} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
                 {this.state.signal?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus}/>:null}
                 {this.state.group?<BuySelector signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus}/>:null}
-
             </div>
         )
     }

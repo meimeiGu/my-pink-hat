@@ -265,19 +265,6 @@
 .orders-button .additional-comment:before {
     content: "追加评价"
 }
-
-.orders-button .extend:before {
-    content: "延长收货"
-}
-
-.orders-button .cancel:before {
-    content: "取消订单"
-}
-
-.orders-button .btn-lucky-draw-result:before {
-    content: "中奖详情"
-}
-
 .orders-button .btn-grouping {
     width: .96rem
 }
@@ -294,6 +281,19 @@
 .orders-button .btn-detail:before {
     content: "查看订单详情"
 }
+.orders-button .extend:before {
+    content: "延长收货"
+}
+
+.orders-button .cancel:before {
+    content: "取消订单"
+}
+
+.orders-button .btn-lucky-draw-result:before {
+    content: "中奖详情"
+}
+
+
 
 .orders-button .more-operate {
     position: relative;

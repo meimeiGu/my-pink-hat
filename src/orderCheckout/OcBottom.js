@@ -14,7 +14,7 @@ class OcBottom extends React.Component{
                 <div className="oc-pay-btn">立即支付</div>
                 <div className="oc-pay-final">
                     <span>实付款:</span>
-                    <span className="oc-final-amount"><i>￥</i>49</span>
+                    <span className="oc-final-amount"><i>￥</i>2200</span>
                 </div>
 
             </section>

@@ -14,14 +14,14 @@ class OcGoods extends React.Component{
                     <span>商品</span>
                 </div>
             <div className="oc-goods-info">
-                <img src="http://localhost/my-pink-hat/images/111.jpg"/>
+                <img src="http://localhost/my-pink-hat/images/r.jpg"/>
                 <div className="oc-goods-detail">
-                    <span className="oc-goods-name">【爱逛街525宠爱节】【五色七码S-4XL棉麻小西装】夏新款大码七分袖修身一粒..</span>
+                    <span className="oc-goods-name">专利申请，包括发明专利、实用新型专利、外观专利，学生、微企可申请国家补贴...</span>
                     <div className="oc-goods-spec">
-                        <div>颜色:&nbsp;&nbsp;黑色（七分袖）</div>
-                        <div>尺码:&nbsp;&nbsp;M</div>
+                        <div>类型:&nbsp;&nbsp;外观专利</div>
+                        {/*<div>尺码:&nbsp;&nbsp;M</div>*/}
                             <span className="oc-goods-price">
-                             <i>￥</i>49<i>/件</i>
+                             <i>￥</i>2200<i>/篇</i>
                             </span>
                     </div>
                 </div>

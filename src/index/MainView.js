@@ -37,7 +37,6 @@ class MainView extends React.Component{
                     {this.state.allData.map((item) => {
                         return(<ListItem data={item} key={item.gbgoods_id.toString() }/>)
                 })}
-
                 </div>
                 <div className="list-bottom">请注意，我是底部！</div>
             </section>
