@@ -17,9 +17,9 @@ class PersonalHead extends React.Component{
     render(){
         return(
            <div className="personal-head head-bg-img">
-               <img src="http://localhost/my-pink-hat/images/mobile_user.png"/>
+               <img src="http://localhost/my-pink-hat/images/hhmmd.jpg"/>
                <div className="p-head-info">
-                   <p className="p-name">小仙女</p>
+                   <p className="p-name">咕咕小勇</p>
                </div>
            </div>
 

@@ -15,7 +15,7 @@ class MainContent extends React.Component{
         return(
             <div id="mainIndex">
                 <div id="indexRecommend">
-                <Sliding/>
+               {/* <Sliding/>*/}
                 <MainView/>
                 </div>
             </div>

@@ -2,12 +2,12 @@
  * Created by wmm on 2017/5/7.
  */
 
-var webpack = require('webpack');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-var CompressionWebpackPlugin = require('compression-webpack-plugin');
+let webpack = require('webpack');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');//热加载
+let CompressionWebpackPlugin = require('compression-webpack-plugin'); //压缩文件
 module.exports = {
-    /*devtool: 'eval-source-map',*/
-    entry:  __dirname + "/src/app/main.js",//已多次提及的唯一入口文件
+    /*devtool: 'eval-source-map',*/ //上线时去掉，否则打包文件很大
+    entry:  __dirname + "/src/app/main.js",//入口文件
     output: {
         path: __dirname + "/dist",//打包后的文件存放的地方
         filename: "bundle.js"//打包后输出文件的文件名
@@ -28,7 +28,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 exclude: /^node_modules$/,
-                loader: 'style-loader!css-loader'//跟前面相比就在后面加上了?modules
+                loader: 'style-loader!css-loader',
             }
         ]
     },

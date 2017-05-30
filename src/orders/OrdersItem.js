@@ -16,19 +16,19 @@ class OrdersItem extends React.Component{
                         </div>
                     </div>
                     <div className="item-goods">
-                        <img className="goods-img" src="http://localhost/my-pink-hat/images/buyGoods/233.jpg"/>
+                        <img className="goods-img" src="http://localhost/my-pink-hat/images/r.jpg"/>
                         <div className="goods-name">
-                            <p>【10卷200只】点断式彩色垃圾袋（买一次用半年）全新料加厚平...</p>
+                            <p>专利申请，包括发明专利、实用新型专利、外观专利，学生、微企可申...</p>
                             </div>
-                            <p className="spec">5卷100只</p>
+                            <p className="spec">外观专利</p>
                             <div className="price-and-num">
-                                <div className="goods-price"><span>￥</span>5.4</div>
+                                <div className="goods-price"><span>￥</span>2200</div>
                                 <div className="goods-number">x1</div>
                             </div>
                         </div>
                     <div className="currency-block">
-                        <p className="currency-free">(免运费)</p>
-                        <p className="currency-amount">5.4</p>
+                        {/*<p className="currency-free">(免运费)</p>*/}
+                        <p className="currency-amount">2200</p>
                         <p className="currency-head">实付<span>:</span>￥</p>
                     </div>
                     <div className="button-block">

@@ -22,7 +22,7 @@ class GroupGoodsInfo extends React.Component{
                         <div className="group-detail-goods-group-info" data-reactid="13"></div>
                         <div className="group-detail-goods-sales-info">
                             <span className="group-member-num">2人团</span>
-                            <span className="sales-num"> · 已团5788件</span>
+                            <span className="sales-num"> · 已团2件</span>
                         </div>
                         <div className="group-detail-goods-price-info">
                             <div className="price">
@@ -30,7 +30,7 @@ class GroupGoodsInfo extends React.Component{
                                 <span className="num" >2200</span>
                             </div>
                             <span className="group-member-num group-price-gap">
-                            拼团省290.4元
+                            拼团省100元
                             </span>
 
                         </div>
