@@ -2,7 +2,7 @@
  * Created by wmm on 2017/5/7.
  */
 
-let webpack = require('webpack');
+var webpack = require('webpack');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');//热加载
 let CompressionWebpackPlugin = require('compression-webpack-plugin'); //压缩文件
 module.exports = {

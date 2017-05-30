@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2d81fb1fb92ef634f9c5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6db81b8274472d3b027c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10218,23 +10218,13 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (BuySelector.__proto__ || Object.getPrototypeOf(BuySelector)).call(this, props));
 
-        _this.state = { goods: '', minPrice: '' };
+        _this.state = { goods: '', minPrice: '', text: '' };
         _this.userChoiceInfo = _this.userChoiceInfo.bind(_this);
-        _this.minPrice = _this.minPrice.bind(_this);
 
         return _this;
     }
 
     _createClass(BuySelector, [{
-        key: 'minPrice',
-        value: function minPrice() {
-            var data = [];
-            this.props.skus.map(function (item) {
-                data.push(parseInt(item.gbsku_price));
-            });
-            this.setState({ minPrice: Math.min.apply(null, data) });
-        }
-    }, {
         key: 'userChoiceInfo',
         value: function userChoiceInfo(id) {
             var _this2 = this;
@@ -10243,8 +10233,12 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
             if (id) {
                 console.log(id + 'hhh');
                 this.props.skus.map(function (item) {
-                    if (item.gbsku_id == id) {
-                        _this2.setState({ goods: item.gbsku_price });
+                    if (item.gbsku_id === id) {
+                        if (_this2.props.type === "group") {
+                            _this2.setState({ goods: item.gbsku_price, text: item.gbsku_name });
+                        } else {
+                            _this2.setState({ goods: item.gbsku_oldprice, text: item.gbsku_name });
+                        }
                     }
                 });
             }
@@ -10261,7 +10255,7 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
                     _react3.default.createElement(
                         'div',
                         { className: 'buy-selector-container buy-selector-main-show' },
-                        _react3.default.createElement(_BuySelectorHead2.default, { signalBuy: this.props.signalBuy, groupBuy: this.props.groupBuy, skus: this.props.skus, selectd: this.state.goods ? this.state.goods : this.state.minPrice }),
+                        _react3.default.createElement(_BuySelectorHead2.default, { signalBuy: this.props.signalBuy, groupBuy: this.props.groupBuy, skus: this.props.skus, selectd: this.state.goods, text: this.state.text }),
                         _react3.default.createElement(_BuySelectorBody2.default, { skus: this.props.skus, info: this.userChoiceInfo }),
                         _react3.default.createElement(
                             _reactRouterDom.Link,
@@ -14989,8 +14983,8 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
                 _react3.default.createElement(_GoodsServer2.default, null),
                 _react3.default.createElement(_LocalGroups2.default, null),
                 _react3.default.createElement(_GoodsBottom2.default, { sPrice: this.state.detailData.gbgoods_price, gb_price: this.state.detailData.gbgoods_gbprice, skuNum: this.state.detailData.gbgoods_skunum, signalBuy: this.signalBuy, groupBuy: this.groupBuy }),
-                this.state.signal ? _react3.default.createElement(_BuySelector2.default, { signalBuy: this.signalBuy, groupBuy: this.groupBuy, skus: this.state.detailData.skus }) : null,
-                this.state.group ? _react3.default.createElement(_BuySelector2.default, { signalBuy: this.signalBuy, groupBuy: this.groupBuy, skus: this.state.detailData.skus }) : null
+                this.state.signal ? _react3.default.createElement(_BuySelector2.default, { type: 'signal', signalBuy: this.signalBuy, groupBuy: this.groupBuy, skus: this.state.detailData.skus }) : null,
+                this.state.group ? _react3.default.createElement(_BuySelector2.default, { type: 'group', signalBuy: this.signalBuy, groupBuy: this.groupBuy, skus: this.state.detailData.skus }) : null
             );
         }
     }]);
@@ -16585,7 +16579,7 @@ __webpack_require__(179);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom2.default.render(_react2.default.createElement(
-	_reactRouterDom.HashRouter,
+	_reactRouterDom.BrowserRouter,
 	null,
 	_react2.default.createElement(
 		'div',
@@ -16754,6 +16748,17 @@ var BuySelectorHead = _wrapComponent('BuySelectorHead')(function (_React$Compone
     }
 
     _createClass(BuySelectorHead, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            if (!this.props.selectd) {
+                var data = [];
+                this.props.skus.map(function (item) {
+                    data.push(parseInt(item.gbsku_price));
+                });
+                this.setState({ price: Math.min.apply(null, data) });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -16768,12 +16773,12 @@ var BuySelectorHead = _wrapComponent('BuySelectorHead')(function (_React$Compone
                     _react3.default.createElement(
                         'div',
                         { className: 'goods-selector-price' },
-                        this.props.selectd
+                        this.props.selectd ? this.props.selectd : this.state.price
                     ),
                     _react3.default.createElement(
                         'div',
                         { className: 'goods-selector-desc' },
-                        '\u8BF7\u9009\u62E9\u7C7B\u578B'
+                        this.props.text ? this.props.text : "请选择类型"
                     )
                 ),
                 _react3.default.createElement(
