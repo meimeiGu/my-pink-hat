@@ -4,7 +4,7 @@
   "description": "bishe",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline "
   },
   "repository": {
     "type": "git",

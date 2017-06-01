@@ -26,7 +26,8 @@ class Container extends React.Component{
     }
 
     componentDidMount() {
-        let id = this.props.location.pathname.slice(7);
+        let id = this.props.location.pathname.slice(19);
+        console.log(id+'there')
 /*        let id  = this.props.location.query.id;*/
         axios({
             method:'GET',

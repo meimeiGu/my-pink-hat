@@ -4,13 +4,20 @@
 import React from 'react'
 import BuySelectorHead from './BuySelectorHead'
 import BuySelectorBody from './BuySelectorBody'
+import OrderContainer from '../orderCheckout/OrderContainer'
 import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route,} from 'react-router-dom'
 class BuySelector extends React.Component{
     constructor(props) {
         super(props);
         this.state={goods:'',minPrice:'',text:''}
         this.userChoiceInfo = this.userChoiceInfo.bind(this);
+        this.jump = this.jump.bind(this);
 
+    }
+
+    jump() {
+        <Route path="/my-pink-hat/orderCheckout" component={OrderContainer}/>
     }
 
 
@@ -39,9 +46,7 @@ class BuySelector extends React.Component{
                  <div className="buy-selector-container buy-selector-main-show">
                      <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} skus={this.props.skus} selectd={this.state.goods} text={this.state.text}/>
                      <BuySelectorBody skus={this.props.skus} info={this.userChoiceInfo}/>
-                     <Link to={`/orderCheckout`}>
-                     <div className="buy-selector-bottom">确定</div>
-                     </Link>
+                     <div className="buy-selector-bottom" onClick={this.jump()}>确定</div>
                  </div>
              </div>
          </section>

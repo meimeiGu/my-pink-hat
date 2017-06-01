@@ -3,7 +3,6 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BuySelector from '../buyGoods/BuySelector'
 class GoodsBottom extends React.Component{
     constructor(props) {
         super(props);
@@ -23,7 +22,7 @@ class GoodsBottom extends React.Component{
     render(){
         return(
             <div className="goods-bottom">
-                <Link to="/" >
+                <Link to="/my-pink-hat" >
                 <div className="goods-home">
                     <i className="iconfont icon-shouye3"></i>
                     <span>首页</span>
