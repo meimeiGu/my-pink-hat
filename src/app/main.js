@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter,Switch } from 'react-router-dom'
-import {BrowserRouter as Router, Route,} from 'react-router-dom'
+import { BrowserRouter ,Switch } from 'react-router-dom'
+import {HashRouter as Router, Route,} from 'react-router-dom'
 import Container from '../content/Container';
 import OrderContainer from '../orderCheckout/OrderContainer'
 import IndexContainer from '../index/IndexContainer'

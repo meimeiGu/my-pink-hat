@@ -4,9 +4,7 @@
 import React from 'react'
 import BuySelectorHead from './BuySelectorHead'
 import BuySelectorBody from './BuySelectorBody'
-import OrderContainer from '../orderCheckout/OrderContainer'
-import { Link } from 'react-router-dom'
-import { BrowserRouter as Router, Route,} from 'react-router-dom'
+import createHistory  from 'history/createBrowserHistory'
 class BuySelector extends React.Component{
     constructor(props) {
         super(props);
@@ -17,7 +15,11 @@ class BuySelector extends React.Component{
     }
 
     jump() {
-        <Route path="/my-pink-hat/orderCheckout" component={OrderContainer}/>
+        const history = createHistory()
+        history.push({
+
+            pathname: '/goods',
+        })
     }
 
 
@@ -53,5 +55,9 @@ class BuySelector extends React.Component{
         )
     }
 }
+
+BuySelector.contextTypes = {
+    router: React.PropTypes.object
+};
 
 export default BuySelector

@@ -4,7 +4,7 @@
   "description": "bishe",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline "
+    "start": "webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "classnames": "^2.2.5",
+    "history": "^4.6.1",
     "open-browser-webpack-plugin": "0.0.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
