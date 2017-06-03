@@ -15,15 +15,12 @@ class BuySelector extends React.Component{
     }
 
     jump() {
-<<<<<<< HEAD
         <Route path="/orderCheckout" component={OrderContainer}/>
-=======
         const history = createHistory()
         history.push({
 
             pathname: '/goods',
         })
->>>>>>> dfd1c2357c518987471ca5452d2521e227ef2372
     }
 
 
