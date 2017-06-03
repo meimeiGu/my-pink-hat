@@ -4,9 +4,13 @@
   "description": "bishe",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:dev": "webpack-dev-server --inline --content-base dist/ --history-api-fallback",
     "start:prod": "webpack && node server.js"
+=======
+    "start": "webpack-dev-server --inline"
+>>>>>>> dfd1c2357c518987471ca5452d2521e227ef2372
   },
   "repository": {
     "type": "git",
@@ -36,8 +40,12 @@
   "dependencies": {
     "axios": "^0.16.1",
     "classnames": "^2.2.5",
+<<<<<<< HEAD
     "compression": "^1.6.2",
     "express": "^4.15.3",
+=======
+    "history": "^4.6.1",
+>>>>>>> dfd1c2357c518987471ca5452d2521e227ef2372
     "open-browser-webpack-plugin": "0.0.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
