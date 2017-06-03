@@ -22,7 +22,7 @@ class GoodsBottom extends React.Component{
     render(){
         return(
             <div className="goods-bottom">
-                <Link to="/my-pink-hat" >
+                <Link to="/" >
                 <div className="goods-home">
                     <i className="iconfont icon-shouye3"></i>
                     <span>首页</span>

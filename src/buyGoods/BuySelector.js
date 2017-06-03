@@ -17,7 +17,7 @@ class BuySelector extends React.Component{
     }
 
     jump() {
-        <Route path="/my-pink-hat/orderCheckout" component={OrderContainer}/>
+        <Route path="/orderCheckout" component={OrderContainer}/>
     }
 
 

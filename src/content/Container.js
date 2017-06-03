@@ -31,7 +31,7 @@ class Container extends React.Component{
 /*        let id  = this.props.location.query.id;*/
         axios({
             method:'GET',
-            url:'http://localhost/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id='+id,
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id='+id,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

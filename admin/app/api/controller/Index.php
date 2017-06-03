@@ -10,8 +10,8 @@ class Index
 {
     public function _empty($name)
     {
-    //把所有城市的操作解析到city方法
-    return "return";
+        //把所有城市的操作解析到city方法
+        abort(404,'页面不存在');
     }
     public function allgbdata() 
     {
@@ -40,7 +40,7 @@ class Index
             $sku = $gbgood->skus()->select();
             $gbgood->skus=$sku;
             if($gbgood)
-                return json($gbgood);
+                return $gbgood->toJson();
             else
                 abort(404,'信息不存在');
         }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter,Switch } from 'react-router-dom'
-import {BrowserRouter as Router, Route,} from 'react-router-dom'
+import { BrowserRouter ,Switch } from 'react-router-dom'
+import {HashRouter as Router, Route,} from 'react-router-dom'
 import Container from '../content/Container';
 import OrderContainer from '../orderCheckout/OrderContainer'
 import IndexContainer from '../index/IndexContainer'
@@ -21,12 +21,12 @@ const baseHref = base ? base.getAttribute('href') : '/'
 ReactDom.render((
 <BrowserRouter basename={baseHref.replace(/\/$/, '')}>
 		<Switch>
-			<Route exact path="/my-pink-hat" component={IndexContainer}/>
-			<Route path="/my-pink-hat/goods/:id" component={Container}/>
-			<Route path="/my-pink-hat/orderCheckout" component={OrderContainer}/>
-			<Route path="/my-pink-hat/joinGroup" component={JoinGroupContainer}/>
-			<Route path="/my-pink-hat/personal" component={PersonalContainer}/>
-			<Route path="/my-pink-hat/orders" component={OrdersContainer}/>
+			<Route exact path="/" component={IndexContainer}/>
+			<Route path="/goods/:id" component={Container}/>
+			<Route path="/orderCheckout" component={OrderContainer}/>
+			<Route path="/joinGroup" component={JoinGroupContainer}/>
+			<Route path="/personal" component={PersonalContainer}/>
+			<Route path="/orders" component={OrdersContainer}/>
 		</Switch>
 </BrowserRouter>
 	),

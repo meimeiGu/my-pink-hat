@@ -29,9 +29,6 @@ class Footer extends React.Component{
                </li>
            </ul>
         )
-
     }
-
-
 }
 export default Footer
