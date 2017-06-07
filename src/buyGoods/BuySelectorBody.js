@@ -23,7 +23,7 @@ class BuySelectorBody extends React.Component{
                 })}*/}
                 <GoodsOption skus={this.props.skus} info={this.props.info} />
 
-            <BuySelectorNum/>
+            <BuySelectorNum num={this.props.num}/>
             </div>
 
 

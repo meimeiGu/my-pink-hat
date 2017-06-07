@@ -24,7 +24,7 @@ class BuySelectorHead extends React.Component{
     render(){
         return(
             <div className="goods-selector-head">
-                <img src="http://localhost/my-pink-hat/images/buyGoods/r.jpg"/>
+                <img src="http://localhost/8080/images/buyGoods/r.jpg"/>
                 <div className="goods-selector-head-content">
                     <div className="goods-selector-price">{this.props.selectd?this.props.selectd:this.state.price}</div>
                     <div className="goods-selector-desc">{this.props.text?this.props.text:"请选择类型"}</div>

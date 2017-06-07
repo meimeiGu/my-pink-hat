@@ -52,8 +52,8 @@ class Container extends React.Component{
                 <GoodsServer/>
                 <LocalGroups/>
                 <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} skuNum = {this.state.detailData.gbgoods_skunum} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
-                {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus}/>:null}
-                {this.state.group?<BuySelector type = "group" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus}/>:null}
+                {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
+                {this.state.group?<BuySelector type = "group" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
             </div>
         )
     }

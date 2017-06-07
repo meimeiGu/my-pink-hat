@@ -14,8 +14,11 @@ class BuySelectorNum extends React.Component{
 
     }
 
+    /*input好像失效*/
     handleChange(event) {
         this.setState({value: event.target.value});
+       let num = this.refs.input.getDOMNode().value();
+        this.props.num(num);
     }
 
     numAdd() {
@@ -23,7 +26,9 @@ class BuySelectorNum extends React.Component{
           value:prevState.value+1,
           disable:false
         }));
+        setTimeout(()=>{this.props.num(this.state.value)},10)
     }
+
 
     numReduce() {
         if(this.state.value == 1){
@@ -33,6 +38,7 @@ class BuySelectorNum extends React.Component{
                 value:prevState.value-1
             }));
         }
+        setTimeout(()=>{this.props.num(this.state.value)},10)
     }
 
 
@@ -44,11 +50,11 @@ class BuySelectorNum extends React.Component{
         return(
             <div className="goods-selector-number">
                 <span>数量</span>
-                <div className={classStr} onClick={this.numReduce}>
+                <div className={classStr} onClick={()=>{this.numReduce()}}>
                     <i className="iconfont icon-jian"></i>
                 </div>
-                <input type="number" value={this.state.value}  id="goods-input" className="goods-selector-input" maxLength="5" onChange={this.handleChange}/>
-                <div className="goods-selector-increase" onClick={this.numAdd}>
+                <input type="number" value={this.state.value}  id="goods-input" className="goods-selector-input" maxLength="5" onChange={()=>{console.log('hh1');this.handleChange}} ref="input"/>
+                <div className="goods-selector-increase" onClick={()=>{this.numAdd()}}>
                     <i className="iconfont icon-iconfuben13"></i>
                 </div>
 
