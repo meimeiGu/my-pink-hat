@@ -8,6 +8,7 @@ import LocalGroups from './LocalGroups'
 import GoodsServer from './GoodsServer'
 import GoodsBottom from './GoodsBottom'
 import BuySelector from '../buyGoods/BuySelector'
+import parseQueryString from '../common/parseQueryString'
 import axios from 'axios';
 class Container extends React.Component{
     constructor(props) {
@@ -26,8 +27,8 @@ class Container extends React.Component{
     }
 
     componentDidMount() {
-        let id = this.props.location.pathname.slice(19);
-/*        let id  = this.props.location.query.id;*/
+        let id = parseQueryString(location.href).id
+        console.log(id)
         axios({
             method:'GET',
             url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/gbdatadetail?gbgoods_id='+id,

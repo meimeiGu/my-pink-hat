@@ -2,7 +2,7 @@
  * Created by wmm on 2017/5/12.
  */
 import React from 'react'
-import { Link } from 'react-router-dom'
+import createBrowserHistory  from 'history/createBrowserHistory'
 
 class ListItem extends React.Component{
     constructor(props) {
@@ -10,6 +10,20 @@ class ListItem extends React.Component{
         this.state = {
             data:[]
         }
+        this.changePage = this.changePage.bind(this)
+    }
+
+    changePage() {
+
+        const history = createBrowserHistory({
+            forceRefresh: true
+        })
+        history.push({
+            pathname: '/goods',
+            forceRefresh: true,
+            search: '?id='+this.props.data.gbgoods_id,
+        })
+
     }
 
     render(){
@@ -31,11 +45,16 @@ class ListItem extends React.Component{
                     </div>
                     <div className="right-side">
                         {/*<Link to={`/goods/${this.props.data.gbgoods_id}`}>*/}
-                        <Link to={{ pathname: `/goods/${this.props.data.gbgoods_id}`, query: {id: this.props.data.gbgoods_id} }} >
-                        <div className="enter-button" >
+                      {/*  <Link to={{
+                            pathname: '/goods/',
+                            search: '?id='+this.props.data.gbgoods_id,
+                            state: { id: this.props.data.gbgoods_id },
+                            query:{id: this.props.data.gbgoods_id }
+                        }}>*/}
+                        <div className="enter-button" onClick={this.changePage}>
                             去开团
                             <i className="iconfont icon-jiantouyou"></i>
-                        </div></Link>
+                        </div>{/*</Link>*/}
                     </div>
                 </div>
             </div>

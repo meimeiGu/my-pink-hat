@@ -4,7 +4,7 @@
 import React from 'react'
 import BuySelectorHead from './BuySelectorHead'
 import BuySelectorBody from './BuySelectorBody'
-import createHistory  from 'history/createBrowserHistory'
+import createBrowserHistory  from 'history/createBrowserHistory'
 class BuySelector extends React.Component{
     constructor(props) {
         super(props);
@@ -15,11 +15,12 @@ class BuySelector extends React.Component{
     }
 
     jump() {
-        <Route path="/orderCheckout" component={OrderContainer}/>
-        const history = createHistory()
+        const history = createBrowserHistory({
+            forceRefresh: true
+        })
         history.push({
-
-            pathname: '/goods',
+            pathname: '/orderCheckout',
+            search: '?gbgoods_id=',
         })
     }
 
@@ -49,7 +50,7 @@ class BuySelector extends React.Component{
                  <div className="buy-selector-container buy-selector-main-show">
                      <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} skus={this.props.skus} selectd={this.state.goods} text={this.state.text}/>
                      <BuySelectorBody skus={this.props.skus} info={this.userChoiceInfo}/>
-                     <div className="buy-selector-bottom" onClick={this.jump()}>确定</div>
+                     <div className="buy-selector-bottom" onClick={this.jump}>确定</div>
                  </div>
              </div>
          </section>

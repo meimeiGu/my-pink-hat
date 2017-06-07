@@ -22,7 +22,7 @@ ReactDom.render((
 <BrowserRouter basename={baseHref.replace(/\/$/, '')}>
 		<Switch>
 			<Route exact path="/" component={IndexContainer}/>
-			<Route path="/goods/:id" component={Container}/>
+			<Route path="/goods" component={Container}/>
 			<Route path="/orderCheckout" component={OrderContainer}/>
 			<Route path="/joinGroup" component={JoinGroupContainer}/>
 			<Route path="/personal" component={PersonalContainer}/>
