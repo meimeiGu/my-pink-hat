@@ -35,6 +35,9 @@
 .oc-add-address .icon-tianjia1:before {
     position: absolute;
     left: -.33rem;
+    color: red;
+    padding-top: 0.01rem;
+    font-size: 0.2rem;
 }
 
 .oc-wx-add-address {
@@ -66,14 +69,11 @@
     border-bottom: 1px solid #ededed
 }
 
-.indicator:after {
+.oc-address-right-arrow .icon-jiantouyou:before {
     position: absolute;
-    width: .08rem;
-    height: .12rem;
-    background: url("http://localhost/my-pink-hat/images/order_checkout_icon.png") -.43rem 0 no-repeat;
-    background-size: .66rem .71rem;
     right: .1rem;
-    top: .17rem
+    font-size: 0.35rem;
+    top: -0.05rem;
 }
 
 .oc-goods {
@@ -198,15 +198,9 @@
     background-color: #e0e0e0
 }
 
-.oc-goods-reduce:before {
-    content: "";
+.oc-goods-reduce .icon-jian:before {
     position: absolute;
-    width: .12rem;
-    height: .12rem;
-    top: .07rem;
-    left: .1rem;
-    background:  url("http://localhost/my-pink-hat/images/order_checkout_icon.png") -.33rem -.28rem no-repeat;
-    background-size: .66rem .71rem
+    top: -0.09rem;
 }
 
 .oc-reduce-disable {
@@ -228,15 +222,9 @@
     background-color: #e0e0e0
 }
 
-.oc-goods-increase:before {
-    content: '';
+.oc-goods-increase .icon-iconfuben13:before {
     position: absolute;
-    width: .12rem;
-    height: .12rem;
-    top: .07rem;
-    left: .1rem;
-    background:  url("http://localhost/my-pink-hat/images/order_checkout_icon.png") 0 -.28rem no-repeat;
-    background-size: .66rem .71rem
+    top: -.12rem;
 }
 
 .oc-buy-number,.oc-mobile-info {

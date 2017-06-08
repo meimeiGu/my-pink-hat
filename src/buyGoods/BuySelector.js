@@ -15,27 +15,34 @@ class BuySelector extends React.Component{
 
     }
 
+    componentWillMount(){
+        console.log(this.props.type)
+    }
+
     jump() {
-        const history = createBrowserHistory({
+        if(!this.state.num){
+            this.setState({num:1})
+            console.log(this.state.num+'jin')
+        }
+        setTimeout(()=>{
+            const history = createBrowserHistory({
             forceRefresh: true
         })
-        let buyType;
-        if(this.props.type === "group"){
-             buyType = 'group';
-        }else {
-             buyType = 'signal';
-        }
-        history.push({
-            pathname: '/orderCheckout',
-            search: '?gbgoods_id='+this.props.goods_id+'&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
-        })
+            let buyType;
+            if(this.props.groupBuy === "group"){
+                buyType = 'group';
+            }else {
+                buyType = 'signal';
+            }
+            history.push({
+                pathname: '/orderCheckout',
+                search: '&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
+            })},0)
+
     }
 
     buyNum(n){
-        this.setState({num:n})
-        console.log(n+'number')
-
-
+       this.setState({num:n})
     }
 
 
@@ -60,7 +67,7 @@ class BuySelector extends React.Component{
          <section className="buy-selector-bg">
              <div className="buy-selector-main">
                  <div className="buy-selector-container buy-selector-main-show">
-                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} skus={this.props.skus} selectd={this.state.goods} text={this.state.text}/>
+                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} skus={this.props.skus} selectd={this.state.goods} text={this.state.text} type={this.props.type}/>
                      <BuySelectorBody skus={this.props.skus} info={this.userChoiceInfo} num={this.buyNum}/>
                      <div className="buy-selector-bottom" onClick={this.jump}>确定</div>
                  </div>

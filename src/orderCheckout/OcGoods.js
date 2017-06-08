@@ -14,11 +14,11 @@ class OcGoods extends React.Component{
                     <span>商品</span>
                 </div>
             <div className="oc-goods-info">
-                <img src="http://localhost/my-pink-hat/images/r.jpg"/>
+                <img src={"http://oq57snhhw.bkt.clouddn.com/"+this.props.data.gbgoods_pic}/>
                 <div className="oc-goods-detail">
-                    <span className="oc-goods-name">专利申请，包括发明专利、实用新型专利、外观专利，学生、微企可申请国家补贴...</span>
+                    <span className="oc-goods-name">{this.props.data.gbgoods_name}</span>
                     <div className="oc-goods-spec">
-                        <div>类型:&nbsp;&nbsp;外观专利</div>
+                        <div>类型:&nbsp;&nbsp;{this.props.data.gbsku_name}</div>
                         {/*<div>尺码:&nbsp;&nbsp;M</div>*/}
                             <span className="oc-goods-price">
                              <i>￥</i>2200<i>/篇</i>

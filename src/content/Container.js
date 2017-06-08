@@ -9,6 +9,7 @@ import GoodsServer from './GoodsServer'
 import GoodsBottom from './GoodsBottom'
 import BuySelector from '../buyGoods/BuySelector'
 import parseQueryString from '../common/parseQueryString'
+import createBrowserHistory  from 'history/createBrowserHistory'
 import axios from 'axios';
 class Container extends React.Component{
     constructor(props) {
@@ -19,11 +20,33 @@ class Container extends React.Component{
     }
 
     signalBuy(params) {
+        if(this.state.detailData.gbgoods_skunum > 1)
+        {
         this.setState({signal:params})
+        }else{
+            const history = createBrowserHistory({
+                forceRefresh: true
+            })
+            history.push({
+                pathname: '/orderCheckout',
+                search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'signal',
+            })
+        }
     }
 
     groupBuy(params) {
-        this.setState({group:params})
+        if(this.state.detailData.gbgoods_skunum > 1)
+        {
+            this.setState({group:params})
+        }else{
+            const history = createBrowserHistory({
+                forceRefresh: true
+            })
+            history.push({
+                pathname: '/orderCheckout',
+                search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'group',
+            })
+        }
     }
 
     componentDidMount() {
@@ -37,10 +60,7 @@ class Container extends React.Component{
             }
 
         }).then((response) => {
-
-          this.setState({detailData: response.data});
-
-
+            this.setState({detailData: response.data});
         });
     }
 
@@ -53,7 +73,7 @@ class Container extends React.Component{
                 <LocalGroups/>
                 <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} skuNum = {this.state.detailData.gbgoods_skunum} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
                 {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
-                {this.state.group?<BuySelector type = "group" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
+                {this.state.group?<BuySelector type = "group"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
             </div>
         )
     }

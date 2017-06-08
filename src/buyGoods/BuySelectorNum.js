@@ -53,7 +53,7 @@ class BuySelectorNum extends React.Component{
                 <div className={classStr} onClick={()=>{this.numReduce()}}>
                     <i className="iconfont icon-jian"></i>
                 </div>
-                <input type="number" value={this.state.value}  id="goods-input" className="goods-selector-input" maxLength="5" onChange={()=>{console.log('hh1');this.handleChange}} ref="input"/>
+                <input type="number" value={this.state.value}  id="goods-input" className="goods-selector-input" maxLength="5" onChange={()=>{this.handleChange}} ref="input"/>
                 <div className="goods-selector-increase" onClick={()=>{this.numAdd()}}>
                     <i className="iconfont icon-iconfuben13"></i>
                 </div>

@@ -9,10 +9,19 @@ class BuySelectorHead extends React.Component{
 
     }
     componentWillMount(){
-        if(!this.props.selectd){
+        console.log(this.props.type)
+        if(!this.props.selectd && this.props.type == "signal"){
             let data = [];
             this.props.skus.map((item) => {
                 data.push(parseInt(item.gbsku_price))
+            })
+            this.setState({price:Math.min.apply(null,data)})
+        }
+        else{
+
+            let data = [];
+            this.props.skus.map((item) => {
+                data.push(parseInt(item.gbsku_oldprice))
             })
             this.setState({price:Math.min.apply(null,data)})
 

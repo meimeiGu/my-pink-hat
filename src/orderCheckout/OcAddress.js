@@ -22,14 +22,15 @@ class OcAddress extends React.Component{
                     <span className="oc-address-receiver-mobile">18354305983</span>
                 </div>
             </div>
-            <div className="oc-address-right-arrow">
-                <i className="iconfont icon-jiantouyou"></i>
-            </div>
+
         </div>
         return(
         <section id="oc-address" className="oc-address">
             <div className="oc-address-container" onClick={()=>{this.props.open(true)}}>
                 {this.state.readAddress?editAddress:addAddress}
+            </div>
+            <div className="oc-address-right-arrow">
+                <i className="iconfont icon-jiantouyou"></i>
             </div>
         </section>)
     }
