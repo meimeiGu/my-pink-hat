@@ -49,7 +49,7 @@ class EditAddress extends React.Component{
         return(
         <div id="edit-address">
             <div className="edit-main">
-                <div className="edit-title">添加联系地址</div>
+                <div className="edit-title"><i className="iconfont icon-tianjia1"></i>添加联系地址</div>
                 <div className="edit-receiver">
                     <input className="add-name" id="name" placeholder="名字" type="text" required />
                         <input className="add-mobile" id="mobile" placeholder="电话" type="tel" required  pattern="1[0-9]{10}" />

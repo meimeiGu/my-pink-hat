@@ -32,14 +32,9 @@
     font-size: .14rem
 }
 
-.oc-add-address span:before {
+.oc-add-address .icon-tianjia1:before {
     position: absolute;
-    width: .22rem;
-    height: .22rem;
-    top: -.01rem;
     left: -.33rem;
-    background: url("http://localhost/my-pink-hat/images/order_checkout_icon.png") 0 -.5rem no-repeat;
-    background-size: .66rem .71rem
 }
 
 .oc-wx-add-address {
@@ -440,6 +435,10 @@
     line-height: 50px;
     font-size: 17px;
     border-bottom: 1px solid #ededed
+}
+
+.edit-main .edit-title .icon-tianjia1:before{
+    color:red;
 }
 
 .edit-main .add-mobile,.edit-main .add-name {

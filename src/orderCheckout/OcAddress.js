@@ -10,7 +10,7 @@ class OcAddress extends React.Component{
     }
     render(){
         let addAddress =  <div className="oc-add-address indicator">
-            <span>手动添加收货地址</span>
+            <span><i className="iconfont icon-tianjia1"></i>手动添加收货地址</span>
         </div>
         let editAddress = <div className="oc-address-info ">
             <div className="oc-address-location">
