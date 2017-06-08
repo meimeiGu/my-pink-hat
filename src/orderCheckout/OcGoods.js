@@ -21,12 +21,12 @@ class OcGoods extends React.Component{
                         <div>类型:&nbsp;&nbsp;{this.props.data.gbsku_name}</div>
                         {/*<div>尺码:&nbsp;&nbsp;M</div>*/}
                             <span className="oc-goods-price">
-                             <i>￥</i>2200<i>/篇</i>
+                             <i>￥</i>{this.props.type==="signal"?this.props.data.gbsku_oldprice:this.props.data.gbsku_price}<i>/篇</i>
                             </span>
                     </div>
                 </div>
             </div>
-                <OcGoodsNum/>
+                <OcGoodsNum buyNum={this.props.buyNum}/>
             </section>
         )
     }

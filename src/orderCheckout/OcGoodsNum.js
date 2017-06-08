@@ -24,6 +24,7 @@ class OcGoodsNum extends React.Component{
             value:prevState.value+1,
             disable:false
         }));
+        setTimeout(()=>{this.props.buyNum(this.state.value)},10)
     }
 
     numReduce() {
@@ -34,6 +35,7 @@ class OcGoodsNum extends React.Component{
                 value:prevState.value-1
             }));
         }
+        setTimeout(()=>{this.props.buyNum(this.state.value)},10)
     }
 
     render(){
@@ -44,11 +46,11 @@ class OcGoodsNum extends React.Component{
         return(
             <div className="oc-goods-number">
                 <span>购买数量</span>
-                <div className={classStr} onClick={this.numReduce}>
+                <div className={classStr} onClick={()=>{this.numReduce()}}>
                     <i className="iconfont icon-jian"></i>
                 </div>
-                <input className="oc-buy-number" type="number" value={this.state.value} onChange={this.handleChange}/>
-                    <div className="oc-goods-increase" onClick={this.numAdd}>
+                <input className="oc-buy-number" type="number" value={this.state.value} onChange={()=>{this.handleChange}}/>
+                    <div className="oc-goods-increase" onClick={()=>{this.numAdd()}}>
                         <i className="iconfont icon-iconfuben13"></i>
                     </div>
             </div>

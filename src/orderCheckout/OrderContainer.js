@@ -12,8 +12,9 @@ import axios from 'axios';
 class OrderContainer extends React.Component{
     constructor(props) {
         super(props);
-        this.state={editAddress:false,allData:[]}
+        this.state={editAddress:false,allData:[],type:'',num:''}
         this.openEditAddress = this.openEditAddress.bind(this);
+        this.buyNum = this.buyNum.bind(this)
     }
 
     openEditAddress(params) {
@@ -21,8 +22,13 @@ class OrderContainer extends React.Component{
 
     }
 
+    buyNum(n){
+        this.setState({num:n})
+    }
+
     componentDidMount(){
         let sku_id = parseQueryString(location.href).gbsku_id;
+        this.setState({type:parseQueryString(location.href).buyType})
         document.getElementsByTagName('body')[0].style.backgroundColor="#f2f2f2";
         axios({
             method:'POST',
@@ -40,9 +46,9 @@ class OrderContainer extends React.Component{
         return(
             <div >
                 <OcAddress open={this.openEditAddress}/>
-                <OcGoods data={this.state.allData}/>
-                <OcPayment/>
-                <OcBottom/>
+                <OcGoods data={this.state.allData} type={this.state.type} buyNum={this.buyNum}/>
+                <OcPayment />
+                <OcBottom num={this.state.num?this.state.num:1} price={this.state.type === "signal"?this.state.allData.gbsku_oldprice:this.state.allData.gbsku_price}/>
                 {this.state.editAddress?<EditAddress open={this.openEditAddress}/>:null}
             </div>
         )
