@@ -817,3 +817,27 @@ slider-ul>li {
     background-color: #e02e24;
     text-align: center
 }
+.pin-toast-container {
+    display: block;
+    position: fixed;
+    width: 100%;
+    max-width: 640px;
+    height: 300px;
+    height: auto;
+    bottom: 120px;
+    z-index: 999999999;
+    opacity: 1;
+}
+.pin-toast {
+    display: none;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    background-color: rgba(0,0,0,.8);
+    color: #F0F0F0;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 24px -1px #383838;
+}

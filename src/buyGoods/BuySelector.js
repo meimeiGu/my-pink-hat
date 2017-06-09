@@ -8,7 +8,7 @@ import createBrowserHistory  from 'history/createBrowserHistory'
 class BuySelector extends React.Component{
     constructor(props) {
         super(props);
-        this.state={goods:'',minPrice:'',text:'',sku:'',num:''}
+        this.state={goods:'',minPrice:'',text:'',sku:'',num:'',ok:true}
         this.userChoiceInfo = this.userChoiceInfo.bind(this);
         this.buyNum = this.buyNum.bind(this);
         this.jump = this.jump.bind(this);
@@ -16,7 +16,7 @@ class BuySelector extends React.Component{
     }
 
     componentWillMount(){
-        console.log(this.props.type)
+            this.timer && clearTimeout(this.timer);
     }
 
     jump() {
@@ -24,9 +24,22 @@ class BuySelector extends React.Component{
             this.setState({num:1})
             console.log(this.state.num+'jin')
         }
+        if(!this.state.sku){
+            document.getElementsByClassName('pin-toast')[0].style.display="block";
+            this.timer = setTimeout(
+                () =>{
+                    document.getElementsByClassName('pin-toast')[0].style.display="none";
+                },3000
+            )
+            this.setState({ok:false});
+
+        }else{
+            this.setState({ok:true});
+        }
+
         setTimeout(()=>{
             const history = createBrowserHistory({
-            forceRefresh: true
+            forceRefresh: this.state.ok,
         })
             let buyType;
             if(this.props.groupBuy === "group"){
@@ -71,6 +84,9 @@ class BuySelector extends React.Component{
                      <BuySelectorBody skus={this.props.skus} info={this.userChoiceInfo} num={this.buyNum}/>
                      <div className="buy-selector-bottom" onClick={this.jump}>确定</div>
                  </div>
+             </div>
+             <div className="pin-toast-container">
+                 <div className="pin-toast" >请选择 类型</div>
              </div>
          </section>
         )
