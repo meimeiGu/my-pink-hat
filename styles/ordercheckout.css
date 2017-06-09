@@ -76,6 +76,7 @@
     top: -0.05rem;
 }
 
+
 .oc-goods {
     min-height: 1.58rem;
     margin-bottom: .08rem;
@@ -138,7 +139,12 @@
     color: #151516;
     text-overflow: ellipsis;
     word-wrap: break-word;
-    text-align: justify
+    text-align: justify;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .oc-goods-number,.oc-goods-spec {

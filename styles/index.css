@@ -184,10 +184,13 @@
     color: #151516;
     height: .35rem;
     line-height: .18rem;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
     vertical-align: middle;
-    padding: 0 .1rem
+    padding: 0 .1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
 }
 

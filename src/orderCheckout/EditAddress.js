@@ -6,7 +6,7 @@ import React from 'react'
 class EditAddress extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {name:'',phone:'',ok:false,content:''}
+        this.state = {ok:false,content:''}
         this.saveAddress = this.saveAddress.bind(this);
         this.toastShow = this.toastShow.bind(this);
     }
@@ -22,7 +22,8 @@ class EditAddress extends React.Component{
 
     saveAddress() {
         if(document.getElementById('name').checkValidity() && document.getElementById('mobile').checkValidity()) {
-        this.props.open(false)
+        this.props.open(false);
+        this.props.save(document.getElementById('name').value,document.getElementById('mobile').value)
     }
     else {
         if (!document.getElementById('name').value) {
@@ -49,7 +50,7 @@ class EditAddress extends React.Component{
         return(
         <div id="edit-address">
             <div className="edit-main">
-                <div className="edit-title"><i className="iconfont icon-tianjia1"></i>添加联系地址</div>
+                <div className="edit-title">添加联系地址</div>
                 <div className="edit-receiver">
                     <input className="add-name" id="name" placeholder="名字" type="text" required />
                         <input className="add-mobile" id="mobile" placeholder="电话" type="tel" required  pattern="1[0-9]{10}" />

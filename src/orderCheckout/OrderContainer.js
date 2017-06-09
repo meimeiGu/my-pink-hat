@@ -12,13 +12,19 @@ import axios from 'axios';
 class OrderContainer extends React.Component{
     constructor(props) {
         super(props);
-        this.state={editAddress:false,allData:[],type:'',num:''}
+        this.state={editAddress:false,allData:[],type:'',num:'',name:'',tel:'',readAddress:false}
         this.openEditAddress = this.openEditAddress.bind(this);
         this.buyNum = this.buyNum.bind(this)
+        this.saveAddress = this.saveAddress.bind(this);
     }
 
     openEditAddress(params) {
         this.setState({editAddress:params})
+
+    }
+
+    saveAddress(name,tel){
+        this.setState({'name':name,'tel':tel,'readAddress':true});
 
     }
 
@@ -45,11 +51,11 @@ class OrderContainer extends React.Component{
     render(){
         return(
             <div >
-                <OcAddress open={this.openEditAddress}/>
+                <OcAddress open={this.openEditAddress} readAddress={this.state.readAddress} name={this.state.name} tel={this.state.tel}/>
                 <OcGoods data={this.state.allData} type={this.state.type} buyNum={this.buyNum}/>
                 <OcPayment />
                 <OcBottom num={this.state.num?this.state.num:1} price={this.state.type === "signal"?this.state.allData.gbsku_oldprice:this.state.allData.gbsku_price}/>
-                {this.state.editAddress?<EditAddress open={this.openEditAddress}/>:null}
+                {this.state.editAddress?<EditAddress open={this.openEditAddress} save = {this.saveAddress}/>:null}
             </div>
         )
     }
