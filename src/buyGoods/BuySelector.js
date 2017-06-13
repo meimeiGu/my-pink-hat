@@ -22,7 +22,6 @@ class BuySelector extends React.Component{
     jump() {
         if(!this.state.num){
             this.setState({num:1})
-            console.log(this.state.num+'jin')
         }
         if(!this.state.sku){
             document.getElementsByClassName('pin-toast')[0].style.display="block";
@@ -42,15 +41,25 @@ class BuySelector extends React.Component{
             forceRefresh: this.state.ok,
         })
             let buyType;
-            if(this.props.groupBuy === "group"){
-                buyType = 'group';
-            }else {
-                buyType = 'signal';
+            if(this.props.type !== "joinGroup"){
+                if(this.props.type === "group"){
+                    buyType = 'group';
+                }else if(this.props.type === "signal"){
+                    buyType = 'signal';
+                }
+                history.push({
+                    pathname: '/orderCheckout',
+                    search: '&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
+                })
+
+            }else{
+                buyType = 'joinGroup'
+                history.push({
+                    pathname: '/joinGroup',
+                    search: '&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
+                })
             }
-            history.push({
-                pathname: '/orderCheckout',
-                search: '&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
-            })},0)
+        },0)
 
     }
 
@@ -80,7 +89,7 @@ class BuySelector extends React.Component{
          <section className="buy-selector-bg">
              <div className="buy-selector-main">
                  <div className="buy-selector-container buy-selector-main-show">
-                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} skus={this.props.skus} selectd={this.state.goods} text={this.state.text} type={this.props.type}/>
+                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} joinGroup={this.props.joinGroup} skus={this.props.skus} selectd={this.state.goods} text={this.state.text} type={this.props.type}/>
                      <BuySelectorBody skus={this.props.skus} info={this.userChoiceInfo} num={this.buyNum}/>
                      <div className="buy-selector-bottom" onClick={this.jump}>确定</div>
                  </div>

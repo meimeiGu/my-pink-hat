@@ -13,7 +13,7 @@ class BuySelectorHead extends React.Component{
         if(!this.props.selectd && this.props.type == "signal"){
             let data = [];
             this.props.skus.map((item) => {
-                data.push(parseInt(item.gbsku_price))
+                data.push(parseInt(item.gbsku_oldprice))
             })
             this.setState({price:Math.min.apply(null,data)})
         }
@@ -21,7 +21,7 @@ class BuySelectorHead extends React.Component{
 
             let data = [];
             this.props.skus.map((item) => {
-                data.push(parseInt(item.gbsku_oldprice))
+                data.push(parseInt(item.gbsku_price))
             })
             this.setState({price:Math.min.apply(null,data)})
 
@@ -33,12 +33,12 @@ class BuySelectorHead extends React.Component{
     render(){
         return(
             <div className="goods-selector-head">
-                <img src="http://localhost/8080/images/buyGoods/r.jpg"/>
+                <img src='../../images/buyGoods/r.jpg'/>
                 <div className="goods-selector-head-content">
                     <div className="goods-selector-price">{this.props.selectd?this.props.selectd:this.state.price}</div>
                     <div className="goods-selector-desc">{this.props.text?this.props.text:"请选择类型"}</div>
                 </div>
-                <div className="goods-selector-close" onClick={()=>{this.props.signalBuy(false);this.props.groupBuy(false)}} >
+                <div className="goods-selector-close" onClick={()=>{this.props.signalBuy(false);this.props.groupBuy(false);this.props.joinGroup(false)}} >
                     <i className="iconfont icon-cha"></i>
                 </div>
 

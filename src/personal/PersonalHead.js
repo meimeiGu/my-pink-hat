@@ -17,9 +17,9 @@ class PersonalHead extends React.Component{
     render(){
         return(
            <div className="personal-head head-bg-img">
-               <img src="http://localhost/my-pink-hat/images/hhmmd.jpg"/>
+               <img src={this.props.userInfo.image}/>
                <div className="p-head-info">
-                   <p className="p-name">咕咕小勇</p>
+                   <p className="p-name">{this.props.userInfo.nickname}</p>
                </div>
            </div>
 

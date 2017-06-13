@@ -14,12 +14,13 @@ class MainView extends React.Component{
 
     componentDidMount() {
 
+
     }
 
     render(){
         return(
             <section className="main-view container">
-                <PersonalHead/>
+                <PersonalHead userInfo={this.props.userInfo}/>
                 <PersonalOrders/>
                 <PersonalList/>
             </section>

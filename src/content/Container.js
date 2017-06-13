@@ -14,9 +14,10 @@ import axios from 'axios';
 class Container extends React.Component{
     constructor(props) {
         super(props);
-        this.state={detailData:[],signal:false,group:false}
+        this.state={detailData:[],signal:false,group:false,joinGroup:false}
         this.signalBuy = this.signalBuy.bind(this);
         this.groupBuy = this.groupBuy.bind(this);
+        this.joinGroup = this.joinGroup.bind(this);
     }
 
     signalBuy(params) {
@@ -34,19 +35,40 @@ class Container extends React.Component{
         }
     }
 
-    groupBuy(params) {
+    joinGroup(params) {
+
         if(this.state.detailData.gbgoods_skunum > 1)
         {
-            this.setState({group:params})
+            this.setState({joinGroup:params})
         }else{
             const history = createBrowserHistory({
                 forceRefresh: true
             })
             history.push({
-                pathname: '/orderCheckout',
-                search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'group',
+                pathname: '/joinGroup',
+                search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'joinGroup',
             })
         }
+
+
+    }
+
+    groupBuy(params) {
+
+            if(this.state.detailData.gbgoods_skunum > 1)
+            {
+                this.setState({group:params})
+            }else{
+                const history = createBrowserHistory({
+                    forceRefresh: true
+                })
+                history.push({
+                    pathname: '/orderCheckout',
+                    search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'group',
+                })
+            }
+
+
     }
 
     componentDidMount() {
@@ -70,10 +92,12 @@ class Container extends React.Component{
                 <BigImage imgName={this.state.detailData.gbgoods_pic}/>
                 <GoodsInfo goodsInfo={this.state.detailData}/>
                 <GoodsServer/>
-                <LocalGroups/>
+                <LocalGroups joinGroup={this.joinGroup}/>
                 <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} skuNum = {this.state.detailData.gbgoods_skunum} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
-                {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
-                {this.state.group?<BuySelector type = "group"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
+                {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} joinGroup={this.joinGroup} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
+                {this.state.group?<BuySelector type = "group"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} joinGroup={this.joinGroup} goods_id={this.state.detailData.gbgoods_id}/>:null}
+                {this.state.joinGroup?<BuySelector type = "joinGroup"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} joinGroup={this.joinGroup} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}/>:null}
+
             </div>
         )
     }

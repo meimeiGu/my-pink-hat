@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { BrowserRouter ,Switch } from 'react-router-dom'
-import {HashRouter as Router, Route,} from 'react-router-dom'
 import Container from '../content/Container';
 import OrderContainer from '../orderCheckout/OrderContainer'
 import IndexContainer from '../index/IndexContainer'
@@ -15,11 +14,9 @@ import '../../styles/container.css'
 import '../../styles/group.css'
 import '../../styles/personal.css'
 import '../../styles/orders.css'
-const base = document.querySelector('base')
-const baseHref = base ? base.getAttribute('href') : '/'
 
 ReactDom.render((
-<BrowserRouter basename={baseHref.replace(/\/$/, '')}>
+<BrowserRouter>
 		<Switch>
 			<Route exact path="/" component={IndexContainer}/>
 			<Route path="/goods" component={Container}/>

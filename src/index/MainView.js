@@ -24,6 +24,8 @@ class MainView extends React.Component{
         }).then((response) => {
             this.setState({allData: response.data});
         });
+        let storage=window.localStorage;
+        storage.setItem("userId", 1059);
     }
 
     render(){

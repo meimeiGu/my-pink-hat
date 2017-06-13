@@ -14,7 +14,6 @@ class ListItem extends React.Component{
     }
 
     changePage() {
-
         const history = createBrowserHistory({
             forceRefresh: true
         })
@@ -23,7 +22,6 @@ class ListItem extends React.Component{
             forceRefresh: true,
             search: '?id='+this.props.data.gbgoods_id,
         })
-
     }
 
     render(){

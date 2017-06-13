@@ -12,8 +12,8 @@ class LocalGroups extends React.Component{
         return(
             <div id="local-groups">
                 <p>小伙伴在开团</p>
-                <LocalGropuItem/>
-                <LocalGropuItem/>
+                <LocalGropuItem joinGroup={this.props.joinGroup}/>
+                <LocalGropuItem joinGroup={this.props.joinGroup}/>
             </div>
         )
 

@@ -22,7 +22,7 @@ class GroupBuy extends React.Component{
                     </div>
                 </div>
             <div >
-                <div className="group-detail-buy-btn" >一键参团</div>
+                <div className="group-detail-buy-btn" onClick={()=>{this.props.userJoin()}}>一键参团</div>
                 <div className="new-user-alert-container" ></div>
             </div>
             </div>

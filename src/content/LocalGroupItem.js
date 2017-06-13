@@ -7,7 +7,12 @@ class LocalGropuItem extends React.Component {
     constructor(props) {
         super(props);
         this.state={}
+        this.handleGroup = this.handleGroup.bind(this);
 
+    }
+
+    handleGroup() {
+        this.props.joinGroup(true)
     }
 
     render() {
@@ -22,9 +27,8 @@ class LocalGropuItem extends React.Component {
                         <span className="local-group-timer">还差1人，剩余23:47:32</span>
                     </div>
                 </div>
-                <Link to={`/joinGroup`}>
-                    <div className="local-group-btn">去参团</div>
-                </Link>
+                    <div className="local-group-btn"  onClick={()=>{this.handleGroup()}}>去参团</div>
+
             </div>
         )
     }
