@@ -2,6 +2,7 @@
  * Created by wmm on 2017/5/23.
  */
 import React from 'react'
+import img from '../../images/buyGoods/r.jpg'
 class BuySelectorHead extends React.Component{
     constructor(props) {
         super(props);
@@ -33,7 +34,7 @@ class BuySelectorHead extends React.Component{
     render(){
         return(
             <div className="goods-selector-head">
-                <img src='../../images/buyGoods/r.jpg'/>
+                <img src={img}/>
                 <div className="goods-selector-head-content">
                     <div className="goods-selector-price">{this.props.selectd?this.props.selectd:this.state.price}</div>
                     <div className="goods-selector-desc">{this.props.text?this.props.text:"请选择类型"}</div>
