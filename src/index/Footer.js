@@ -37,11 +37,11 @@ class Footer extends React.Component{
     render(){
         const classStr = classNames({
             'nav-controller': true,
-            'active': location.href === "http://localhost:8080/"?true:false
+            'active': location.pathname !== "/personal"?true:false
         });
         const classStr2 = classNames({
             'nav-controller': true,
-            'active': location.href === "http://localhost:8080/personal"?true:false
+            'active': location.pathname === "/personal"?true:false
         });
         return(
            <ul className="footer">
