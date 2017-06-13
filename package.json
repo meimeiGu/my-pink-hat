@@ -30,7 +30,6 @@
     "react-scripts": "0.9.5",
     "react-transform-hmr": "^1.0.4",
     "style-loader": "^0.17.0",
-    "url-loader": "^0.5.9",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   },

@@ -2,7 +2,7 @@
  * Created by wmm on 2017/5/9.
  */
 import React from 'react';
-import { Link } from 'react-router-dom'
+import img from '../../images/hhmmd.jpg'
 class LocalGropuItem extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class LocalGropuItem extends React.Component {
     render() {
         return (
             <div className="local-group-item">
-                <img className="local-group-img" src="../../images/hhmmd.jpg"/>
+                <img className="local-group-img" src={img}/>
                 <div className="local-group-detail">
                     <div className="local-group-detail-name">
                         <span className="local-group-name">咕咕小勇</span>
