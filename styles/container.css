@@ -329,7 +329,7 @@ slider-ul>li {
 .goods-bottom a{
     position: relative;
     display: block;
-    width: .46rem;
+    width: .7rem;
     height: 100%;
 }
 
@@ -351,10 +351,12 @@ slider-ul>li {
     border-top: 1px solid #f2f2f2;
     border-left: 1px solid #f2f2f2;
 }
-
+.goods-bottom .icon-kefu::before ,.goods-bottom .icon-shouye3::before{
+    margin-left: 0.1rem;
+}
 .goods-home{
     position: relative;
-    width: .46rem;
+    width: .7rem;
     height: 100%;
     border-top: 1px solid #f2f2f2
 }
@@ -397,6 +399,7 @@ slider-ul>li {
 }
 
 .goods-unlike {
+    display: none;
     position: relative;
     width: .46rem;
     height: 100%
@@ -426,7 +429,7 @@ slider-ul>li {
 
 .goods-chat {
     position: relative;
-    width: .46rem;
+    width: .7rem;
     height: 100%
 }
 
@@ -462,7 +465,7 @@ slider-ul>li {
 }
 
 .goods-direct {
-    width: .98rem;
+    width: 1.1rem;
     font-size: 0;
     background-color: #f3aba7
 }

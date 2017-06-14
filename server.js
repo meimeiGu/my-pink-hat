@@ -15,7 +15,7 @@ app.get('*', function (req, res) {
 })
 
 //var PORT = process.env.PORT || 80
-var PORT = 8089
+var PORT = 80
 app.listen(PORT, function() {
   console.log('Production Express server running at localhost:' + PORT)
 })
