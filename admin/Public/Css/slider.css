@@ -1,0 +1,67 @@
+    .xybcontainer {
+      margin: 0 auto;
+      padding: 0;
+    }
+#xybslides {
+      display: none;
+      position: relative;
+    }
+    #xybslides .slidesjs-navigation {
+      display:none;
+    }
+    .slidesjs-control{
+      z-index: 1;
+    }
+    .slidesjs-pagination {
+      margin: 7px 0 0;
+      position: absolute;
+      bottom:5px;
+      left:45%;
+      z-index: 2;
+      list-style: none;
+    }
+    .slidesjs-pagination li {
+      float: left;
+      margin: 0 1px;
+    }
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url('../Images/pagination.png');
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+
+
+    @media (max-width: 767px) {
+      .xybcontainer {
+        width: auto
+      }
+    }
+    @media (max-width: 480px) {
+      .xybcontainer{
+        width: auto
+      }
+    }
+    @media (min-width: 768px) and (max-width: 979px) {
+      .xybcontainer{
+        /*width: 750px*/
+         width: auto
+      }
+    }
+    @media (min-width: 980px) and (min-width: 1200px) {
+      .xybcontainer {
+       /* width: 940px*/
+        width: auto
+      }
+    }
