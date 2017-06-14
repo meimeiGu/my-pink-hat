@@ -41,10 +41,11 @@ class OrderContainer extends React.Component{
         let sku_id = parseQueryString(location.href).gbsku_id;
         let storage=window.localStorage;
         let userId = storage.getItem("userId");
+
             url: axios({
                 method:'POST',
-                data: {'userId': userId,'gbgoods_id':gbgoods_id,'gbsku_id':sku_id,'gbsingleorder_price':price,'gbsingleorder_num':num},
-                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/inputdata',
+                data: {userId: userId,gbgoods_id:gbgoods_id,gbsku_id:sku_id,gbsingleorder_price:price,gbsingleorder_num:num},
+                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/inputfdata',
                 headers: {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                 }
