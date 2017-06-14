@@ -309,6 +309,7 @@
 }
 
 .footer {
+    margin-left: -0.001rem;
     width: 100%;
     max-width: 640px;
     position: fixed;

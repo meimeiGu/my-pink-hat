@@ -13,6 +13,7 @@ import createBrowserHistory  from 'history/createBrowserHistory'
 class JoinGroupContainer extends React.Component{
     constructor(props) {
         super(props);
+        this.state={allData:[]}
         this.userJoin = this.userJoin.bind(this)
     }
 
@@ -32,18 +33,20 @@ class JoinGroupContainer extends React.Component{
 
     componentDidMount(){
         document.getElementsByTagName('body')[0].style.backgroundColor="#f2f2f2";
-        let sku_id = parseQueryString(location.href).gbsku_id;
+        let order_id = parseQueryString(location.href).gbsingleorder_id;
         this.setState({type:parseQueryString(location.href).buyType});
         axios({
-            method:'POST',
-            /*data: {'sku_id': '1'},*/
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/groupdata?sku_id='+sku_id,
+            method:'GET',
+            params:{gbsingleorder_id:order_id},
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/togbdata',
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }
 
         }).then((response) => {
-            this.setState({allData: response.data[0]});
+            this.setState({allData:response.data[0]})
+            console.log(response.data[0])
+
         });
 
     }
@@ -51,10 +54,10 @@ class JoinGroupContainer extends React.Component{
         return(
             <div className="group">
                 <section className="group-detail">
-                    <GroupGoodsInfo/>
+                    <GroupGoodsInfo data={this.state.allData}/>
                     <GroupNotice/>
                     <GoodsServer/>
-                    <GroupUser/>
+                    <GroupUser image={this.state.allData.image}/>
                     <GropuBuy userJoin={this.userJoin} />
 
                 </section>

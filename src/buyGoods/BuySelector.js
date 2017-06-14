@@ -56,7 +56,7 @@ class BuySelector extends React.Component{
                 buyType = 'joinGroup'
                 history.push({
                     pathname: '/joinGroup',
-                    search: '?gbgoods_id='+this.props.goods_id+'&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
+                    search: '?gbgoods_id='+this.props.goods_id+'&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType+'&gbsingleorder_id='+this.props.order_id,
                 })
             }
         },0)

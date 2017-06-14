@@ -2,18 +2,22 @@
  * Created by wmm on 2017/5/9.
  */
 import React from 'react'
-import LocalGropuItem from './LocalGroupItem'
+
+import LocalGropuItem from './LocalGroupItem';
 class LocalGroups extends React.Component{
     constructor(props) {
         super(props);
+        this.state={data:[]}
     }
+
 
     render(){
         return(
             <div id="local-groups">
                 <p>小伙伴在开团</p>
-                <LocalGropuItem joinGroup={this.props.joinGroup}/>
-                <LocalGropuItem joinGroup={this.props.joinGroup}/>
+                {this.props.data.map((item) => {
+                    return(<LocalGropuItem data={item} key={item.gbsingleorder_id.toString() } joinGroup={this.props.joinGroup}/>)
+                })}
             </div>
         )
 

@@ -12,16 +12,18 @@ class LocalGropuItem extends React.Component {
     }
 
     handleGroup() {
-        this.props.joinGroup(true)
+        this.props.joinGroup(true,this.props.data.gbsingleorder_id)
     }
 
     render() {
+
         return (
+
             <div className="local-group-item">
-                <img className="local-group-img" src={img}/>
+                <img className="local-group-img" src={this.props.data.image}/>
                 <div className="local-group-detail">
                     <div className="local-group-detail-name">
-                        <span className="local-group-name">咕咕小勇</span>
+                        <span className="local-group-name">{this.props.data.nickname}</span>
                     </div>
                     <div className="local-group-detail-timer">
                         <span className="local-group-timer">还差1人，剩余23:47:32</span>

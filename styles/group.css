@@ -100,7 +100,11 @@
     max-height: .57rem;
     overflow: hidden;
     color: #333;
-    font-size: .13rem
+    font-size: .13rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .group .goods-servers{
@@ -369,8 +373,6 @@
 }
 
 .group-detail-user.left-user {
-    background: url("http://localhost/my-pink-hat/images/wenhao.png");
-    background-size: 100% 100%;
     border: 1px dashed #bcbcbc;
     color: #333;
 }
@@ -392,6 +394,12 @@
     border-radius: 12px;
     color: #9f7200;
 }
-.group-detail-user{
-    background: url("http://localhost/my-pink-hat/images/hhmmd.jpg") 0% 0% / 100% 100%;
+
+.left-user .icon-yw:before {
+    content: "\e606";
+    position: absolute;
+    font-size: 0.4rem;
+    margin-left: 0.04rem;
+    margin-top: -0.05rem;
+    color: #cacaca;
 }

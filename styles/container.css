@@ -236,14 +236,19 @@ slider-ul>li {
 }
 
 
-.local-group-detail-name .local-group-name ,.local-group-detail-name .local-group-left-num{
+.local-group-detail-name .local-group-left-num{
     text-overflow: ellipsis;
     white-space: nowrap;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden
 }
-
+.local-group-detail-name .local-group-name{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
 .local-group-detail-name {
     position: relative;
     width: 100%;
