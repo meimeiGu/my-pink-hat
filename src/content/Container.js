@@ -82,7 +82,7 @@ class Container extends React.Component{
             }
 
         }).then((response) => {
-            this.setState({detailData: response.data});
+            this.setState({detailData: response.data[0]});
         });
     }
 
