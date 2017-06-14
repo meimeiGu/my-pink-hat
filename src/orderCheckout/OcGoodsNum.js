@@ -7,7 +7,7 @@ import parseQueryString from '../common/parseQueryString'
 class OcGoodsNum extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {value:parseInt(parseQueryString(location.href).num),disable:false}
+        this.state = {value:parseInt(parseQueryString(location.href).num)?parseInt(parseQueryString(location.href).num):1,disable:false}
 
         this.handleChange = this.handleChange.bind(this);
         this.numAdd = this.numAdd.bind(this);
