@@ -19,7 +19,6 @@ class OcGoods extends React.Component{
                     <span className="oc-goods-name">{this.props.data.gbgoods_name}</span>
                     <div className="oc-goods-spec">
                         <div>类型:&nbsp;&nbsp;{this.props.data.gbsku_name}</div>
-                        {/*<div>尺码:&nbsp;&nbsp;M</div>*/}
                             <span className="oc-goods-price">
                              <i>￥</i>{this.props.type==="signal"?this.props.data.gbsku_oldprice:this.props.data.gbsku_price}<i>/篇</i>
                             </span>

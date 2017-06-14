@@ -3,17 +3,17 @@
  */
 import React from 'react'
 import classNames from 'classnames';
+import parseQueryString from '../common/parseQueryString'
 class OcGoodsNum extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {value:1,disable:false}
+        this.state = {value:parseInt(parseQueryString(location.href).num),disable:false}
 
         this.handleChange = this.handleChange.bind(this);
         this.numAdd = this.numAdd.bind(this);
         this.numReduce = this.numReduce.bind(this);
 
     }
-    componentDidMount() {}
 
     handleChange(event) {
         this.setState({value: event.target.value});
@@ -24,7 +24,7 @@ class OcGoodsNum extends React.Component{
             value:prevState.value+1,
             disable:false
         }));
-        setTimeout(()=>{this.props.buyNum(this.state.value)},10)
+        setTimeout(()=>{this.props.buyNum(this.state.value)},0)
     }
 
     numReduce() {
@@ -35,7 +35,7 @@ class OcGoodsNum extends React.Component{
                 value:prevState.value-1
             }));
         }
-        setTimeout(()=>{this.props.buyNum(this.state.value)},10)
+        setTimeout(()=>{this.props.buyNum(this.state.value)},0)
     }
 
     render(){
