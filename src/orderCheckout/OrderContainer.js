@@ -49,7 +49,7 @@ class OrderContainer extends React.Component{
             url: axios({
                 method:'POST',
                 data: {userId: userId,gbgoods_id:gbgoods_id,gbsku_id:sku_id,gbsingleorder_price:price,gbsingleorder_num:num},
-                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/inputfdata',
+                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputfdata',
                 headers: {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                 }
@@ -67,7 +67,7 @@ class OrderContainer extends React.Component{
         axios({
             method:'POST',
             /*data: {'sku_id': '1'},*/
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/groupdata?sku_id='+sku_id,
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/groupdata?sku_id='+sku_id,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

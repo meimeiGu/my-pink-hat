@@ -37,7 +37,7 @@ class JoinGroupContainer extends React.Component{
         axios({
             method:'POST',
             /*data: {'sku_id': '1'},*/
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/groupdata?sku_id='+sku_id,
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/groupdata?sku_id='+sku_id,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

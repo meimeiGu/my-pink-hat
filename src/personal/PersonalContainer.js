@@ -19,7 +19,7 @@ class PersonalContainer extends React.Component{
         console.log(userId)
         axios({
             method:'GET',
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/getuserdata?userId='+userId,
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/getuserdata?userId='+userId,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }
