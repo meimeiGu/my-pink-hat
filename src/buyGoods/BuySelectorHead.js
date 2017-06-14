@@ -10,7 +10,7 @@ class BuySelectorHead extends React.Component{
 
     }
     componentWillMount(){
-        console.log(this.props.type)
+
         if(!this.props.selectd && this.props.type == "signal"){
             let data = [];
             this.props.skus.map((item) => {
@@ -19,7 +19,6 @@ class BuySelectorHead extends React.Component{
             this.setState({price:Math.min.apply(null,data)})
         }
         else{
-
             let data = [];
             this.props.skus.map((item) => {
                 data.push(parseInt(item.gbsku_price))
@@ -39,7 +38,7 @@ class BuySelectorHead extends React.Component{
                     <div className="goods-selector-price">{this.props.selectd?this.props.selectd:this.state.price}</div>
                     <div className="goods-selector-desc">{this.props.text?this.props.text:"请选择类型"}</div>
                 </div>
-                <div className="goods-selector-close" onClick={()=>{this.props.signalBuy(false);this.props.groupBuy(false);this.props.joinGroup(false)}} >
+                <div className="goods-selector-close" onClick={()=>{this.props.signalBuy(false);this.props.groupBuy(false);this.props.openChoice(false)}} >
                     <i className="iconfont icon-cha"></i>
                 </div>
 

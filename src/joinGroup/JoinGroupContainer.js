@@ -19,14 +19,24 @@ class JoinGroupContainer extends React.Component{
 
     userJoin() {
         let sku_id = parseQueryString(location.href).gbsku_id;
+        let gbgoods_id = parseQueryString(location.href).gbgoods_id
         let num = parseQueryString(location.href).num?parseQueryString(location.href).num:1;
         const history = createBrowserHistory({
             forceRefresh: true
         })
-        history.push({
-            pathname: '/orderCheckout',
-            search: 'gbsku_id='+sku_id+'&num='+num+'&buyType='+'joinGroup',
-        })
+        if(this.state.allData.gbgoods_skunum > 1){
+            history.push({
+                pathname: '/goods',
+                search: '?id='+gbgoods_id+'&num='+num+'&buyType='+'joinGroup',
+            })
+
+        }else {
+            history.push({
+                pathname: '/orderCheckout',
+                search: 'gbsku_id='+sku_id+'&buyType='+'joinGroup',
+            })
+        }
+
 
 
     }

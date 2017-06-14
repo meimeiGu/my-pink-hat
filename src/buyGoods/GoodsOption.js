@@ -34,7 +34,6 @@ class GoodsOption extends React.Component{
         return(
             <div className="goods-option">
                 <span className="goods-key">分类</span>
-                {  console.log('1')}
                 <div className="goods-value-list">
                     {
                         this.state.skus.map((item) => {

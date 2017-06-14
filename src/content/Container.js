@@ -18,6 +18,7 @@ class Container extends React.Component{
         this.signalBuy = this.signalBuy.bind(this);
         this.groupBuy = this.groupBuy.bind(this);
         this.joinGroup = this.joinGroup.bind(this);
+        this.openChoice = this.openChoice.bind(this);
     }
 
     signalBuy(params) {
@@ -35,23 +36,20 @@ class Container extends React.Component{
         }
     }
 
-    joinGroup(params,gbsingleorder_id) {
-        console.log(this.state.groupData)
+    openChoice(params){
+        this.setState({joinGroup:params})
 
+    }
 
-        if(this.state.detailData.gbgoods_skunum > 1)
-        {
-            this.setState({joinGroup:params,order_id:gbsingleorder_id})
-        }else{
-            const history = createBrowserHistory({
+    joinGroup(gbsingleorder_id) {
+        this.setState({order_id:gbsingleorder_id})
+        const history = createBrowserHistory({
                 forceRefresh: true
             })
             history.push({
                 pathname: '/joinGroup',
                 search: '?gbgoods_id='+this.state.detailData.gbgoods_id+'&gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'joinGroup&gbsingleorder_id='+gbsingleorder_id,
             })
-        }
-
 
     }
 
@@ -75,6 +73,9 @@ class Container extends React.Component{
 
     componentDidMount() {
         let id = parseQueryString(location.href).id
+        if(parseQueryString(location.href).buyType === "joinGroup"){
+            this.setState({joinGroup:true})
+        }
         let storage=window.localStorage;
         let userId = storage.getItem("userId");
         axios({
@@ -98,9 +99,9 @@ class Container extends React.Component{
                 <GoodsServer/>
                 {this.state.groupData?<LocalGroups joinGroup={this.joinGroup} data={this.state.groupData}/>:null}
                 <GoodsBottom sPrice = {this.state.detailData.gbgoods_price} gb_price={this.state.detailData.gbgoods_gbprice} skuNum = {this.state.detailData.gbgoods_skunum} signalBuy={this.signalBuy} groupBuy={this.groupBuy}/>
-                {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} joinGroup={this.joinGroup} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}  />:null}
-                {this.state.group?<BuySelector type = "group"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} joinGroup={this.joinGroup} goods_id={this.state.detailData.gbgoods_id} />:null}
-                {this.state.joinGroup?<BuySelector type = "joinGroup"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} joinGroup={this.joinGroup} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id} order_id={this.state.order_id}/>:null}
+                {this.state.signal?<BuySelector type = "signal" signalBuy={this.signalBuy} groupBuy={this.groupBuy} openChoice={this.openChoice} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id}  />:null}
+                {this.state.group?<BuySelector type = "group"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} skus={this.state.detailData.skus} openChoice={this.openChoice} goods_id={this.state.detailData.gbgoods_id} />:null}
+               {this.state.joinGroup?<BuySelector type = "joinGroup"  signalBuy={this.signalBuy} groupBuy={this.groupBuy} openChoice={this.openChoice} skus={this.state.detailData.skus} goods_id={this.state.detailData.gbgoods_id} order_id={this.state.order_id}/>:null}
 
             </div>
         )

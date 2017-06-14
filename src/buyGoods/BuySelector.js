@@ -55,7 +55,7 @@ class BuySelector extends React.Component{
             }else{
                 buyType = 'joinGroup'
                 history.push({
-                    pathname: '/joinGroup',
+                    pathname: '/orderCheckout',
                     search: '?gbgoods_id='+this.props.goods_id+'&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType+'&gbsingleorder_id='+this.props.order_id,
                 })
             }
@@ -70,13 +70,14 @@ class BuySelector extends React.Component{
 
     userChoiceInfo(id){
         if(id){
+            console.log('111')
             this.props.skus.map((item) => {
                 if(item.gbsku_id === id){
-                    if(this.props.type === "group")
+                    if(this.props.type === "signal")
                     {
-                    this.setState({goods:item.gbsku_price,text:item.gbsku_name,sku:item.gbsku_id})
+                    this.setState({goods:item.gbsku_oldprice,text:item.gbsku_name,sku:item.gbsku_id})
                     }else {
-                        this.setState({goods:item.gbsku_oldprice,text:item.gbsku_name,sku:item.gbsku_id})
+                        this.setState({goods:item.gbsku_price,text:item.gbsku_name,sku:item.gbsku_id})
                     }
                 }
             })
@@ -89,7 +90,7 @@ class BuySelector extends React.Component{
          <section className="buy-selector-bg">
              <div className="buy-selector-main">
                  <div className="buy-selector-container buy-selector-main-show">
-                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} joinGroup={this.props.joinGroup} skus={this.props.skus} selectd={this.state.goods} text={this.state.text} type={this.props.type}/>
+                     <BuySelectorHead signalBuy={this.props.signalBuy} groupBuy={this.props.groupBuy} openChoice={this.props.openChoice} skus={this.props.skus} selectd={this.state.goods} text={this.state.text} type={this.props.type}/>
                      <BuySelectorBody skus={this.props.skus} info={this.userChoiceInfo} num={this.buyNum}/>
                      <div className="buy-selector-bottom" onClick={this.jump}>确定</div>
                  </div>

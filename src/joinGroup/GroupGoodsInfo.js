@@ -31,7 +31,7 @@ class GroupGoodsInfo extends React.Component{
                                 <span className="num" >{this.props.data.gbgoods_gbprice}</span>
                             </div>
                             <span className="group-member-num group-price-gap">
-                            拼团省{(this.props.data.gbgoods_originprice-this.props.data.gbgoods_gbprice)*(parseQueryString(location.href).num?parseQueryString(location.href).num:1)}元
+                            拼团省{this.props.data.gbgoods_originprice-this.props.data.gbgoods_gbprice}元
                             </span>
 
                         </div>

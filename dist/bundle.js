@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a40edaf56155aa4a28b9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b9cb296235cbd50c0085"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4217,7 +4217,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(74);
 
-var _PathUtils = __webpack_require__(36);
+var _PathUtils = __webpack_require__(37);
 
 var _createTransitionManager = __webpack_require__(75);
 
@@ -4961,6 +4961,53 @@ module.exports = __webpack_require__(184);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var parseQueryString = function parseQueryString(url) {
+
+    var arr;
+    var res = {};
+    //#符号之后的值称为hash，都不会加到request请求中去
+    url = url.split('#')[0];
+    //获取queryString 第一个？号后面的全是查询字符串
+    arr = url.split('?');
+    arr.shift();
+    var queryStr = arr.join('?');
+    //查询字符串为空直接返回 避免出现这样的返回值{"":""}
+    if (queryStr.trim().length == 0) {
+        return res;
+    }
+
+    //获取参数
+    arr = queryStr.split('&');
+    for (var i = 0; i < arr.length; i++) {
+        var itemArr = arr[i].split('=');
+        //第一个=号之前的是name 后面的全是值
+        var name = itemArr.shift();
+        var value = itemArr.join('=');
+        res[name] = value;
+    }
+    return res;
+}; /**
+    * Created by wmm on 2017/6/6.
+    */
+exports.default = parseQueryString;
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4983,7 +5030,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5048,7 +5095,7 @@ var createPath = exports.createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(18);
@@ -5060,10 +5107,10 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(37),
+var Symbol = __webpack_require__(38),
     getRawTag = __webpack_require__(299),
     objectToString = __webpack_require__(327);
 
@@ -5094,7 +5141,7 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isFunction = __webpack_require__(137),
@@ -5133,7 +5180,7 @@ module.exports = isArrayLike;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
 /**
@@ -5170,7 +5217,7 @@ module.exports = isObject;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5454,7 +5501,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5470,7 +5517,7 @@ module.exports = EventPluginHub;
 
 
 
-var EventPluginHub = __webpack_require__(41);
+var EventPluginHub = __webpack_require__(42);
 var EventPluginUtils = __webpack_require__(86);
 
 var accumulateInto = __webpack_require__(156);
@@ -5594,7 +5641,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5647,7 +5694,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5709,53 +5756,6 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var parseQueryString = function parseQueryString(url) {
-
-    var arr;
-    var res = {};
-    //#符号之后的值称为hash，都不会加到request请求中去
-    url = url.split('#')[0];
-    //获取queryString 第一个？号后面的全是查询字符串
-    arr = url.split('?');
-    arr.shift();
-    var queryStr = arr.join('?');
-    //查询字符串为空直接返回 避免出现这样的返回值{"":""}
-    if (queryStr.trim().length == 0) {
-        return res;
-    }
-
-    //获取参数
-    arr = queryStr.split('&');
-    for (var i = 0; i < arr.length; i++) {
-        var itemArr = arr[i].split('=');
-        //第一个=号之前的是name 后面的全是值
-        var name = itemArr.shift();
-        var value = itemArr.join('=');
-        res[name] = value;
-    }
-    return res;
-}; /**
-    * Created by wmm on 2017/6/6.
-    */
-exports.default = parseQueryString;
 
 /***/ }),
 /* 46 */
@@ -6046,7 +6046,7 @@ module.exports = eq;
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(38),
+var baseGetTag = __webpack_require__(39),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -6083,7 +6083,7 @@ module.exports = isSymbol;
 
 var arrayLikeKeys = __webpack_require__(270),
     baseKeys = __webpack_require__(283),
-    isArrayLike = __webpack_require__(39);
+    isArrayLike = __webpack_require__(40);
 
 /**
  * Creates an array of the own enumerable property names of `object`.
@@ -6731,7 +6731,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 
-var SyntheticUIEvent = __webpack_require__(44);
+var SyntheticUIEvent = __webpack_require__(45);
 var ViewportMetrics = __webpack_require__(155);
 
 var getEventModifierState = __webpack_require__(94);
@@ -7484,7 +7484,7 @@ exports = module.exports = __webpack_require__(22)(undefined);
 
 
 // module
-exports.push([module.i, ".goods-container{\r\n    position: relative;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    min-height: 100%;\r\n    margin: 0 auto;\r\n    padding: 0 0 .54rem;\r\n    background-color: #f2f2f2;\r\n    overflow-x: hidden;\r\n}\r\n\r\n.goods-banner:after {\r\n    position: absolute;\r\n    width: 100%;\r\n    left: 0\r\n}\r\n.goods-banner:after {\r\n    content: \"\";\r\n    display: block;\r\n    height: .06rem;\r\n    bottom: 0;\r\n    /*background-image: url(\"/assets/img/banner_shadow-6b35717b62.png\");*/\r\n    /*background-repeat: no-repeat;*/\r\n    /*background-size: contain;*/\r\n    z-index: 10001\r\n}\r\n\r\n\r\n.slider-ul,.slider-ul>li {\r\n    margin: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    list-style: none;\r\n    overflow: hidden;\r\n    padding: 0\r\n}\r\n\r\nslider-ul {\r\n    display: block;\r\n    position: relative;\r\n\r\n}\r\n\r\nslider-ul>li {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -moz-box;\r\n    display: -webkit-box;\r\n    display: box;\r\n    -webkit-box-pack: center;\r\n    box-pack: center;\r\n    -webkit-box-align: center;\r\n    box-align: center\r\n}\r\n\r\n@charset \"UTF-8\";#g-base {\r\n    position: relative\r\n}\r\n\r\n#g-base .goods-name {\r\n    word-wrap: break-word;\r\n    word-break: break-all\r\n}\r\n\r\n#g-base {\r\n    padding: .1rem;\r\n    background-color: #fff\r\n}\r\n\r\n#g-base .goods-price-group{\r\n    height: .24rem;\r\n    margin-top: .03rem;\r\n    font-size: 0;\r\n    color: #e02e24\r\n}\r\n\r\n#g-base .goods-price-group .goods-now-price{\r\n    position: relative;\r\n    display: inline-block;\r\n    height: .24rem;\r\n    line-height: .24rem;\r\n    font-size: .24rem\r\n}\r\n\r\n#g-base .goods-price-group .goods-now-price i {\r\n    font-size: .23rem;\r\n    margin: 0 -.03rem\r\n}\r\n\r\n#g-base .goods-price-group .goods-market-price,#g-base .goods-price-group .goods-sales{\r\n    height: 100%;\r\n    line-height: .24rem;\r\n    font-size: .13rem;\r\n    color: #58595b;\r\n    position: relative;\r\n    display: inline-block\r\n}\r\n\r\n\r\n#g-base .goods-price-group .goods-market-price {\r\n    margin-left: .06rem\r\n}\r\n\r\n#g-base .goods-price-group .goods-sales {\r\n    float: right;\r\n    top: .03rem\r\n}\r\n\r\n\r\n#g-base .goods-name {\r\n    margin-top: .1rem;\r\n    font-size: .14rem;\r\n    line-height: 1.4;\r\n    color: #151516;\r\n    overflow: hidden;\r\n    font-weight: 600;\r\n    text-align: justify;\r\n    letter-spacing: 1px\r\n}\r\n\r\n#g-base .goods-detail{\r\n    position: relative;\r\n    width: 100%;\r\n    margin-top: .05rem;\r\n    line-height: .2rem;\r\n    font-size: .13rem;\r\n    overflow: hidden;\r\n    color: #58595b;\r\n    text-align: justify\r\n}\r\n\r\n#g-base .goods-detail-info{\r\n    position: relative;\r\n    width: 100%;\r\n    height: auto\r\n}\r\n\r\n.goods-servers {\r\n    position: relative;\r\n    width: 100%;\r\n    padding: 0 .1rem;\r\n    background-color: #fff\r\n}\r\n\r\n.goods-servers span {\r\n    color: #58595b;\r\n    font-size: .12rem\r\n}\r\n\r\n.goods-servers .servers-list {\r\n    position: relative;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    width: 100%;\r\n    height: .41rem;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-align-items: center;\r\n    font-size: 0;\r\n    border-top: 1px solid #f2f2f2;\r\n    overflow: hidden\r\n}\r\n\r\n.goods-servers .servers-item {\r\n    position: relative;\r\n    display: inline-block;\r\n    height: .12rem;\r\n    line-height: 1;\r\n    margin: 0 .2rem 0 .16rem\r\n}\r\n\r\n.goods-servers .servers-item:before {\r\n    color: #e02e24;\r\n    position: absolute;\r\n    left: -.16rem\r\n}\r\n\r\n.goods-servers .servers-item:last-child {\r\n    margin-right: auto\r\n}\r\n\r\n.icon-gou{\r\n    color: #e02e24;\r\n    position: absolute;\r\n    left: -.16rem;\r\n    font-size: 1.15em\r\n}\r\n\r\n#local-groups {\r\n    position: relative;\r\n    max-width: 640px;\r\n    padding: 0 .1rem;\r\n    margin-top: .08rem;\r\n    background-color: #fff\r\n}\r\n\r\n#local-groups p {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .4rem;\r\n    line-height: .4rem;\r\n    color: #151516;\r\n    font-size: .14rem\r\n}\r\n\r\n.local-group-item {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .6rem;\r\n    padding: .07rem 0;\r\n    border-top: 1px solid #f2f2f2\r\n}\r\n\r\n.local-group-detail,.local-group-img {\r\n    height: .45rem;\r\n    float: left;\r\n    position: relative\r\n}\r\n\r\n.local-group-img {\r\n    display: block;\r\n    width: .45rem;\r\n    margin-right: .1rem;\r\n    border-radius: 100%\r\n}\r\n\r\n.local-group-detail {\r\n    width: 2rem;\r\n    padding: .06rem 0\r\n}\r\n\r\n\r\n.local-group-detail-name .local-group-name ,.local-group-detail-name .local-group-left-num{\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    -webkit-line-clamp: 1;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden\r\n}\r\n\r\n.local-group-detail-name {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .15rem;\r\n    line-height: 1;\r\n    font-size: 0;\r\n    padding: 0\r\n}\r\n\r\n.local-group-detail-name span {\r\n    position: relative;\r\n    display: inline-block\r\n}\r\n\r\n.local-group-detail-name .local-group-name {\r\n    float: left;\r\n    width: 100%;\r\n    font-size: .14rem;\r\n    color: #151516;\r\n    text-align: left\r\n}\r\n\r\n.local-group-detail-name .local-group-left-num {\r\n    float: right;\r\n    width: .81rem;\r\n    font-size: .12rem;\r\n    padding-top: .02rem;\r\n    color: #ff2741;\r\n    text-align: right\r\n}\r\n\r\n.local-group-detail-timer {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .12rem;\r\n    line-height: 1.2;\r\n    margin-top: .05rem;\r\n    font-size: 0;\r\n    padding: 0\r\n}\r\n\r\n.local-group-detail-timer span {\r\n    position: relative;\r\n    display: inline-block\r\n}\r\n\r\n.local-group-detail-timer .local-group-timer {\r\n    float: left;\r\n    width: 100%;\r\n    font-size: .12rem;\r\n    color: #58595b;\r\n    overflow: hidden;\r\n    text-align: left\r\n}\r\n\r\n.local-group-btn{\r\n    position: absolute;\r\n    width: .68rem;\r\n    height: .29rem;\r\n    line-height: .29rem;\r\n    color: #e02e24;\r\n    top: .15rem;\r\n    right: 0;\r\n    font-size: .14rem;\r\n    text-align: center;\r\n    border: 1px solid #ff2741;\r\n    border-radius: .03rem\r\n}\r\n\r\n.goods-bottom {\r\n    position: fixed;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    height: .54rem;\r\n    bottom: 0;\r\n    background-color: #fff;\r\n    z-index: 10001\r\n}\r\n\r\n.goods-bottom a{\r\n    position: relative;\r\n    display: block;\r\n    width: .7rem;\r\n    height: 100%;\r\n}\r\n\r\n.goods-buy span:before,.goods-chat span:before,.goods-chat-disable span:before,.goods-home span:before,.goods-like span:before,.goods-mall span:before,.goods-unlike span:before {\r\n    content: \"\";\r\n    top: -.25rem\r\n}\r\n\r\n.goods-buy span,.goods-chat span,.goods-chat-disable span,.goods-home span,.goods-like span,.goods-mall span,.goods-unlike span {\r\n    line-height: .12rem;\r\n    color: #58595b;\r\n    bottom: .08rem;\r\n    right: 0;\r\n    text-align: center;\r\n    display: block\r\n}\r\n\r\n.goods-buy, .goods-chat, .goods-chat-disable, .goods-like, .goods-unlike{\r\n    border-top: 1px solid #f2f2f2;\r\n    border-left: 1px solid #f2f2f2;\r\n}\r\n.goods-bottom .icon-kefu::before ,.goods-bottom .icon-shouye3::before{\r\n    margin-left: 0.1rem;\r\n}\r\n.goods-home{\r\n    position: relative;\r\n    width: .7rem;\r\n    height: 100%;\r\n    border-top: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-home span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-mall{\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%;\r\n    border-top: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-mall span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-like {\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-like span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-unlike {\r\n    display: none;\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-unlike span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-buy {\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-buy span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .1rem;\r\n    left: 0\r\n}\r\n\r\n.goods-chat {\r\n    position: relative;\r\n    width: .7rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-chat span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-chat-disable {\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-chat-disable span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n\r\n.goods-direct,.goods-group {\r\n    height: 100%;\r\n    padding-top: .08rem;\r\n    text-align: center;\r\n    position: relative;\r\n    color: #fff\r\n}\r\n\r\n.goods-direct {\r\n    width: 1.1rem;\r\n    font-size: 0;\r\n    background-color: #f3aba7\r\n}\r\n\r\n.goods-direct span {\r\n    position: relative;\r\n    display: block;\r\n    line-height: 1;\r\n    font-size: .15rem;\r\n    color: #fff\r\n}\r\n\r\n.goods-direct .goods-price {\r\n    margin-bottom: .04rem;\r\n    font-weight: 500;\r\n    font-size: .17rem\r\n}\r\n\r\n.goods-direct .goods-price i {\r\n    margin: 0 -.02rem;\r\n    font-size: .16rem\r\n}\r\n\r\n.goods-group {\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    width: 0;\r\n    font-size: 0;\r\n    background-color: #e02e24\r\n}\r\n\r\n.goods-group span {\r\n    position: relative;\r\n    display: block;\r\n    line-height: 1;\r\n    font-size: .15rem;\r\n    color: #fff\r\n}\r\n\r\n.goods-group .goods-price {\r\n    margin-bottom: .04rem;\r\n    font-weight: 500;\r\n    font-size: .17rem\r\n}\r\n\r\n.goods-group .goods-price i {\r\n    margin: 0 -.02rem;\r\n    font-size: .16rem\r\n}\r\n\r\n.goods-bottom .icon-shouye3,.goods-bottom .icon-jushoucang,.goods-bottom .icon-kefu{\r\n    position: absolute;\r\n    display: block;\r\n    width: .22rem;\r\n    height: .2rem;\r\n    left: .12rem;\r\n    font-size: .24rem;\r\n}\r\n.goods-bottom .icon-kefu{\r\n    color: #e02e24;\r\n}\r\n\r\n\r\n/*购买选择类型等*/\r\n.buy-selector-bg{\r\n    position: fixed;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    height: 100%;\r\n    top: 0;\r\n    background: rgba(0,0,0,.7);\r\n    z-index: 20000;\r\n}\r\n\r\n.buy-selector-main{\r\n    max-width: 640px;\r\n    padding-top: .3rem;\r\n    z-index: 20001;\r\n    width: 100%\r\n}\r\n\r\n.buy-selector-main,.sku-selector-main2 {\r\n    max-width: 640px;\r\n    padding-top: .3rem;\r\n    z-index: 20001;\r\n    width: 100%\r\n}\r\n\r\n.buy-selector-main {\r\n    position: fixed;\r\n    height: 4.68rem;\r\n    bottom: 0;\r\n    -webkit-transition: bottom 150ms ease-in-out 150ms;\r\n    transition: bottom 150ms ease-in-out 150ms;\r\n    -webkit-transform: translateZ(0);\r\n    transform: translateZ(0)\r\n}\r\n\r\n.buy-selector-main-show {\r\n    bottom: 0\r\n}\r\n\r\n.buy-selector-main-focus {\r\n    position: absolute;\r\n    top: -.5rem;\r\n    height: 200%\r\n}\r\n\r\n.buy-selector-main-hide {\r\n    bottom: -4.68rem\r\n}\r\n\r\n.buy-selector-main2 {\r\n    position: fixed;\r\n    height: 70%;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    -webkit-transition: bottom 150ms ease-in-out 150ms;\r\n    transition: bottom 150ms ease-in-out 150ms;\r\n    -webkit-transform: translateZ(0);\r\n    transform: translateZ(0)\r\n}\r\n\r\n.buy-selector-main-hide2 {\r\n    bottom: -70%\r\n}\r\n\r\n.buy-selector-container{\r\n    position: relative;\r\n    height: 100%;\r\n    padding: 0 .1rem;\r\n    background-color: #fff\r\n}\r\n\r\n.goods-selector-head{\r\n    position: relative;\r\n    width: 100%;\r\n    height: .83rem;\r\n    border-bottom: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-selector-head img{\r\n    position: absolute;\r\n    height: 1.01rem;\r\n    width: 1.01rem;\r\n    top: -.3rem;\r\n    left: 0;\r\n    border: 2px solid #fff;\r\n    border-radius: .05rem;\r\n    box-shadow: 0 0 .02rem #58595b;\r\n    z-index: 1\r\n}\r\n\r\n.goods-selector-head-content{\r\n    position: relative;\r\n    height: 100%;\r\n    width: 100%;\r\n    padding: .23rem 0 0 1.11rem\r\n}\r\n\r\n.goods-selector-price {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .18rem;\r\n    margin-bottom: .05rem;\r\n    line-height: 1;\r\n    font-size: .18rem;\r\n    color: #e02e24\r\n}\r\n\r\n.goods-selector-desc{\r\n    display: -webkit-box;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    font-size: .12rem;\r\n    line-height: 1;\r\n    color: #151516;\r\n    word-break: break-all;\r\n    word-wrap: break-word;\r\n    -webkit-line-clamp: 2;\r\n    -webkit-box-orient: vertical\r\n}\r\n\r\n.goods-selector-close {\r\n    position: absolute;\r\n    width: .34rem;\r\n    height: .34rem;\r\n    padding: .1rem;\r\n    top: 0;\r\n    right: -.1rem\r\n}\r\n\r\n.icon-cha:before {\r\n    position: relative;\r\n    font-size: 0.16rem;\r\n}\r\n\r\n#buy-selector-body {\r\n    position: relative;\r\n    width: 100%;\r\n    max-height: 3.08rem\r\n}\r\n\r\n#buy-selector-body.buy-selector-body2 {\r\n    position: absolute;\r\n    max-height: none;\r\n    width: auto;\r\n    top: .83rem;\r\n    left: .1rem;\r\n    right: .1rem;\r\n    bottom: .48rem\r\n}\r\n\r\n.goods-selector-number,.goods-option {\r\n    border-bottom: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-option{\r\n    position: relative;\r\n    width: 100%;\r\n    padding: .06rem 0 .03rem\r\n}\r\n\r\n.goods-key{\r\n    font-size: .13rem;\r\n    color: #151516;\r\n    text-align: left\r\n}\r\n\r\n.goods-value-list{\r\n    position: relative;\r\n    width: 100%;\r\n    height: auto;\r\n    margin-top: .08rem\r\n}\r\n\r\n.goods-value-list :last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.goods-value{\r\n    position: relative;\r\n    display: inline-block;\r\n    width: auto;\r\n    height: .28rem;\r\n    padding: 0 .09rem;\r\n    margin: 0 .15rem .07rem 0;\r\n    font-size: .12rem;\r\n    color: #151516;\r\n    line-height: .28rem;\r\n    text-align: center;\r\n    background-color: #f5f5f5;\r\n    border-radius: .06rem\r\n}\r\n\r\n.goods-value-selected {\r\n    color: #fff;\r\n    background-color: #e02e24\r\n}\r\n\r\n.goods-selector-number{\r\n    position: relative;\r\n    width: 100%;\r\n    height: .56rem;\r\n    margin-bottom: .23rem;\r\n    line-height: .56rem;\r\n    font-size: 0\r\n}\r\n\r\n.goods-selector-number span{\r\n    display: inline-block;\r\n    font-size: .13rem;\r\n    color: #151516\r\n}\r\n\r\n.goods-selector-reduce{\r\n    position: absolute;\r\n    height: .25rem;\r\n    width: .31rem;\r\n    right: .82rem;\r\n    top: .15rem;\r\n    border-radius: .02rem;\r\n    background-color: #e0e0e0\r\n}\r\n\r\n\r\n.icon-jian:before{\r\n    position: absolute;\r\n    top: -0.145rem;\r\n    left: .026rem;\r\n    font-size: 0.26rem;\r\n}\r\n\r\n.goods-selector-increase,.goods-selector-input {\r\n    height: .25rem;\r\n    top: .15rem;\r\n    border-radius: .02rem;\r\n    position: absolute\r\n}\r\n\r\n.goods-selector-input,.goods-selector-reduce-disable {\r\n    background-color: #f2f2f2\r\n}\r\n\r\n.goods-selector-reduce-disable:before {\r\n    background-position: -.94rem -.65rem\r\n}\r\n\r\n.goods-selector-input {\r\n    width: .47rem;\r\n    right: .33rem;\r\n    line-height: normal;\r\n    font-size: .12rem;\r\n    margin: 0;\r\n    padding: .06px 0;\r\n    color: #151516;\r\n    text-align: center\r\n}\r\n\r\n.goods-selector-increase{\r\n    width: .31rem;\r\n    right: 0;\r\n    background-color: #e0e0e0\r\n}\r\n\r\n.icon-iconfuben13:before {\r\n    position: absolute;\r\n    top: -0.17rem;\r\n    left: .01rem;\r\n    font-size: 0.3rem;\r\n}\r\n\r\n.goods-selector-increase-disable {\r\n    background-color: #f2f2f2\r\n}\r\n\r\n.goods-selector-increase-disable:before {\r\n    background-position: -.94rem -.4rem\r\n}\r\n\r\n.buy-selector-bottom{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .48rem;\r\n    left: 0;\r\n    bottom: 0;\r\n    line-height: .48rem;\r\n    font-size: .18rem;\r\n    color: #fff;\r\n    background-color: #e02e24;\r\n    text-align: center\r\n}\r\n.pin-toast-container {\r\n    display: block;\r\n    position: fixed;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    height: 300px;\r\n    height: auto;\r\n    bottom: 120px;\r\n    z-index: 999999999;\r\n    opacity: 1;\r\n}\r\n.pin-toast {\r\n    display: none;\r\n    width: 60%;\r\n    height: auto;\r\n    margin: auto;\r\n    background-color: rgba(0,0,0,.8);\r\n    color: #F0F0F0;\r\n    font-size: 16px;\r\n    padding: 10px;\r\n    text-align: center;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 24px -1px #383838;\r\n}", ""]);
+exports.push([module.i, ".goods-container{\r\n    position: relative;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    min-height: 100%;\r\n    margin: 0 auto;\r\n    padding: 0 0 .54rem;\r\n    background-color: #f2f2f2;\r\n    overflow-x: hidden;\r\n}\r\n\r\n.goods-banner:after {\r\n    position: absolute;\r\n    width: 100%;\r\n    left: 0\r\n}\r\n.goods-banner:after {\r\n    content: \"\";\r\n    display: block;\r\n    height: .06rem;\r\n    bottom: 0;\r\n    /*background-image: url(\"/assets/img/banner_shadow-6b35717b62.png\");*/\r\n    /*background-repeat: no-repeat;*/\r\n    /*background-size: contain;*/\r\n    z-index: 10001\r\n}\r\n\r\n\r\n.slider-ul,.slider-ul>li {\r\n    margin: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    list-style: none;\r\n    overflow: hidden;\r\n    padding: 0\r\n}\r\n\r\nslider-ul {\r\n    display: block;\r\n    position: relative;\r\n\r\n}\r\n\r\nslider-ul>li {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -moz-box;\r\n    display: -webkit-box;\r\n    display: box;\r\n    -webkit-box-pack: center;\r\n    box-pack: center;\r\n    -webkit-box-align: center;\r\n    box-align: center\r\n}\r\n\r\n@charset \"UTF-8\";#g-base {\r\n    position: relative\r\n}\r\n\r\n#g-base .goods-name {\r\n    word-wrap: break-word;\r\n    word-break: break-all\r\n}\r\n\r\n#g-base {\r\n    padding: .1rem;\r\n    background-color: #fff\r\n}\r\n\r\n#g-base .goods-price-group{\r\n    height: .24rem;\r\n    margin-top: .03rem;\r\n    font-size: 0;\r\n    color: #e02e24\r\n}\r\n\r\n#g-base .goods-price-group .goods-now-price{\r\n    position: relative;\r\n    display: inline-block;\r\n    height: .24rem;\r\n    line-height: .24rem;\r\n    font-size: .24rem\r\n}\r\n\r\n#g-base .goods-price-group .goods-now-price i {\r\n    font-size: .23rem;\r\n    margin: 0 -.03rem\r\n}\r\n\r\n#g-base .goods-price-group .goods-market-price,#g-base .goods-price-group .goods-sales{\r\n    height: 100%;\r\n    line-height: .24rem;\r\n    font-size: .13rem;\r\n    color: #58595b;\r\n    position: relative;\r\n    display: inline-block\r\n}\r\n\r\n\r\n#g-base .goods-price-group .goods-market-price {\r\n    margin-left: .06rem\r\n}\r\n\r\n#g-base .goods-price-group .goods-sales {\r\n    float: right;\r\n    top: .03rem\r\n}\r\n\r\n\r\n#g-base .goods-name {\r\n    margin-top: .1rem;\r\n    font-size: .14rem;\r\n    line-height: 1.4;\r\n    color: #151516;\r\n    overflow: hidden;\r\n    font-weight: 600;\r\n    text-align: justify;\r\n    letter-spacing: 1px\r\n}\r\n\r\n#g-base .goods-detail{\r\n    position: relative;\r\n    width: 100%;\r\n    margin-top: .05rem;\r\n    line-height: .2rem;\r\n    font-size: .13rem;\r\n    overflow: hidden;\r\n    color: #58595b;\r\n    text-align: justify\r\n}\r\n\r\n#g-base .goods-detail-info{\r\n    position: relative;\r\n    width: 100%;\r\n    height: auto\r\n}\r\n\r\n.goods-servers {\r\n    position: relative;\r\n    width: 100%;\r\n    padding: 0 .1rem;\r\n    background-color: #fff\r\n}\r\n\r\n.goods-servers span {\r\n    color: #58595b;\r\n    font-size: .12rem\r\n}\r\n\r\n.goods-servers .servers-list {\r\n    position: relative;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    width: 100%;\r\n    height: .41rem;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-align-items: center;\r\n    font-size: 0;\r\n    border-top: 1px solid #f2f2f2;\r\n    overflow: hidden\r\n}\r\n\r\n.goods-servers .servers-item {\r\n    position: relative;\r\n    display: inline-block;\r\n    height: .12rem;\r\n    line-height: 1;\r\n    margin: 0 .2rem 0 .16rem\r\n}\r\n\r\n.goods-servers .servers-item:before {\r\n    color: #e02e24;\r\n    position: absolute;\r\n    left: -.16rem\r\n}\r\n\r\n.goods-servers .servers-item:last-child {\r\n    margin-right: auto\r\n}\r\n\r\n.icon-gou{\r\n    color: #e02e24;\r\n    position: absolute;\r\n    left: -.16rem;\r\n    font-size: 1.15em\r\n}\r\n\r\n#local-groups {\r\n    position: relative;\r\n    max-width: 640px;\r\n    padding: 0 .1rem;\r\n    margin-top: .08rem;\r\n    background-color: #fff\r\n}\r\n\r\n#local-groups p {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .4rem;\r\n    line-height: .4rem;\r\n    color: #151516;\r\n    font-size: .14rem\r\n}\r\n\r\n.local-group-item {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .6rem;\r\n    padding: .07rem 0;\r\n    border-top: 1px solid #f2f2f2\r\n}\r\n\r\n.local-group-detail,.local-group-img {\r\n    height: .45rem;\r\n    float: left;\r\n    position: relative\r\n}\r\n\r\n.local-group-img {\r\n    display: block;\r\n    width: .45rem;\r\n    margin-right: .1rem;\r\n    border-radius: 100%\r\n}\r\n\r\n.local-group-detail {\r\n    width: 2rem;\r\n    padding: .06rem 0\r\n}\r\n\r\n\r\n.local-group-detail-name .local-group-left-num{\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    -webkit-line-clamp: 1;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden\r\n}\r\n.local-group-detail-name .local-group-name{\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    -webkit-line-clamp: 1;\r\n    -webkit-box-orient: vertical;\r\n}\r\n.local-group-detail-name {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .15rem;\r\n    line-height: 1;\r\n    font-size: 0;\r\n    padding: 0\r\n}\r\n\r\n.local-group-detail-name span {\r\n    position: relative;\r\n    display: inline-block\r\n}\r\n\r\n.local-group-detail-name .local-group-name {\r\n    float: left;\r\n    width: 100%;\r\n    font-size: .14rem;\r\n    color: #151516;\r\n    text-align: left\r\n}\r\n\r\n.local-group-detail-name .local-group-left-num {\r\n    float: right;\r\n    width: .81rem;\r\n    font-size: .12rem;\r\n    padding-top: .02rem;\r\n    color: #ff2741;\r\n    text-align: right\r\n}\r\n\r\n.local-group-detail-timer {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .12rem;\r\n    line-height: 1.2;\r\n    margin-top: .05rem;\r\n    font-size: 0;\r\n    padding: 0\r\n}\r\n\r\n.local-group-detail-timer span {\r\n    position: relative;\r\n    display: inline-block\r\n}\r\n\r\n.local-group-detail-timer .local-group-timer {\r\n    float: left;\r\n    width: 100%;\r\n    font-size: .12rem;\r\n    color: #58595b;\r\n    overflow: hidden;\r\n    text-align: left\r\n}\r\n\r\n.local-group-btn{\r\n    position: absolute;\r\n    width: .68rem;\r\n    height: .29rem;\r\n    line-height: .29rem;\r\n    color: #e02e24;\r\n    top: .15rem;\r\n    right: 0;\r\n    font-size: .14rem;\r\n    text-align: center;\r\n    border: 1px solid #ff2741;\r\n    border-radius: .03rem\r\n}\r\n\r\n.goods-bottom {\r\n    position: fixed;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    height: .54rem;\r\n    bottom: 0;\r\n    background-color: #fff;\r\n    z-index: 10001\r\n}\r\n\r\n.goods-bottom a{\r\n    position: relative;\r\n    display: block;\r\n    width: .7rem;\r\n    height: 100%;\r\n}\r\n\r\n.goods-buy span:before,.goods-chat span:before,.goods-chat-disable span:before,.goods-home span:before,.goods-like span:before,.goods-mall span:before,.goods-unlike span:before {\r\n    content: \"\";\r\n    top: -.25rem\r\n}\r\n\r\n.goods-buy span,.goods-chat span,.goods-chat-disable span,.goods-home span,.goods-like span,.goods-mall span,.goods-unlike span {\r\n    line-height: .12rem;\r\n    color: #58595b;\r\n    bottom: .08rem;\r\n    right: 0;\r\n    text-align: center;\r\n    display: block\r\n}\r\n\r\n.goods-buy, .goods-chat, .goods-chat-disable, .goods-like, .goods-unlike{\r\n    border-top: 1px solid #f2f2f2;\r\n    border-left: 1px solid #f2f2f2;\r\n}\r\n.goods-bottom .icon-kefu::before ,.goods-bottom .icon-shouye3::before{\r\n    margin-left: 0.1rem;\r\n}\r\n.goods-home{\r\n    position: relative;\r\n    width: .7rem;\r\n    height: 100%;\r\n    border-top: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-home span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-mall{\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%;\r\n    border-top: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-mall span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-like {\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-like span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-unlike {\r\n    display: none;\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-unlike span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-buy {\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-buy span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .1rem;\r\n    left: 0\r\n}\r\n\r\n.goods-chat {\r\n    position: relative;\r\n    width: .7rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-chat span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n.goods-chat-disable {\r\n    position: relative;\r\n    width: .46rem;\r\n    height: 100%\r\n}\r\n\r\n.goods-chat-disable span {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .12rem;\r\n    font-size: .11rem;\r\n    left: 0\r\n}\r\n\r\n\r\n.goods-direct,.goods-group {\r\n    height: 100%;\r\n    padding-top: .08rem;\r\n    text-align: center;\r\n    position: relative;\r\n    color: #fff\r\n}\r\n\r\n.goods-direct {\r\n    width: 1.1rem;\r\n    font-size: 0;\r\n    background-color: #f3aba7\r\n}\r\n\r\n.goods-direct span {\r\n    position: relative;\r\n    display: block;\r\n    line-height: 1;\r\n    font-size: .15rem;\r\n    color: #fff\r\n}\r\n\r\n.goods-direct .goods-price {\r\n    margin-bottom: .04rem;\r\n    font-weight: 500;\r\n    font-size: .17rem\r\n}\r\n\r\n.goods-direct .goods-price i {\r\n    margin: 0 -.02rem;\r\n    font-size: .16rem\r\n}\r\n\r\n.goods-group {\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    width: 0;\r\n    font-size: 0;\r\n    background-color: #e02e24\r\n}\r\n\r\n.goods-group span {\r\n    position: relative;\r\n    display: block;\r\n    line-height: 1;\r\n    font-size: .15rem;\r\n    color: #fff\r\n}\r\n\r\n.goods-group .goods-price {\r\n    margin-bottom: .04rem;\r\n    font-weight: 500;\r\n    font-size: .17rem\r\n}\r\n\r\n.goods-group .goods-price i {\r\n    margin: 0 -.02rem;\r\n    font-size: .16rem\r\n}\r\n\r\n.goods-bottom .icon-shouye3,.goods-bottom .icon-jushoucang,.goods-bottom .icon-kefu{\r\n    position: absolute;\r\n    display: block;\r\n    width: .22rem;\r\n    height: .2rem;\r\n    left: .12rem;\r\n    font-size: .24rem;\r\n}\r\n.goods-bottom .icon-kefu{\r\n    color: #e02e24;\r\n}\r\n\r\n\r\n/*购买选择类型等*/\r\n.buy-selector-bg{\r\n    position: fixed;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    height: 100%;\r\n    top: 0;\r\n    background: rgba(0,0,0,.7);\r\n    z-index: 20000;\r\n}\r\n\r\n.buy-selector-main{\r\n    max-width: 640px;\r\n    padding-top: .3rem;\r\n    z-index: 20001;\r\n    width: 100%\r\n}\r\n\r\n.buy-selector-main,.sku-selector-main2 {\r\n    max-width: 640px;\r\n    padding-top: .3rem;\r\n    z-index: 20001;\r\n    width: 100%\r\n}\r\n\r\n.buy-selector-main {\r\n    position: fixed;\r\n    height: 4.68rem;\r\n    bottom: 0;\r\n    -webkit-transition: bottom 150ms ease-in-out 150ms;\r\n    transition: bottom 150ms ease-in-out 150ms;\r\n    -webkit-transform: translateZ(0);\r\n    transform: translateZ(0)\r\n}\r\n\r\n.buy-selector-main-show {\r\n    bottom: 0\r\n}\r\n\r\n.buy-selector-main-focus {\r\n    position: absolute;\r\n    top: -.5rem;\r\n    height: 200%\r\n}\r\n\r\n.buy-selector-main-hide {\r\n    bottom: -4.68rem\r\n}\r\n\r\n.buy-selector-main2 {\r\n    position: fixed;\r\n    height: 70%;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    -webkit-transition: bottom 150ms ease-in-out 150ms;\r\n    transition: bottom 150ms ease-in-out 150ms;\r\n    -webkit-transform: translateZ(0);\r\n    transform: translateZ(0)\r\n}\r\n\r\n.buy-selector-main-hide2 {\r\n    bottom: -70%\r\n}\r\n\r\n.buy-selector-container{\r\n    position: relative;\r\n    height: 100%;\r\n    padding: 0 .1rem;\r\n    background-color: #fff\r\n}\r\n\r\n.goods-selector-head{\r\n    position: relative;\r\n    width: 100%;\r\n    height: .83rem;\r\n    border-bottom: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-selector-head img{\r\n    position: absolute;\r\n    height: 1.01rem;\r\n    width: 1.01rem;\r\n    top: -.3rem;\r\n    left: 0;\r\n    border: 2px solid #fff;\r\n    border-radius: .05rem;\r\n    box-shadow: 0 0 .02rem #58595b;\r\n    z-index: 1\r\n}\r\n\r\n.goods-selector-head-content{\r\n    position: relative;\r\n    height: 100%;\r\n    width: 100%;\r\n    padding: .23rem 0 0 1.11rem\r\n}\r\n\r\n.goods-selector-price {\r\n    position: relative;\r\n    width: 100%;\r\n    height: .18rem;\r\n    margin-bottom: .05rem;\r\n    line-height: 1;\r\n    font-size: .18rem;\r\n    color: #e02e24\r\n}\r\n\r\n.goods-selector-desc{\r\n    display: -webkit-box;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    font-size: .12rem;\r\n    line-height: 1;\r\n    color: #151516;\r\n    word-break: break-all;\r\n    word-wrap: break-word;\r\n    -webkit-line-clamp: 2;\r\n    -webkit-box-orient: vertical\r\n}\r\n\r\n.goods-selector-close {\r\n    position: absolute;\r\n    width: .34rem;\r\n    height: .34rem;\r\n    padding: .1rem;\r\n    top: 0;\r\n    right: -.1rem\r\n}\r\n\r\n.icon-cha:before {\r\n    position: relative;\r\n    font-size: 0.16rem;\r\n}\r\n\r\n#buy-selector-body {\r\n    position: relative;\r\n    width: 100%;\r\n    max-height: 3.08rem\r\n}\r\n\r\n#buy-selector-body.buy-selector-body2 {\r\n    position: absolute;\r\n    max-height: none;\r\n    width: auto;\r\n    top: .83rem;\r\n    left: .1rem;\r\n    right: .1rem;\r\n    bottom: .48rem\r\n}\r\n\r\n.goods-selector-number,.goods-option {\r\n    border-bottom: 1px solid #f2f2f2\r\n}\r\n\r\n.goods-option{\r\n    position: relative;\r\n    width: 100%;\r\n    padding: .06rem 0 .03rem\r\n}\r\n\r\n.goods-key{\r\n    font-size: .13rem;\r\n    color: #151516;\r\n    text-align: left\r\n}\r\n\r\n.goods-value-list{\r\n    position: relative;\r\n    width: 100%;\r\n    height: auto;\r\n    margin-top: .08rem\r\n}\r\n\r\n.goods-value-list :last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.goods-value{\r\n    position: relative;\r\n    display: inline-block;\r\n    width: auto;\r\n    height: .28rem;\r\n    padding: 0 .09rem;\r\n    margin: 0 .15rem .07rem 0;\r\n    font-size: .12rem;\r\n    color: #151516;\r\n    line-height: .28rem;\r\n    text-align: center;\r\n    background-color: #f5f5f5;\r\n    border-radius: .06rem\r\n}\r\n\r\n.goods-value-selected {\r\n    color: #fff;\r\n    background-color: #e02e24\r\n}\r\n\r\n.goods-selector-number{\r\n    position: relative;\r\n    width: 100%;\r\n    height: .56rem;\r\n    margin-bottom: .23rem;\r\n    line-height: .56rem;\r\n    font-size: 0\r\n}\r\n\r\n.goods-selector-number span{\r\n    display: inline-block;\r\n    font-size: .13rem;\r\n    color: #151516\r\n}\r\n\r\n.goods-selector-reduce{\r\n    position: absolute;\r\n    height: .25rem;\r\n    width: .31rem;\r\n    right: .82rem;\r\n    top: .15rem;\r\n    border-radius: .02rem;\r\n    background-color: #e0e0e0\r\n}\r\n\r\n\r\n.icon-jian:before{\r\n    position: absolute;\r\n    top: -0.145rem;\r\n    left: .026rem;\r\n    font-size: 0.26rem;\r\n}\r\n\r\n.goods-selector-increase,.goods-selector-input {\r\n    height: .25rem;\r\n    top: .15rem;\r\n    border-radius: .02rem;\r\n    position: absolute\r\n}\r\n\r\n.goods-selector-input,.goods-selector-reduce-disable {\r\n    background-color: #f2f2f2\r\n}\r\n\r\n.goods-selector-reduce-disable:before {\r\n    background-position: -.94rem -.65rem\r\n}\r\n\r\n.goods-selector-input {\r\n    width: .47rem;\r\n    right: .33rem;\r\n    line-height: normal;\r\n    font-size: .12rem;\r\n    margin: 0;\r\n    padding: .06px 0;\r\n    color: #151516;\r\n    text-align: center\r\n}\r\n\r\n.goods-selector-increase{\r\n    width: .31rem;\r\n    right: 0;\r\n    background-color: #e0e0e0\r\n}\r\n\r\n.icon-iconfuben13:before {\r\n    position: absolute;\r\n    top: -0.17rem;\r\n    left: .01rem;\r\n    font-size: 0.3rem;\r\n}\r\n\r\n.goods-selector-increase-disable {\r\n    background-color: #f2f2f2\r\n}\r\n\r\n.goods-selector-increase-disable:before {\r\n    background-position: -.94rem -.4rem\r\n}\r\n\r\n.buy-selector-bottom{\r\n    position: absolute;\r\n    width: 100%;\r\n    height: .48rem;\r\n    left: 0;\r\n    bottom: 0;\r\n    line-height: .48rem;\r\n    font-size: .18rem;\r\n    color: #fff;\r\n    background-color: #e02e24;\r\n    text-align: center\r\n}\r\n.pin-toast-container {\r\n    display: block;\r\n    position: fixed;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    height: 300px;\r\n    height: auto;\r\n    bottom: 120px;\r\n    z-index: 999999999;\r\n    opacity: 1;\r\n}\r\n.pin-toast {\r\n    display: none;\r\n    width: 60%;\r\n    height: auto;\r\n    margin: auto;\r\n    background-color: rgba(0,0,0,.8);\r\n    color: #F0F0F0;\r\n    font-size: 16px;\r\n    padding: 10px;\r\n    text-align: center;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 24px -1px #383838;\r\n}", ""]);
 
 // exports
 
@@ -7512,7 +7512,7 @@ exports = module.exports = __webpack_require__(22)(undefined);
 
 
 // module
-exports.push([module.i, ".group{\r\n    height:100%;\r\n}\r\n\r\n.group-detail-goods{\r\n    background-color: #fff\r\n}\r\n\r\n.group-detail-goods-info-wrapper {\r\n    padding: .1rem;\r\n    overflow: hidden\r\n}\r\n\r\n.group-detail-goods-img {\r\n    width: 1.28rem;\r\n    height: 1.28rem;\r\n    float: left\r\n}\r\n\r\n.group-detail-goods-info {\r\n    position: relative;\r\n    float: right;\r\n    margin-left: .12rem;\r\n    width: 2.08rem;\r\n    height: 1.28rem;\r\n    color: #9c9c9c;\r\n    font-size: .11rem\r\n}\r\n\r\n.group-detail-goods-group-info {\r\n    height: .25rem;\r\n    line-height: .25rem;\r\n    font-size: 12px;\r\n    color: #9c9c9c;\r\n    margin-top: .02rem;\r\n}\r\n\r\n.group-detail-goods-sales-info {\r\n    position: absolute;\r\n    bottom: .2rem;\r\n    left: 0;\r\n    font-size: .12rem\r\n}\r\n\r\n.group-detail-goods-group-info {\r\n    height: .25rem;\r\n    line-height: .25rem;\r\n    font-size: 12px;\r\n    color: #9c9c9c;\r\n    margin-top: .02rem\r\n}\r\n\r\n.group-detail-goods-group-info>span {\r\n    margin-right: .13rem\r\n}\r\n\r\n.group-detail-goods-group-info>span:last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-goods-price-info {\r\n    position: absolute;\r\n    bottom: -.02rem;\r\n    left: 0;\r\n    font-size: .12rem;\r\n    height: .4rem;\r\n    line-height: .6rem;\r\n    overflow: hidden;\r\n    color: #e02e24\r\n}\r\n\r\n.group-detail-goods-price-info .group-member-num {\r\n    display: inline-block;\r\n    margin-right: .07rem\r\n}\r\n\r\n.group-detail-goods-price-info .group-price-gap {\r\n    color: #9c9c9c;\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-goods-price-info .price {\r\n    display: inline-block;\r\n    letter-spacing: 0\r\n}\r\n\r\n.group-detail-goods-price-info .price .unit {\r\n    margin-right: -1px;\r\n    font-size: .18rem;\r\n    margin-left: -.04rem\r\n}\r\n\r\n.group-detail-goods-price-info .price .num {\r\n    font-size: .19rem;\r\n    margin-right: .08rem\r\n}\r\n\r\n.group-detail-goods-title {\r\n    line-height: .19rem;\r\n    max-height: .57rem;\r\n    overflow: hidden;\r\n    color: #333;\r\n    font-size: .13rem\r\n}\r\n\r\n.group .goods-servers{\r\n background-color: #fafafa\r\n}\r\n\r\n.group-detail-notice {\r\n    margin-top: .08rem;\r\n    padding: 0 .1rem;\r\n    background-color: #fff;\r\n    color: #333;\r\n    font-size: .12rem;\r\n    overflow: hidden;\r\n    height: .67rem\r\n}\r\n\r\n.group-detail-notice-container {\r\n    position: relative\r\n}\r\n\r\n.group-detail-notice .title {\r\n    font-size: .15rem;\r\n    padding-top: .12rem;\r\n    height: .38rem\r\n}\r\n\r\n.group-detail-notice .title .lottery-rule-title {\r\n    float: right;\r\n    font-size: .12rem;\r\n    color: #9c9c9c\r\n}\r\n\r\n.group-detail-notice-content-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex\r\n}\r\n\r\n.group-detail-notice-content-container.has-lottery .content:first-child,.group-detail-notice-content-container.has-lottery .content:last-child {\r\n    text-align: center\r\n}\r\n\r\n.group-detail-notice .content {\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    position: relative;\r\n    color: #9c9c9c;\r\n    text-align: center\r\n}\r\n\r\n.group-detail-notice .content:first-child {\r\n    text-align: left\r\n}\r\n\r\n.group-detail-notice .content:last-child {\r\n    text-align: right\r\n}\r\n\r\n.group-detail-notice .content.lottery {\r\n    -webkit-box-flex: .6;\r\n    -ms-flex: .6;\r\n    flex: .6\r\n}\r\n\r\n.group-detail-notice .content .icon {\r\n    display: inline-block;\r\n    position: relative;\r\n    font-family: PingFangSC-Regular\r\n}\r\n\r\n.group-detail-notice .content .icon:before {\r\n    position: relative;\r\n    top: -.03rem;\r\n    width: 3px;\r\n    height: 3px;\r\n    border-radius: 50%;\r\n    content: '';\r\n    display: inline-block;\r\n    background-color: #9c9c9c;\r\n    margin-right: .06rem\r\n}\r\n\r\n.group-detail-success .group-success-buy .group-detail-buy-btn,.group-detail-success .group-success-buy .group-detail-main-btn {\r\n    position: relative;\r\n    margin: 0 .2rem;\r\n    height: .45rem;\r\n    line-height: .45rem;\r\n    background-color: #e02e24;\r\n    color: #fff;\r\n    font-size: .17rem;\r\n    border-radius: .04rem;\r\n    text-align: center\r\n}\r\n\r\n.group-detail-success .group-success-buy .group-detail-buy-btn:after {\r\n    content: '';\r\n    width: 3.55rem;\r\n    height: 1px;\r\n    background-color: #ededed;\r\n    position: absolute;\r\n    bottom: -.15rem;\r\n    left: -.1rem\r\n}\r\n\r\n.group-detail-buy-btn {\r\n    height: .44rem;\r\n    background-color: #e02e24;\r\n    color: #fff;\r\n    font-size: .17rem;\r\n    line-height: .43rem;\r\n    border-radius: .07rem;\r\n    text-align: center;\r\n    margin-top: .13rem\r\n}\r\n\r\n.group-detail-buy {\r\n    background-color: #fff;\r\n    padding: .04rem .1rem .12rem\r\n}\r\n\r\n.group-detail-buy-tip {\r\n    font-size: .16rem;\r\n    color: #151516;\r\n    overflow: hidden;\r\n    text-align: center;\r\n    font-weight: 700\r\n}\r\n\r\n.group-detail-buy-tip .tip-text {\r\n    position: relative;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-weight: 400;\r\n    font-family: Helvetica\r\n}\r\n\r\n.group-detail-buy-tip .tip-text:before {\r\n    content: \"\\E622\";\r\n    font-size: .18rem;\r\n    color: #ffc32a;\r\n    font-family: icomoon;\r\n    line-height: 1;\r\n    font-weight: 400;\r\n    -webkit-font-smoothing: antialiased;\r\n    padding-right: .09rem\r\n}\r\n\r\n.group-detail-buy-tip .tip-text .left-user-num {\r\n    color: #e02e24;\r\n    padding: 0 .02rem;\r\n    position: relative\r\n}\r\n\r\n.group-detail-buy-tip .time {\r\n    font-weight: 700\r\n}\r\n\r\n.group-detail-buy-tip .time-num {\r\n    overflow: hidden;\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: left\r\n}\r\n\r\n.group-detail-buy-tip .time-tip {\r\n    font-weight: 400;\r\n    margin-left: .01rem\r\n}\r\n\r\n.group-detail-buy.failed .group-detail-buy-tip {\r\n    color: #ee2e3a\r\n}\r\n\r\n.group-detail-buy.failed .group-detail-buy-tip .tip-text:before {\r\n    content: \"\\E620\";\r\n    color: #e02e24;\r\n    font-family: icomoon;\r\n    line-height: 1;\r\n    font-weight: 400;\r\n    -webkit-font-smoothing: antialiased\r\n}\r\n\r\n.group-detail-buy.ongoing .group-detail-buy-tip .tip-text:before {\r\n    display: none\r\n}\r\n\r\n.group-detail-users {\r\n    padding: .15rem .1rem .05rem;\r\n    text-align: center;\r\n    background-color: #fff\r\n}\r\n\r\n.group-detail-users.list {\r\n    padding: 0;\r\n    height: .45rem;\r\n    line-height: .45rem;\r\n    border-bottom: none;\r\n    margin-top: 0;\r\n    text-align: right\r\n}\r\n\r\n.group-detail-users.list .group-detail-user {\r\n    width: 35px;\r\n    height: 35px;\r\n    margin-right: 4px;\r\n    vertical-align: middle;\r\n    border-radius: 100%;\r\n    float: none;\r\n    display: inline-block;\r\n    border: none\r\n}\r\n\r\n.group-detail-users.list .group-detail-user:first-child {\r\n    border: none\r\n}\r\n\r\n.group-detail-users.list .group-detail-user:last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-users.list .group-detail-user .leader {\r\n    display: none\r\n}\r\n\r\n.group-detail-users.list .group-detail-user .dots {\r\n    width: 35px;\r\n    height: 35px;\r\n    line-height: 32px\r\n}\r\n\r\n.group-detail-users.list .group-detail-user .dot {\r\n    width: 3px;\r\n    height: 3px;\r\n    margin-right: 2px\r\n}\r\n\r\n.group-detail-user {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    position: relative;\r\n    width: .49rem;\r\n    height: .49rem;\r\n    border-radius: .245rem;\r\n    margin-right: .12rem;\r\n    border: 1px solid #e5e5e5\r\n}\r\n\r\n.group-detail-user:first-child {\r\n    border: 1px solid #ffc32a\r\n}\r\n\r\n.group-detail-user:last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-user .leader {\r\n    width: .3rem\r\n}\r\n\r\n.group-detail-user.left-user {\r\n    background: url(\"http://localhost/my-pink-hat/images/wenhao.png\");\r\n    background-size: 100% 100%;\r\n    border: 1px dashed #bcbcbc;\r\n    color: #333;\r\n}\r\n\r\n.group-detail-user .leader {\r\n    width: .3rem;\r\n}\r\n.group-detail-user .leader, .sup-icon {\r\n    position: absolute;\r\n    left: -.02rem;\r\n    top: -.05rem;\r\n    width: .38rem;\r\n    height: .18rem;\r\n    font-size: .11rem;\r\n    line-height: .17rem;\r\n    text-align: center;\r\n    background-color: #ffab33;\r\n    border: 1px solid #fff;\r\n    border-radius: 12px;\r\n    color: #9f7200;\r\n}\r\n.group-detail-user{\r\n    background: url(\"http://localhost/my-pink-hat/images/hhmmd.jpg\") 0% 0% / 100% 100%;\r\n}", ""]);
+exports.push([module.i, ".group{\r\n    height:100%;\r\n}\r\n\r\n.group-detail-goods{\r\n    background-color: #fff\r\n}\r\n\r\n.group-detail-goods-info-wrapper {\r\n    padding: .1rem;\r\n    overflow: hidden\r\n}\r\n\r\n.group-detail-goods-img {\r\n    width: 1.28rem;\r\n    height: 1.28rem;\r\n    float: left\r\n}\r\n\r\n.group-detail-goods-info {\r\n    position: relative;\r\n    float: right;\r\n    margin-left: .12rem;\r\n    width: 2.08rem;\r\n    height: 1.28rem;\r\n    color: #9c9c9c;\r\n    font-size: .11rem\r\n}\r\n\r\n.group-detail-goods-group-info {\r\n    height: .25rem;\r\n    line-height: .25rem;\r\n    font-size: 12px;\r\n    color: #9c9c9c;\r\n    margin-top: .02rem;\r\n}\r\n\r\n.group-detail-goods-sales-info {\r\n    position: absolute;\r\n    bottom: .2rem;\r\n    left: 0;\r\n    font-size: .12rem\r\n}\r\n\r\n.group-detail-goods-group-info {\r\n    height: .25rem;\r\n    line-height: .25rem;\r\n    font-size: 12px;\r\n    color: #9c9c9c;\r\n    margin-top: .02rem\r\n}\r\n\r\n.group-detail-goods-group-info>span {\r\n    margin-right: .13rem\r\n}\r\n\r\n.group-detail-goods-group-info>span:last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-goods-price-info {\r\n    position: absolute;\r\n    bottom: -.02rem;\r\n    left: 0;\r\n    font-size: .12rem;\r\n    height: .4rem;\r\n    line-height: .6rem;\r\n    overflow: hidden;\r\n    color: #e02e24\r\n}\r\n\r\n.group-detail-goods-price-info .group-member-num {\r\n    display: inline-block;\r\n    margin-right: .07rem\r\n}\r\n\r\n.group-detail-goods-price-info .group-price-gap {\r\n    color: #9c9c9c;\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-goods-price-info .price {\r\n    display: inline-block;\r\n    letter-spacing: 0\r\n}\r\n\r\n.group-detail-goods-price-info .price .unit {\r\n    margin-right: -1px;\r\n    font-size: .18rem;\r\n    margin-left: -.04rem\r\n}\r\n\r\n.group-detail-goods-price-info .price .num {\r\n    font-size: .19rem;\r\n    margin-right: .08rem\r\n}\r\n\r\n.group-detail-goods-title {\r\n    line-height: .19rem;\r\n    max-height: .57rem;\r\n    overflow: hidden;\r\n    color: #333;\r\n    font-size: .13rem;\r\n    text-overflow: ellipsis;\r\n    display: -webkit-box;\r\n    -webkit-line-clamp: 3;\r\n    -webkit-box-orient: vertical;\r\n}\r\n\r\n.group .goods-servers{\r\n background-color: #fafafa\r\n}\r\n\r\n.group-detail-notice {\r\n    margin-top: .08rem;\r\n    padding: 0 .1rem;\r\n    background-color: #fff;\r\n    color: #333;\r\n    font-size: .12rem;\r\n    overflow: hidden;\r\n    height: .67rem\r\n}\r\n\r\n.group-detail-notice-container {\r\n    position: relative\r\n}\r\n\r\n.group-detail-notice .title {\r\n    font-size: .15rem;\r\n    padding-top: .12rem;\r\n    height: .38rem\r\n}\r\n\r\n.group-detail-notice .title .lottery-rule-title {\r\n    float: right;\r\n    font-size: .12rem;\r\n    color: #9c9c9c\r\n}\r\n\r\n.group-detail-notice-content-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex\r\n}\r\n\r\n.group-detail-notice-content-container.has-lottery .content:first-child,.group-detail-notice-content-container.has-lottery .content:last-child {\r\n    text-align: center\r\n}\r\n\r\n.group-detail-notice .content {\r\n    -webkit-box-flex: 1;\r\n    -ms-flex: 1;\r\n    flex: 1;\r\n    position: relative;\r\n    color: #9c9c9c;\r\n    text-align: center\r\n}\r\n\r\n.group-detail-notice .content:first-child {\r\n    text-align: left\r\n}\r\n\r\n.group-detail-notice .content:last-child {\r\n    text-align: right\r\n}\r\n\r\n.group-detail-notice .content.lottery {\r\n    -webkit-box-flex: .6;\r\n    -ms-flex: .6;\r\n    flex: .6\r\n}\r\n\r\n.group-detail-notice .content .icon {\r\n    display: inline-block;\r\n    position: relative;\r\n    font-family: PingFangSC-Regular\r\n}\r\n\r\n.group-detail-notice .content .icon:before {\r\n    position: relative;\r\n    top: -.03rem;\r\n    width: 3px;\r\n    height: 3px;\r\n    border-radius: 50%;\r\n    content: '';\r\n    display: inline-block;\r\n    background-color: #9c9c9c;\r\n    margin-right: .06rem\r\n}\r\n\r\n.group-detail-success .group-success-buy .group-detail-buy-btn,.group-detail-success .group-success-buy .group-detail-main-btn {\r\n    position: relative;\r\n    margin: 0 .2rem;\r\n    height: .45rem;\r\n    line-height: .45rem;\r\n    background-color: #e02e24;\r\n    color: #fff;\r\n    font-size: .17rem;\r\n    border-radius: .04rem;\r\n    text-align: center\r\n}\r\n\r\n.group-detail-success .group-success-buy .group-detail-buy-btn:after {\r\n    content: '';\r\n    width: 3.55rem;\r\n    height: 1px;\r\n    background-color: #ededed;\r\n    position: absolute;\r\n    bottom: -.15rem;\r\n    left: -.1rem\r\n}\r\n\r\n.group-detail-buy-btn {\r\n    height: .44rem;\r\n    background-color: #e02e24;\r\n    color: #fff;\r\n    font-size: .17rem;\r\n    line-height: .43rem;\r\n    border-radius: .07rem;\r\n    text-align: center;\r\n    margin-top: .13rem\r\n}\r\n\r\n.group-detail-buy {\r\n    background-color: #fff;\r\n    padding: .04rem .1rem .12rem\r\n}\r\n\r\n.group-detail-buy-tip {\r\n    font-size: .16rem;\r\n    color: #151516;\r\n    overflow: hidden;\r\n    text-align: center;\r\n    font-weight: 700\r\n}\r\n\r\n.group-detail-buy-tip .tip-text {\r\n    position: relative;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-weight: 400;\r\n    font-family: Helvetica\r\n}\r\n\r\n.group-detail-buy-tip .tip-text:before {\r\n    content: \"\\E622\";\r\n    font-size: .18rem;\r\n    color: #ffc32a;\r\n    font-family: icomoon;\r\n    line-height: 1;\r\n    font-weight: 400;\r\n    -webkit-font-smoothing: antialiased;\r\n    padding-right: .09rem\r\n}\r\n\r\n.group-detail-buy-tip .tip-text .left-user-num {\r\n    color: #e02e24;\r\n    padding: 0 .02rem;\r\n    position: relative\r\n}\r\n\r\n.group-detail-buy-tip .time {\r\n    font-weight: 700\r\n}\r\n\r\n.group-detail-buy-tip .time-num {\r\n    overflow: hidden;\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    text-align: left\r\n}\r\n\r\n.group-detail-buy-tip .time-tip {\r\n    font-weight: 400;\r\n    margin-left: .01rem\r\n}\r\n\r\n.group-detail-buy.failed .group-detail-buy-tip {\r\n    color: #ee2e3a\r\n}\r\n\r\n.group-detail-buy.failed .group-detail-buy-tip .tip-text:before {\r\n    content: \"\\E620\";\r\n    color: #e02e24;\r\n    font-family: icomoon;\r\n    line-height: 1;\r\n    font-weight: 400;\r\n    -webkit-font-smoothing: antialiased\r\n}\r\n\r\n.group-detail-buy.ongoing .group-detail-buy-tip .tip-text:before {\r\n    display: none\r\n}\r\n\r\n.group-detail-users {\r\n    padding: .15rem .1rem .05rem;\r\n    text-align: center;\r\n    background-color: #fff\r\n}\r\n\r\n.group-detail-users.list {\r\n    padding: 0;\r\n    height: .45rem;\r\n    line-height: .45rem;\r\n    border-bottom: none;\r\n    margin-top: 0;\r\n    text-align: right\r\n}\r\n\r\n.group-detail-users.list .group-detail-user {\r\n    width: 35px;\r\n    height: 35px;\r\n    margin-right: 4px;\r\n    vertical-align: middle;\r\n    border-radius: 100%;\r\n    float: none;\r\n    display: inline-block;\r\n    border: none\r\n}\r\n\r\n.group-detail-users.list .group-detail-user:first-child {\r\n    border: none\r\n}\r\n\r\n.group-detail-users.list .group-detail-user:last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-users.list .group-detail-user .leader {\r\n    display: none\r\n}\r\n\r\n.group-detail-users.list .group-detail-user .dots {\r\n    width: 35px;\r\n    height: 35px;\r\n    line-height: 32px\r\n}\r\n\r\n.group-detail-users.list .group-detail-user .dot {\r\n    width: 3px;\r\n    height: 3px;\r\n    margin-right: 2px\r\n}\r\n\r\n.group-detail-user {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    position: relative;\r\n    width: .49rem;\r\n    height: .49rem;\r\n    border-radius: .245rem;\r\n    margin-right: .12rem;\r\n    border: 1px solid #e5e5e5\r\n}\r\n\r\n.group-detail-user:first-child {\r\n    border: 1px solid #ffc32a\r\n}\r\n\r\n.group-detail-user:last-child {\r\n    margin-right: 0\r\n}\r\n\r\n.group-detail-user .leader {\r\n    width: .3rem\r\n}\r\n\r\n.group-detail-user.left-user {\r\n    border: 1px dashed #bcbcbc;\r\n    color: #333;\r\n}\r\n\r\n.group-detail-user .leader {\r\n    width: .3rem;\r\n}\r\n.group-detail-user .leader, .sup-icon {\r\n    position: absolute;\r\n    left: -.02rem;\r\n    top: -.05rem;\r\n    width: .38rem;\r\n    height: .18rem;\r\n    font-size: .11rem;\r\n    line-height: .17rem;\r\n    text-align: center;\r\n    background-color: #ffab33;\r\n    border: 1px solid #fff;\r\n    border-radius: 12px;\r\n    color: #9f7200;\r\n}\r\n\r\n.left-user .icon-yw:before {\r\n    content: \"\\E606\";\r\n    position: absolute;\r\n    font-size: 0.4rem;\r\n    margin-left: 0.04rem;\r\n    margin-top: -0.05rem;\r\n    color: #cacaca;\r\n}\r\n", ""]);
 
 // exports
 
@@ -7526,7 +7526,7 @@ exports = module.exports = __webpack_require__(22)(undefined);
 
 
 // module
-exports.push([module.i, ".ns-container {\r\n    max-width: 640px;\r\n    position: fixed;\r\n    height: .41rem;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 10001;\r\n    background: #fff;\r\n    overflow: hidden\r\n}\r\n\r\n.ns-container .ns-edge{\r\n    position: absolute;\r\n    display: block;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 10008;\r\n    width: 100%;\r\n    background-color: #fff;\r\n    height: .41rem;\r\n    border-bottom: 1px solid #E5E5E5;\r\n}\r\n.ns-container .ns-content{\r\n    position: relative;\r\n    height: .51rem;\r\n    font-size: .14rem;\r\n    color: #333;\r\n   /* text-align: center;*/\r\n    top: 0;\r\n    white-space: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    padding: 0 .16rem;\r\n    z-index: 10010;\r\n}\r\n\r\n.ns-container .ns-tab-item {\r\n    height: .41rem;\r\n    display: inline-block;\r\n    margin-left: .2rem;\r\n    line-height: .41rem;\r\n    text-align: center\r\n}\r\n\r\n.ns-container .cur-tab {\r\n    border-bottom: 2px solid #e02e24;\r\n    color: #e02e24;\r\n    height: .41rem;\r\n    display: inline-block;\r\n    position: relative\r\n}\r\n\r\n.ns-container li:first-child {\r\n    margin-left: 0!important\r\n}\r\n\r\n#mainIndex {\r\n    padding-top: .41rem\r\n}\r\n\r\n#indexRecommend{\r\n    display: block;\r\n}\r\n\r\n#sliding {\r\n    position: relative;\r\n    width: 100%;\r\n    display: block;\r\n    overflow-y: hidden;\r\n    height: 1.4rem;\r\n}\r\n\r\n#sliding .slider-outer {\r\n    background-color: #fff\r\n}\r\n\r\n#sliding .slider-outer li {\r\n    background-size: cover;\r\n    overflow-y: hidden\r\n}\r\n\r\n.slider-outer,.slider-outer>li {\r\n    margin: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    list-style: none;\r\n    overflow: hidden;\r\n    padding: 0\r\n}\r\n\r\n.slider-outer {\r\n    display: block;\r\n    position: relative\r\n}\r\n\r\n.slider-outer>li {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -moz-box;\r\n    display: -webkit-box;\r\n    display: box;\r\n    -webkit-box-pack: center;\r\n    box-pack: center;\r\n    -webkit-box-align: center;\r\n    box-align: center;\r\n}\r\n\r\n#sliding .slider-outer .slider-active{\r\n    transform: translateZ(0px) translateX(0px);\r\n    overflow: auto;\r\n    transition: -webkit-transform 600ms ease;\r\n}\r\n\r\n#sliding .slider-outer .slider-prev{\r\n    transform: translateZ(0px) translateX(-640px);\r\n    overflow: auto;\r\n    transition: -webkit-transform 600ms ease;\r\n}\r\n\r\n#sliding .slider-outer .slider-next{\r\n    transform: translateZ(0px) translateX(640px);\r\n    overflow: auto;\r\n    transition: -webkit-transform 600ms ease;\r\n}\r\n.slider-dot-wrap{\r\n    height: 6px;\r\n    margin: 0;\r\n    padding: 0 .16rem 0 0;\r\n    bottom: 10px;\r\n    z-index: 10000;\r\n    text-align: right\r\n}\r\n\r\n.slider-btn-inner,.slider-dot-wrap,.slider-dot-wrap {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0\r\n}\r\n\r\n.slider-dot {\r\n    width: 6px;\r\n    height: 6px;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    margin: 0 0 .06rem .06rem\r\n}\r\n\r\n.slider-dot.active {\r\n    background-color: #e02e24\r\n}\r\n\r\n.slider-dot {\r\n    display: inline-block;\r\n    list-style: none;\r\n}\r\n\r\n#goods-list,#goods_list {\r\n    margin-top: .08rem\r\n}\r\n\r\n#goods_list .list-wrapper{\r\n    position: relative;\r\n    width: 100%;\r\n    overflow: hidden;\r\n    line-height: 1\r\n}\r\n\r\n#goods_list .list-wrapper>div:nth-last-child(3)>.gc-item {\r\n    margin-bottom: 0\r\n}\r\n\r\n#goods_list .list-item{\r\n    background-color: #fff;\r\n    position: relative;\r\n    width: 100%;\r\n    margin-bottom: .08rem\r\n}\r\n\r\n#goods_list .list-item .goods-name{\r\n    font-size: .15rem;\r\n    color: #151516;\r\n    height: .35rem;\r\n    line-height: .18rem;\r\n    vertical-align: middle;\r\n    padding: 0 .1rem;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    display: -webkit-box;\r\n    -webkit-line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n\r\n}\r\n\r\n.goods-name {\r\n    color: #a4a5a7\r\n}\r\n\r\n#goods_list .list-item .goods-name,#g-base .goods-name {\r\n    word-break: break-all;\r\n    white-space: normal;\r\n    text-align: left;\r\n    text-overflow: clip;\r\n    word-wrap: break-word;\r\n    -webkit-box-orient: vertical\r\n}\r\n\r\n#goods_list .list-item .detail{\r\n    position: relative;\r\n    height: .61rem;\r\n    padding: 0 .1rem .01rem;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    -webkit-box-pack: justify;\r\n    -ms-flex-pack: justify;\r\n    justify-content: space-between;\r\n    -webkit-justify-content: space-between;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-align-items: center\r\n}\r\n\r\n#goods_list .list-item .detail .left-side{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    -webkit-box-pack: start;\r\n    -ms-flex-pack: start;\r\n    justify-content: flex-start;\r\n    -webkit-justify-content: flex-start;\r\n    -webkit-box-align: end;\r\n    -ms-flex-align: end;\r\n    align-items: flex-end;\r\n    -webkit-align-items: flex-end\r\n}\r\n\r\n#goods_list .list-item .detail .sale-price{\r\n    font-size: .2rem;\r\n    color: #e02e24;\r\n    margin-right: .06rem;\r\n    font-weight: 700\r\n}\r\n\r\n#goods_list .list-item .detail .sale-price i{\r\n    font-size: .19rem\r\n}\r\n\r\n#goods_list .list-item .detail  .group-buy{\r\n    font-size: .12rem;\r\n    color: #9c9c9c;\r\n    padding-bottom: .015rem\r\n}\r\n\r\n#goods_list .list-item .detail .right-side{\r\n    position: relative;\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    -webkit-box-pack: end;\r\n    -ms-flex-pack: end;\r\n    justify-content: flex-end;\r\n    -webkit-justify-content: flex-end;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-align-items: center\r\n}\r\n\r\n#goods_list .list-item .detail .right-side .enter-button{\r\n    position: relative;\r\n    width: 1.02rem;\r\n    height: .34rem;\r\n    line-height: .35rem;\r\n    text-align: center;\r\n    border-radius: 4px;\r\n    font-size: .14rem;\r\n    color: #fff;\r\n    background-color: #e02e24;\r\n    vertical-align: middle;\r\n}\r\n\r\n#goods_list .list-item .detail .right-side .enter-button a{\r\n    font-size: .14rem;\r\n    color: #fff;\r\n}\r\n\r\n#goods_list  .detail .right-side .icon-jiantouyou{\r\n    display: block;\r\n    position: absolute;\r\n    line-height: .35rem;\r\n    font-size: 0.18rem;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    top: 0.02rem;\r\n    right: 0.14rem;\r\n\r\n}\r\n\r\n.footer {\r\n    z-index: 10000!important;\r\n}\r\n\r\n.footer {\r\n    width: 100%;\r\n    max-width: 640px;\r\n    position: fixed;\r\n    bottom: 0;\r\n    left: 50%;\r\n    transform: translate3d(-50%,0,0);\r\n    -webkit-transform: translate3d(-50%,0,0);\r\n    background-color: #fff;\r\n    z-index: 10000!important\r\n}\r\n\r\n.footer:before {\r\n    position: absolute;\r\n    content: \"\";\r\n    width: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    height: 1px;\r\n    background-color: #e0e0e0;\r\n    -webkit-transform: scale(1,.5);\r\n    transform: scale(1,.5);\r\n    -webkit-transform-origin: center bottom;\r\n    transform-origin: center bottom\r\n}\r\n\r\n.footer li {\r\n    float: left;\r\n    width: 50%;\r\n    text-align: center;\r\n    margin: auto;\r\n    height: 100%;\r\n    border-right: 1px solid #E5E5E5;\r\n}\r\n\r\n.footer span {\r\n    color: #777;\r\n    font-size: 10px\r\n}\r\n\r\n.footer span.active {\r\n    color: #df2127\r\n}\r\n\r\n.footer .nav-controller {\r\n    position: relative;\r\n    height: 100%;\r\n    display: block\r\n}\r\n\r\n.footer .nav-controller i {\r\n    display: block;\r\n    font-size: 1.5em;\r\n}\r\n\r\n#goods_list .list-bottom {\r\n    height: 300%;\r\n    position: relative;\r\n    text-align: center;\r\n    margin-bottom: 50px;\r\n    font-size: 0.1rem;\r\n    color: #9c9c9c;\r\n\r\n}\r\n\r\n.footer .icon-shouye3:before{\r\n    font-size: 0.2rem;\r\n    margin-bottom: -0.04rem;\r\n    display: block;\r\n}\r\n\r\n.footer .icon-gerenzhongxin:before{\r\n    font-size: 0.2rem;\r\n    margin-bottom: -0.04rem;\r\n    display: block;\r\n}\r\n\r\n.list-item .goods-image{\r\n    position: relative;\r\n    width: 100%;\r\n    height: 1.76rem;\r\n    overflow: hidden;\r\n    margin-bottom: .12rem;\r\n}", ""]);
+exports.push([module.i, ".ns-container {\r\n    max-width: 640px;\r\n    position: fixed;\r\n    height: .41rem;\r\n    top: 0;\r\n    width: 100%;\r\n    z-index: 10001;\r\n    background: #fff;\r\n    overflow: hidden\r\n}\r\n\r\n.ns-container .ns-edge{\r\n    position: absolute;\r\n    display: block;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 10008;\r\n    width: 100%;\r\n    background-color: #fff;\r\n    height: .41rem;\r\n    border-bottom: 1px solid #E5E5E5;\r\n}\r\n.ns-container .ns-content{\r\n    position: relative;\r\n    height: .51rem;\r\n    font-size: .14rem;\r\n    color: #333;\r\n   /* text-align: center;*/\r\n    top: 0;\r\n    white-space: nowrap;\r\n    overflow-x: auto;\r\n    overflow-y: hidden;\r\n    padding: 0 .16rem;\r\n    z-index: 10010;\r\n}\r\n\r\n.ns-container .ns-tab-item {\r\n    height: .41rem;\r\n    display: inline-block;\r\n    margin-left: .2rem;\r\n    line-height: .41rem;\r\n    text-align: center\r\n}\r\n\r\n.ns-container .cur-tab {\r\n    border-bottom: 2px solid #e02e24;\r\n    color: #e02e24;\r\n    height: .41rem;\r\n    display: inline-block;\r\n    position: relative\r\n}\r\n\r\n.ns-container li:first-child {\r\n    margin-left: 0!important\r\n}\r\n\r\n#mainIndex {\r\n    padding-top: .41rem\r\n}\r\n\r\n#indexRecommend{\r\n    display: block;\r\n}\r\n\r\n#sliding {\r\n    position: relative;\r\n    width: 100%;\r\n    display: block;\r\n    overflow-y: hidden;\r\n    height: 1.4rem;\r\n}\r\n\r\n#sliding .slider-outer {\r\n    background-color: #fff\r\n}\r\n\r\n#sliding .slider-outer li {\r\n    background-size: cover;\r\n    overflow-y: hidden\r\n}\r\n\r\n.slider-outer,.slider-outer>li {\r\n    margin: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    list-style: none;\r\n    overflow: hidden;\r\n    padding: 0\r\n}\r\n\r\n.slider-outer {\r\n    display: block;\r\n    position: relative\r\n}\r\n\r\n.slider-outer>li {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -moz-box;\r\n    display: -webkit-box;\r\n    display: box;\r\n    -webkit-box-pack: center;\r\n    box-pack: center;\r\n    -webkit-box-align: center;\r\n    box-align: center;\r\n}\r\n\r\n#sliding .slider-outer .slider-active{\r\n    transform: translateZ(0px) translateX(0px);\r\n    overflow: auto;\r\n    transition: -webkit-transform 600ms ease;\r\n}\r\n\r\n#sliding .slider-outer .slider-prev{\r\n    transform: translateZ(0px) translateX(-640px);\r\n    overflow: auto;\r\n    transition: -webkit-transform 600ms ease;\r\n}\r\n\r\n#sliding .slider-outer .slider-next{\r\n    transform: translateZ(0px) translateX(640px);\r\n    overflow: auto;\r\n    transition: -webkit-transform 600ms ease;\r\n}\r\n.slider-dot-wrap{\r\n    height: 6px;\r\n    margin: 0;\r\n    padding: 0 .16rem 0 0;\r\n    bottom: 10px;\r\n    z-index: 10000;\r\n    text-align: right\r\n}\r\n\r\n.slider-btn-inner,.slider-dot-wrap,.slider-dot-wrap {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0\r\n}\r\n\r\n.slider-dot {\r\n    width: 6px;\r\n    height: 6px;\r\n    border-radius: 50%;\r\n    background: #fff;\r\n    margin: 0 0 .06rem .06rem\r\n}\r\n\r\n.slider-dot.active {\r\n    background-color: #e02e24\r\n}\r\n\r\n.slider-dot {\r\n    display: inline-block;\r\n    list-style: none;\r\n}\r\n\r\n#goods-list,#goods_list {\r\n    margin-top: .08rem\r\n}\r\n\r\n#goods_list .list-wrapper{\r\n    position: relative;\r\n    width: 100%;\r\n    overflow: hidden;\r\n    line-height: 1\r\n}\r\n\r\n#goods_list .list-wrapper>div:nth-last-child(3)>.gc-item {\r\n    margin-bottom: 0\r\n}\r\n\r\n#goods_list .list-item{\r\n    background-color: #fff;\r\n    position: relative;\r\n    width: 100%;\r\n    margin-bottom: .08rem\r\n}\r\n\r\n#goods_list .list-item .goods-name{\r\n    font-size: .15rem;\r\n    color: #151516;\r\n    height: .35rem;\r\n    line-height: .18rem;\r\n    vertical-align: middle;\r\n    padding: 0 .1rem;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    display: -webkit-box;\r\n    -webkit-line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n\r\n}\r\n\r\n.goods-name {\r\n    color: #a4a5a7\r\n}\r\n\r\n#goods_list .list-item .goods-name,#g-base .goods-name {\r\n    word-break: break-all;\r\n    white-space: normal;\r\n    text-align: left;\r\n    text-overflow: clip;\r\n    word-wrap: break-word;\r\n    -webkit-box-orient: vertical\r\n}\r\n\r\n#goods_list .list-item .detail{\r\n    position: relative;\r\n    height: .61rem;\r\n    padding: 0 .1rem .01rem;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    -webkit-box-pack: justify;\r\n    -ms-flex-pack: justify;\r\n    justify-content: space-between;\r\n    -webkit-justify-content: space-between;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-align-items: center\r\n}\r\n\r\n#goods_list .list-item .detail .left-side{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    -webkit-box-pack: start;\r\n    -ms-flex-pack: start;\r\n    justify-content: flex-start;\r\n    -webkit-justify-content: flex-start;\r\n    -webkit-box-align: end;\r\n    -ms-flex-align: end;\r\n    align-items: flex-end;\r\n    -webkit-align-items: flex-end\r\n}\r\n\r\n#goods_list .list-item .detail .sale-price{\r\n    font-size: .2rem;\r\n    color: #e02e24;\r\n    margin-right: .06rem;\r\n    font-weight: 700\r\n}\r\n\r\n#goods_list .list-item .detail .sale-price i{\r\n    font-size: .19rem\r\n}\r\n\r\n#goods_list .list-item .detail  .group-buy{\r\n    font-size: .12rem;\r\n    color: #9c9c9c;\r\n    padding-bottom: .015rem\r\n}\r\n\r\n#goods_list .list-item .detail .right-side{\r\n    position: relative;\r\n    height: 100%;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    display: -webkit-flex;\r\n    -webkit-box-pack: end;\r\n    -ms-flex-pack: end;\r\n    justify-content: flex-end;\r\n    -webkit-justify-content: flex-end;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    -webkit-align-items: center\r\n}\r\n\r\n#goods_list .list-item .detail .right-side .enter-button{\r\n    position: relative;\r\n    width: 1.02rem;\r\n    height: .34rem;\r\n    line-height: .35rem;\r\n    text-align: center;\r\n    border-radius: 4px;\r\n    font-size: .14rem;\r\n    color: #fff;\r\n    background-color: #e02e24;\r\n    vertical-align: middle;\r\n}\r\n\r\n#goods_list .list-item .detail .right-side .enter-button a{\r\n    font-size: .14rem;\r\n    color: #fff;\r\n}\r\n\r\n#goods_list  .detail .right-side .icon-jiantouyou{\r\n    display: block;\r\n    position: absolute;\r\n    line-height: .35rem;\r\n    font-size: 0.18rem;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    top: 0.02rem;\r\n    right: 0.14rem;\r\n\r\n}\r\n\r\n.footer {\r\n    z-index: 10000!important;\r\n}\r\n\r\n.footer {\r\n    margin-left: -0.001rem;\r\n    width: 100%;\r\n    max-width: 640px;\r\n    position: fixed;\r\n    bottom: 0;\r\n    left: 50%;\r\n    transform: translate3d(-50%,0,0);\r\n    -webkit-transform: translate3d(-50%,0,0);\r\n    background-color: #fff;\r\n    z-index: 10000!important\r\n}\r\n\r\n.footer:before {\r\n    position: absolute;\r\n    content: \"\";\r\n    width: 100%;\r\n    left: 0;\r\n    top: 0;\r\n    height: 1px;\r\n    background-color: #e0e0e0;\r\n    -webkit-transform: scale(1,.5);\r\n    transform: scale(1,.5);\r\n    -webkit-transform-origin: center bottom;\r\n    transform-origin: center bottom\r\n}\r\n\r\n.footer li {\r\n    float: left;\r\n    width: 50%;\r\n    text-align: center;\r\n    margin: auto;\r\n    height: 100%;\r\n    border-right: 1px solid #E5E5E5;\r\n}\r\n\r\n.footer span {\r\n    color: #777;\r\n    font-size: 10px\r\n}\r\n\r\n.footer span.active {\r\n    color: #df2127\r\n}\r\n\r\n.footer .nav-controller {\r\n    position: relative;\r\n    height: 100%;\r\n    display: block\r\n}\r\n\r\n.footer .nav-controller i {\r\n    display: block;\r\n    font-size: 1.5em;\r\n}\r\n\r\n#goods_list .list-bottom {\r\n    height: 300%;\r\n    position: relative;\r\n    text-align: center;\r\n    margin-bottom: 50px;\r\n    font-size: 0.1rem;\r\n    color: #9c9c9c;\r\n\r\n}\r\n\r\n.footer .icon-shouye3:before{\r\n    font-size: 0.2rem;\r\n    margin-bottom: -0.04rem;\r\n    display: block;\r\n}\r\n\r\n.footer .icon-gerenzhongxin:before{\r\n    font-size: 0.2rem;\r\n    margin-bottom: -0.04rem;\r\n    display: block;\r\n}\r\n\r\n.list-item .goods-image{\r\n    position: relative;\r\n    width: 100%;\r\n    height: 1.76rem;\r\n    overflow: hidden;\r\n    margin-bottom: .12rem;\r\n}", ""]);
 
 // exports
 
@@ -7666,7 +7666,7 @@ var _valueEqual = __webpack_require__(476);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
-var _PathUtils = __webpack_require__(36);
+var _PathUtils = __webpack_require__(37);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8901,7 +8901,7 @@ module.exports = ReactErrorUtils;
 var _prodInvariant = __webpack_require__(6);
 
 var ReactCurrentOwner = __webpack_require__(17);
-var ReactInstanceMap = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(44);
 var ReactInstrumentation = __webpack_require__(14);
 var ReactUpdates = __webpack_require__(16);
 
@@ -10014,7 +10014,7 @@ var _prodInvariant = __webpack_require__(26);
 var ReactNoopUpdateQueue = __webpack_require__(102);
 
 var canDefineProperty = __webpack_require__(62);
-var emptyObject = __webpack_require__(35);
+var emptyObject = __webpack_require__(36);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(4);
 
@@ -11490,7 +11490,7 @@ module.exports = isPrototype;
 /* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(40);
+var isObject = __webpack_require__(41);
 
 /**
  * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
@@ -11614,8 +11614,8 @@ module.exports = isBuffer;
 /* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(38),
-    isObject = __webpack_require__(40);
+var baseGetTag = __webpack_require__(39),
+    isObject = __webpack_require__(41);
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -13491,14 +13491,14 @@ var ReactDOMComponentTree = __webpack_require__(8);
 var ReactDOMContainerInfo = __webpack_require__(379);
 var ReactDOMFeatureFlags = __webpack_require__(381);
 var ReactFeatureFlags = __webpack_require__(149);
-var ReactInstanceMap = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(44);
 var ReactInstrumentation = __webpack_require__(14);
 var ReactMarkupChecksum = __webpack_require__(401);
 var ReactReconciler = __webpack_require__(32);
 var ReactUpdateQueue = __webpack_require__(91);
 var ReactUpdates = __webpack_require__(16);
 
-var emptyObject = __webpack_require__(35);
+var emptyObject = __webpack_require__(36);
 var instantiateReactComponent = __webpack_require__(160);
 var invariant = __webpack_require__(2);
 var setInnerHTML = __webpack_require__(61);
@@ -15384,7 +15384,7 @@ var _BuySelector = __webpack_require__(202);
 
 var _BuySelector2 = _interopRequireDefault(_BuySelector);
 
-var _parseQueryString = __webpack_require__(45);
+var _parseQueryString = __webpack_require__(35);
 
 var _parseQueryString2 = _interopRequireDefault(_parseQueryString);
 
@@ -15434,10 +15434,11 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).call(this, props));
 
-        _this.state = { detailData: [], groupData: [], signal: false, group: false, joinGroup: false };
+        _this.state = { detailData: [], groupData: [], signal: false, group: false, joinGroup: false, order_id: '' };
         _this.signalBuy = _this.signalBuy.bind(_this);
         _this.groupBuy = _this.groupBuy.bind(_this);
         _this.joinGroup = _this.joinGroup.bind(_this);
+        _this.openChoice = _this.openChoice.bind(_this);
         return _this;
     }
 
@@ -15457,20 +15458,21 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
             }
         }
     }, {
+        key: 'openChoice',
+        value: function openChoice(params) {
+            this.setState({ joinGroup: params });
+        }
+    }, {
         key: 'joinGroup',
-        value: function joinGroup(params) {
-
-            if (this.state.detailData.gbgoods_skunum > 1) {
-                this.setState({ joinGroup: params });
-            } else {
-                var history = (0, _createBrowserHistory2.default)({
-                    forceRefresh: true
-                });
-                history.push({
-                    pathname: '/joinGroup',
-                    search: '?gbgoods_id=' + this.state.detailData.gbgoods_id + '&gbsku_id=' + this.state.detailData.skus[0].gbsku_id + '&buyType=' + 'joinGroup&gbsingleorder_id=' + this.state.groupData.gbsingleorder_id
-                });
-            }
+        value: function joinGroup(gbsingleorder_id) {
+            this.setState({ order_id: gbsingleorder_id });
+            var history = (0, _createBrowserHistory2.default)({
+                forceRefresh: true
+            });
+            history.push({
+                pathname: '/joinGroup',
+                search: '?gbgoods_id=' + this.state.detailData.gbgoods_id + '&gbsku_id=' + this.state.detailData.skus[0].gbsku_id + '&buyType=' + 'joinGroup&gbsingleorder_id=' + gbsingleorder_id
+            });
         }
     }, {
         key: 'groupBuy',
@@ -15494,6 +15496,9 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
             var _this2 = this;
 
             var id = (0, _parseQueryString2.default)(location.href).id;
+            if ((0, _parseQueryString2.default)(location.href).buyType === "joinGroup") {
+                this.setState({ joinGroup: true });
+            }
             var storage = window.localStorage;
             var userId = storage.getItem("userId");
             (0, _axios2.default)({
@@ -15519,9 +15524,9 @@ var Container = _wrapComponent('Container')(function (_React$Component) {
                 _react3.default.createElement(_GoodsServer2.default, null),
                 this.state.groupData ? _react3.default.createElement(_LocalGroups2.default, { joinGroup: this.joinGroup, data: this.state.groupData }) : null,
                 _react3.default.createElement(_GoodsBottom2.default, { sPrice: this.state.detailData.gbgoods_price, gb_price: this.state.detailData.gbgoods_gbprice, skuNum: this.state.detailData.gbgoods_skunum, signalBuy: this.signalBuy, groupBuy: this.groupBuy }),
-                this.state.signal ? _react3.default.createElement(_BuySelector2.default, { type: 'signal', signalBuy: this.signalBuy, groupBuy: this.groupBuy, joinGroup: this.joinGroup, skus: this.state.detailData.skus, goods_id: this.state.detailData.gbgoods_id }) : null,
-                this.state.group ? _react3.default.createElement(_BuySelector2.default, { type: 'group', signalBuy: this.signalBuy, groupBuy: this.groupBuy, skus: this.state.detailData.skus, joinGroup: this.joinGroup, goods_id: this.state.detailData.gbgoods_id }) : null,
-                this.state.joinGroup ? _react3.default.createElement(_BuySelector2.default, { type: 'joinGroup', signalBuy: this.signalBuy, groupBuy: this.groupBuy, joinGroup: this.joinGroup, skus: this.state.detailData.skus, goods_id: this.state.detailData.gbgoods_id }) : null
+                this.state.signal ? _react3.default.createElement(_BuySelector2.default, { type: 'signal', signalBuy: this.signalBuy, groupBuy: this.groupBuy, openChoice: this.openChoice, skus: this.state.detailData.skus, goods_id: this.state.detailData.gbgoods_id }) : null,
+                this.state.group ? _react3.default.createElement(_BuySelector2.default, { type: 'group', signalBuy: this.signalBuy, groupBuy: this.groupBuy, skus: this.state.detailData.skus, openChoice: this.openChoice, goods_id: this.state.detailData.gbgoods_id }) : null,
+                this.state.joinGroup ? _react3.default.createElement(_BuySelector2.default, { type: 'joinGroup', signalBuy: this.signalBuy, groupBuy: this.groupBuy, openChoice: this.openChoice, skus: this.state.detailData.skus, goods_id: this.state.detailData.gbgoods_id, order_id: this.state.order_id }) : null
             );
         }
     }]);
@@ -15670,7 +15675,7 @@ var _axios = __webpack_require__(34);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _parseQueryString = __webpack_require__(45);
+var _parseQueryString = __webpack_require__(35);
 
 var _parseQueryString2 = _interopRequireDefault(_parseQueryString);
 
@@ -15716,6 +15721,7 @@ var JoinGroupContainer = _wrapComponent('JoinGroupContainer')(function (_React$C
 
         var _this = _possibleConstructorReturn(this, (JoinGroupContainer.__proto__ || Object.getPrototypeOf(JoinGroupContainer)).call(this, props));
 
+        _this.state = { allData: [] };
         _this.userJoin = _this.userJoin.bind(_this);
         return _this;
     }
@@ -15724,14 +15730,22 @@ var JoinGroupContainer = _wrapComponent('JoinGroupContainer')(function (_React$C
         key: 'userJoin',
         value: function userJoin() {
             var sku_id = (0, _parseQueryString2.default)(location.href).gbsku_id;
+            var gbgoods_id = (0, _parseQueryString2.default)(location.href).gbgoods_id;
             var num = (0, _parseQueryString2.default)(location.href).num ? (0, _parseQueryString2.default)(location.href).num : 1;
             var history = (0, _createBrowserHistory2.default)({
                 forceRefresh: true
             });
-            history.push({
-                pathname: '/orderCheckout',
-                search: 'gbsku_id=' + sku_id + '&num=' + num + '&buyType=' + 'joinGroup'
-            });
+            if (this.state.allData.gbgoods_skunum > 1) {
+                history.push({
+                    pathname: '/goods',
+                    search: '?id=' + gbgoods_id + '&num=' + num + '&buyType=' + 'joinGroup'
+                });
+            } else {
+                history.push({
+                    pathname: '/orderCheckout',
+                    search: 'gbsku_id=' + sku_id + '&buyType=' + 'joinGroup'
+                });
+            }
         }
     }, {
         key: 'componentDidMount',
@@ -15739,21 +15753,19 @@ var JoinGroupContainer = _wrapComponent('JoinGroupContainer')(function (_React$C
             var _this2 = this;
 
             document.getElementsByTagName('body')[0].style.backgroundColor = "#f2f2f2";
-            var gbgoods_id = (0, _parseQueryString2.default)(location.href).gbgoods_id;
-            var sku_id = (0, _parseQueryString2.default)(location.href).gbsku_id;
-            var storage = window.localStorage;
-            var userId = storage.getItem("userId");
+            var order_id = (0, _parseQueryString2.default)(location.href).gbsingleorder_id;
             this.setState({ type: (0, _parseQueryString2.default)(location.href).buyType });
             (0, _axios2.default)({
-                method: 'POST',
-                params: { userId: userId, sku_id: sku_id, gbgoods_id: gbgoods_id },
-                url: 'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/groupdata',
+                method: 'GET',
+                params: { gbsingleorder_id: order_id },
+                url: 'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/togbdata',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                 }
 
             }).then(function (response) {
                 _this2.setState({ allData: response.data[0] });
+                console.log(response.data[0]);
             });
         }
     }, {
@@ -15765,10 +15777,10 @@ var JoinGroupContainer = _wrapComponent('JoinGroupContainer')(function (_React$C
                 _react3.default.createElement(
                     'section',
                     { className: 'group-detail' },
-                    _react3.default.createElement(_GroupGoodsInfo2.default, null),
+                    _react3.default.createElement(_GroupGoodsInfo2.default, { data: this.state.allData }),
                     _react3.default.createElement(_GroupNotice2.default, null),
                     _react3.default.createElement(_GoodsServer2.default, null),
-                    _react3.default.createElement(_GroupUser2.default, null),
+                    _react3.default.createElement(_GroupUser2.default, { image: this.state.allData.image }),
                     _react3.default.createElement(_GropuBuy2.default, { userJoin: this.userJoin })
                 )
             );
@@ -15822,7 +15834,7 @@ var _EditAddress = __webpack_require__(224);
 
 var _EditAddress2 = _interopRequireDefault(_EditAddress);
 
-var _parseQueryString = __webpack_require__(45);
+var _parseQueryString = __webpack_require__(35);
 
 var _parseQueryString2 = _interopRequireDefault(_parseQueryString);
 
@@ -17419,8 +17431,8 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
                 } else {
                     buyType = 'joinGroup';
                     history.push({
-                        pathname: '/joinGroup',
-                        search: '?gbgoods_id=' + _this2.props.goods_id + '&gbsku_id=' + _this2.state.sku + '&num=' + _this2.state.num + '&buyType=' + buyType
+                        pathname: '/orderCheckout',
+                        search: '?gbgoods_id=' + _this2.props.goods_id + '&gbsku_id=' + _this2.state.sku + '&num=' + _this2.state.num + '&buyType=' + buyType + '&gbsingleorder_id=' + _this2.props.order_id
                     });
                 }
             }, 0);
@@ -17459,7 +17471,7 @@ var BuySelector = _wrapComponent('BuySelector')(function (_React$Component) {
                     _react3.default.createElement(
                         'div',
                         { className: 'buy-selector-container buy-selector-main-show' },
-                        _react3.default.createElement(_BuySelectorHead2.default, { signalBuy: this.props.signalBuy, groupBuy: this.props.groupBuy, joinGroup: this.props.joinGroup, skus: this.props.skus, selectd: this.state.goods, text: this.state.text, type: this.props.type }),
+                        _react3.default.createElement(_BuySelectorHead2.default, { signalBuy: this.props.signalBuy, groupBuy: this.props.groupBuy, openChoice: this.props.openChoice, skus: this.props.skus, selectd: this.state.goods, text: this.state.text, type: this.props.type }),
                         _react3.default.createElement(_BuySelectorBody2.default, { skus: this.props.skus, info: this.userChoiceInfo, num: this.buyNum }),
                         _react3.default.createElement(
                             'div',
@@ -17690,7 +17702,7 @@ var BuySelectorHead = _wrapComponent('BuySelectorHead')(function (_React$Compone
                 _react3.default.createElement(
                     'div',
                     { className: 'goods-selector-close', onClick: function onClick() {
-                            _this2.props.signalBuy(false);_this2.props.groupBuy(false);_this2.props.joinGroup(false);
+                            _this2.props.signalBuy(false);_this2.props.groupBuy(false);_this2.props.openChoice(false);
                         } },
                     _react3.default.createElement('i', { className: 'iconfont icon-cha' })
                 )
@@ -18481,7 +18493,7 @@ var LocalGropuItem = _wrapComponent('LocalGropuItem')(function (_React$Component
     _createClass(LocalGropuItem, [{
         key: 'handleGroup',
         value: function handleGroup() {
-            this.props.joinGroup(true);
+            this.props.joinGroup(this.props.data.gbsingleorder_id);
         }
     }, {
         key: 'render',
@@ -19470,6 +19482,10 @@ var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _parseQueryString = __webpack_require__(35);
+
+var _parseQueryString2 = _interopRequireDefault(_parseQueryString);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19523,14 +19539,14 @@ var GroupGoodsInfo = _wrapComponent('GroupGoodsInfo')(function (_React$Component
                 _react3.default.createElement(
                     'div',
                     { className: 'group-detail-goods-info-wrapper' },
-                    _react3.default.createElement('img', { className: 'group-detail-goods-img', src: 'http://localhost/my-pink-hat/images/r.jpg' }),
+                    _react3.default.createElement('img', { className: 'group-detail-goods-img', src: "http://oq57snhhw.bkt.clouddn.com/" + this.props.data.gbgoods_pic }),
                     _react3.default.createElement(
                         'div',
                         { className: 'group-detail-goods-info' },
                         _react3.default.createElement(
                             'div',
                             { className: 'group-detail-goods-title' },
-                            '\u4E13\u5229\u7533\u8BF7\uFF0C\u5305\u62EC\u53D1\u660E\u4E13\u5229\u3001\u5B9E\u7528\u65B0\u578B\u4E13\u5229\u3001\u5916\u89C2\u4E13\u5229\uFF0C\u5B66\u751F\u3001\u5FAE\u4F01\u53EF\u7533\u8BF7\u56FD\u5BB6\u8865\u8D34...'
+                            this.props.data.gbgoods_name
                         ),
                         _react3.default.createElement('div', { className: 'group-detail-goods-group-info', 'data-reactid': '13' }),
                         _react3.default.createElement(
@@ -19561,13 +19577,15 @@ var GroupGoodsInfo = _wrapComponent('GroupGoodsInfo')(function (_React$Component
                                 _react3.default.createElement(
                                     'span',
                                     { className: 'num' },
-                                    '2200'
+                                    this.props.data.gbgoods_gbprice
                                 )
                             ),
                             _react3.default.createElement(
                                 'span',
                                 { className: 'group-member-num group-price-gap' },
-                                '\u62FC\u56E2\u7701100\u5143'
+                                '\u62FC\u56E2\u7701',
+                                this.props.data.gbgoods_originprice - this.props.data.gbgoods_gbprice,
+                                '\u5143'
                             )
                         )
                     )
@@ -19729,12 +19747,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var _components = {
     GroupUser: {
-        displayName: "GroupUser"
+        displayName: 'GroupUser'
     }
 };
 
 var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
-    filename: "B:/my-pink-hat/src/joinGroup/GroupUser.js",
+    filename: 'B:/my-pink-hat/src/joinGroup/GroupUser.js',
     components: _components,
     locals: [module],
     imports: [_react3.default]
@@ -19749,7 +19767,7 @@ function _wrapComponent(id) {
    */
 
 
-var GroupUser = _wrapComponent("GroupUser")(function (_React$Component) {
+var GroupUser = _wrapComponent('GroupUser')(function (_React$Component) {
     _inherits(GroupUser, _React$Component);
 
     function GroupUser(props) {
@@ -19759,24 +19777,33 @@ var GroupUser = _wrapComponent("GroupUser")(function (_React$Component) {
     }
 
     _createClass(GroupUser, [{
-        key: "render",
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            document.getElementsByClassName('group-detail-user')[0].style.background = "url(" + this.props.image + ")  0% 0% / 100% 100%";
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react3.default.createElement(
-                "div",
-                { className: "group-detail-user-wrapper" },
+                'div',
+                { className: 'group-detail-user-wrapper' },
                 _react3.default.createElement(
-                    "ul",
-                    { className: "group-detail-users" },
+                    'ul',
+                    { className: 'group-detail-users' },
                     _react3.default.createElement(
-                        "li",
-                        { className: "group-detail-user" },
+                        'li',
+                        { className: 'group-detail-user' },
                         _react3.default.createElement(
-                            "span",
-                            { className: "leader" },
-                            "\u56E2\u957F"
+                            'span',
+                            { className: 'leader' },
+                            '\u56E2\u957F'
                         )
                     ),
-                    _react3.default.createElement("li", { className: "group-detail-user left-user" })
+                    _react3.default.createElement(
+                        'li',
+                        { className: 'group-detail-user left-user' },
+                        _react3.default.createElement('i', { className: 'iconfont icon-yw' })
+                    )
                 )
             );
         }
@@ -20333,7 +20360,7 @@ var _classnames = __webpack_require__(46);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _parseQueryString = __webpack_require__(45);
+var _parseQueryString = __webpack_require__(35);
 
 var _parseQueryString2 = _interopRequireDefault(_parseQueryString);
 
@@ -24077,7 +24104,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(74);
 
-var _PathUtils = __webpack_require__(36);
+var _PathUtils = __webpack_require__(37);
 
 var _createTransitionManager = __webpack_require__(75);
 
@@ -24401,7 +24428,7 @@ var _warning = __webpack_require__(28);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _PathUtils = __webpack_require__(36);
+var _PathUtils = __webpack_require__(37);
 
 var _LocationUtils = __webpack_require__(74);
 
@@ -25203,7 +25230,7 @@ module.exports = baseIndexOf;
 /* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(38),
+var baseGetTag = __webpack_require__(39),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -25404,7 +25431,7 @@ module.exports = baseIsNaN;
 
 var isFunction = __webpack_require__(137),
     isMasked = __webpack_require__(312),
-    isObject = __webpack_require__(40),
+    isObject = __webpack_require__(41),
     toSource = __webpack_require__(135);
 
 /**
@@ -25455,7 +25482,7 @@ module.exports = baseIsNative;
 /* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(38),
+var baseGetTag = __webpack_require__(39),
     isLength = __webpack_require__(82),
     isObjectLike = __webpack_require__(30);
 
@@ -25720,7 +25747,7 @@ module.exports = baseTimes;
 /* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(37),
+var Symbol = __webpack_require__(38),
     arrayMap = __webpack_require__(117),
     isArray = __webpack_require__(19),
     isSymbol = __webpack_require__(54);
@@ -25865,7 +25892,7 @@ module.exports = createAssigner;
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseIteratee = __webpack_require__(124),
-    isArrayLike = __webpack_require__(39),
+    isArrayLike = __webpack_require__(40),
     keys = __webpack_require__(55);
 
 /**
@@ -25895,7 +25922,7 @@ module.exports = createFind;
 /* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(37),
+var Symbol = __webpack_require__(38),
     Uint8Array = __webpack_require__(264),
     eq = __webpack_require__(53),
     equalArrays = __webpack_require__(130),
@@ -26160,7 +26187,7 @@ module.exports = getMatchData;
 /* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(37);
+var Symbol = __webpack_require__(38);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -26253,7 +26280,7 @@ var DataView = __webpack_require__(260),
     Promise = __webpack_require__(262),
     Set = __webpack_require__(263),
     WeakMap = __webpack_require__(265),
-    baseGetTag = __webpack_require__(38),
+    baseGetTag = __webpack_require__(39),
     toSource = __webpack_require__(135);
 
 /** `Object#toString` result references. */
@@ -26514,7 +26541,7 @@ module.exports = hashSet;
 /* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(37),
+var Symbol = __webpack_require__(38),
     isArguments = __webpack_require__(81),
     isArray = __webpack_require__(19);
 
@@ -26541,9 +26568,9 @@ module.exports = isFlattenable;
 /***/ (function(module, exports, __webpack_require__) {
 
 var eq = __webpack_require__(53),
-    isArrayLike = __webpack_require__(39),
+    isArrayLike = __webpack_require__(40),
     isIndex = __webpack_require__(78),
-    isObject = __webpack_require__(40);
+    isObject = __webpack_require__(41);
 
 /**
  * Checks if the given arguments are from an iteratee call.
@@ -27396,7 +27423,7 @@ module.exports = stringToPath;
 var assignValue = __webpack_require__(119),
     copyObject = __webpack_require__(291),
     createAssigner = __webpack_require__(293),
-    isArrayLike = __webpack_require__(39),
+    isArrayLike = __webpack_require__(40),
     isPrototype = __webpack_require__(132),
     keys = __webpack_require__(55);
 
@@ -27716,7 +27743,7 @@ module.exports = hasIn;
 /* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArrayLike = __webpack_require__(39),
+var isArrayLike = __webpack_require__(40),
     isObjectLike = __webpack_require__(30);
 
 /**
@@ -28015,7 +28042,7 @@ module.exports = toInteger;
 /* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(40),
+var isObject = __webpack_require__(41),
     isSymbol = __webpack_require__(54);
 
 /** Used as references for various `Number` constants. */
@@ -28829,7 +28856,7 @@ module.exports = AutoFocusUtils;
 
 
 
-var EventPropagators = __webpack_require__(42);
+var EventPropagators = __webpack_require__(43);
 var ExecutionEnvironment = __webpack_require__(9);
 var FallbackCompositionState = __webpack_require__(372);
 var SyntheticCompositionEvent = __webpack_require__(415);
@@ -29434,8 +29461,8 @@ module.exports = CSSPropertyOperations;
 
 
 
-var EventPluginHub = __webpack_require__(41);
-var EventPropagators = __webpack_require__(42);
+var EventPluginHub = __webpack_require__(42);
+var EventPropagators = __webpack_require__(43);
 var ExecutionEnvironment = __webpack_require__(9);
 var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(16);
@@ -29870,7 +29897,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(42);
+var EventPropagators = __webpack_require__(43);
 var ReactDOMComponentTree = __webpack_require__(8);
 var SyntheticMouseEvent = __webpack_require__(58);
 
@@ -30518,7 +30545,7 @@ var React = __webpack_require__(33);
 var ReactComponentEnvironment = __webpack_require__(89);
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactErrorUtils = __webpack_require__(90);
-var ReactInstanceMap = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(44);
 var ReactInstrumentation = __webpack_require__(14);
 var ReactNodeTypes = __webpack_require__(153);
 var ReactReconciler = __webpack_require__(32);
@@ -30527,7 +30554,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(424);
 }
 
-var emptyObject = __webpack_require__(35);
+var emptyObject = __webpack_require__(36);
 var invariant = __webpack_require__(2);
 var shallowEqual = __webpack_require__(73);
 var shouldUpdateReactComponent = __webpack_require__(97);
@@ -31547,7 +31574,7 @@ var DOMLazyTree = __webpack_require__(31);
 var DOMNamespaces = __webpack_require__(85);
 var DOMProperty = __webpack_require__(21);
 var DOMPropertyOperations = __webpack_require__(145);
-var EventPluginHub = __webpack_require__(41);
+var EventPluginHub = __webpack_require__(42);
 var EventPluginRegistry = __webpack_require__(56);
 var ReactBrowserEventEmitter = __webpack_require__(57);
 var ReactDOMComponentFlags = __webpack_require__(146);
@@ -34645,7 +34672,7 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var EventPluginHub = __webpack_require__(41);
+var EventPluginHub = __webpack_require__(42);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -34883,7 +34910,7 @@ module.exports = ReactHostOperationHistoryHook;
 
 
 var DOMProperty = __webpack_require__(21);
-var EventPluginHub = __webpack_require__(41);
+var EventPluginHub = __webpack_require__(42);
 var EventPluginUtils = __webpack_require__(86);
 var ReactComponentEnvironment = __webpack_require__(89);
 var ReactEmptyComponent = __webpack_require__(148);
@@ -35022,7 +35049,7 @@ module.exports = ReactMarkupChecksum;
 var _prodInvariant = __webpack_require__(6);
 
 var ReactComponentEnvironment = __webpack_require__(89);
-var ReactInstanceMap = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(44);
 var ReactInstrumentation = __webpack_require__(14);
 
 var ReactCurrentOwner = __webpack_require__(17);
@@ -36451,7 +36478,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(42);
+var EventPropagators = __webpack_require__(43);
 var ExecutionEnvironment = __webpack_require__(9);
 var ReactDOMComponentTree = __webpack_require__(8);
 var ReactInputSelection = __webpack_require__(151);
@@ -36651,7 +36678,7 @@ module.exports = SelectEventPlugin;
 var _prodInvariant = __webpack_require__(6);
 
 var EventListener = __webpack_require__(111);
-var EventPropagators = __webpack_require__(42);
+var EventPropagators = __webpack_require__(43);
 var ReactDOMComponentTree = __webpack_require__(8);
 var SyntheticAnimationEvent = __webpack_require__(413);
 var SyntheticClipboardEvent = __webpack_require__(414);
@@ -36662,7 +36689,7 @@ var SyntheticMouseEvent = __webpack_require__(58);
 var SyntheticDragEvent = __webpack_require__(416);
 var SyntheticTouchEvent = __webpack_require__(420);
 var SyntheticTransitionEvent = __webpack_require__(421);
-var SyntheticUIEvent = __webpack_require__(44);
+var SyntheticUIEvent = __webpack_require__(45);
 var SyntheticWheelEvent = __webpack_require__(422);
 
 var emptyFunction = __webpack_require__(12);
@@ -37050,7 +37077,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(44);
+var SyntheticUIEvent = __webpack_require__(45);
 
 /**
  * @interface FocusEvent
@@ -37133,7 +37160,7 @@ module.exports = SyntheticInputEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(44);
+var SyntheticUIEvent = __webpack_require__(45);
 
 var getEventCharCode = __webpack_require__(93);
 var getEventKey = __webpack_require__(428);
@@ -37222,7 +37249,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(44);
+var SyntheticUIEvent = __webpack_require__(45);
 
 var getEventModifierState = __webpack_require__(94);
 
@@ -37606,7 +37633,7 @@ var _prodInvariant = __webpack_require__(6);
 
 var ReactCurrentOwner = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(8);
-var ReactInstanceMap = __webpack_require__(43);
+var ReactInstanceMap = __webpack_require__(44);
 
 var getHostComponentFromComposite = __webpack_require__(158);
 var invariant = __webpack_require__(2);
@@ -39323,7 +39350,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_PathUtils__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_PathUtils__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_PathUtils___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_PathUtils__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(99);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -40454,7 +40481,7 @@ var ReactElement = __webpack_require__(25);
 var ReactPropTypeLocationNames = __webpack_require__(169);
 var ReactNoopUpdateQueue = __webpack_require__(102);
 
-var emptyObject = __webpack_require__(35);
+var emptyObject = __webpack_require__(36);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(4);
 
@@ -41402,7 +41429,7 @@ var _assign = __webpack_require__(7);
 var ReactComponent = __webpack_require__(101);
 var ReactNoopUpdateQueue = __webpack_require__(102);
 
-var emptyObject = __webpack_require__(35);
+var emptyObject = __webpack_require__(36);
 
 /**
  * Base class helpers for the updating state of a component.

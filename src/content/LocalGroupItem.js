@@ -12,7 +12,7 @@ class LocalGropuItem extends React.Component {
     }
 
     handleGroup() {
-        this.props.joinGroup(true,this.props.data.gbsingleorder_id)
+        this.props.joinGroup(this.props.data.gbsingleorder_id)
     }
 
     render() {
