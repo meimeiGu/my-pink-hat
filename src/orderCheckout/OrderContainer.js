@@ -16,6 +16,7 @@ class OrderContainer extends React.Component{
         this.openEditAddress = this.openEditAddress.bind(this);
         this.buyNum = this.buyNum.bind(this)
         this.saveAddress = this.saveAddress.bind(this);
+        this.userPay = this.userPay.bind(this);
     }
 
     openEditAddress(params) {
@@ -30,6 +31,27 @@ class OrderContainer extends React.Component{
 
     buyNum(n){
         this.setState({num:n})
+    }
+
+    userPay(){
+        console.log('zhifula')
+        let num = this.state.num?this.state.num:1;
+        let price = this.state.type === "signal"?this.state.allData.gbsku_oldprice:this.state.allData.gbsku_price;
+        let gbgoods_id = parseQueryString(location.href).gbgoods_id
+        let sku_id = parseQueryString(location.href).gbsku_id;
+        let storage=window.localStorage;
+        let userId = storage.getItem("userId");
+            url: axios({
+                method:'POST',
+                data: {'userId': userId,'gbgoods_id':gbgoods_id,'gbsku_id':sku_id,'gbsingleorder_price':price,'gbsingleorder_num':num},
+                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/api/index/inputdata',
+                headers: {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                }
+
+            }).then((response) => {
+               console.log(response)
+        })
     }
 
     componentDidMount(){
@@ -54,7 +76,7 @@ class OrderContainer extends React.Component{
                 <OcAddress open={this.openEditAddress} readAddress={this.state.readAddress} name={this.state.name} tel={this.state.tel}/>
                 <OcGoods data={this.state.allData} type={this.state.type} buyNum={this.buyNum}/>
                 <OcPayment />
-                <OcBottom num={this.state.num?this.state.num:1} price={this.state.type === "signal"?this.state.allData.gbsku_oldprice:this.state.allData.gbsku_price}/>
+                <OcBottom num={this.state.num?this.state.num:1} price={this.state.type === "signal"?this.state.allData.gbsku_oldprice:this.state.allData.gbsku_price} userPay={this.userPay}/>
                 {this.state.editAddress?<EditAddress open={this.openEditAddress} save = {this.saveAddress}/>:null}
             </div>
         )

@@ -49,14 +49,14 @@ class BuySelector extends React.Component{
                 }
                 history.push({
                     pathname: '/orderCheckout',
-                    search: '&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
+                    search: '?gbgoods_id='+this.props.goods_id+'&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
                 })
 
             }else{
                 buyType = 'joinGroup'
                 history.push({
                     pathname: '/joinGroup',
-                    search: '&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
+                    search: '?gbgoods_id='+this.props.goods_id+'&gbsku_id='+this.state.sku+'&num='+this.state.num+'&buyType='+buyType,
                 })
             }
         },0)

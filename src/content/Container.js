@@ -30,7 +30,7 @@ class Container extends React.Component{
             })
             history.push({
                 pathname: '/orderCheckout',
-                search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'signal',
+                search: '?gbgoods_id='+this.state.detailData.gbgoods_id+'&gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'signal',
             })
         }
     }
@@ -46,7 +46,7 @@ class Container extends React.Component{
             })
             history.push({
                 pathname: '/joinGroup',
-                search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'joinGroup',
+                search: '?gbgoods_id='+this.state.detailData.gbgoods_id+'&gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'joinGroup',
             })
         }
 
@@ -64,7 +64,7 @@ class Container extends React.Component{
                 })
                 history.push({
                     pathname: '/orderCheckout',
-                    search: 'gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'group',
+                    search: '?gbgoods_id='+this.state.detailData.gbgoods_id+'&gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'group',
                 })
             }
 
