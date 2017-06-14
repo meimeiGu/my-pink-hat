@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head ng-app="app" ng-controller="controller">
+    <meta charset="UTF-8">
+    <title>Document</title>
+ </head>
+ <body>
+    <script type="text/javascript" src="__PUBLIC__/Js/angular.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/function/handle.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Js/angular-cookies.min.js"></script>
+    <script>
+        var app = angular.module('app',['ngCookies']);
+        app.controller('controller',function($scope,$http,$cookies,$window){ 
+
+            $scope.entity={
+                gbgoods_id:2,
+                gbsku_id:1,
+                gbsingleorder_price:2,
+                gbsingleorder_num:2,
+                userId:4
+            } 
+            console.log($scope.entity);
+            $http.post('__ROOT__/index.php/Index/inputfdata',$scope.entity)
+               .success(function(data){
+                console.log(data);
+           })
+
+        });
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/Js/function/angularConfig.js"></script>
+ </body>
+ </html>
