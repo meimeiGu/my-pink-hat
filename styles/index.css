@@ -292,14 +292,14 @@
     color: #fff;
 }
 
-#goods_list  .detail .right-side .icon-jiantouyou{
+#goods_list  .detail .right-side .icon-jiantouyou::before{
     display: block;
     position: absolute;
     line-height: .35rem;
     font-size: 0.18rem;
     text-align: center;
     vertical-align: middle;
-    top: 0.02rem;
+    top: 0.01rem;
     right: 0.14rem;
 
 }
