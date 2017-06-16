@@ -5,9 +5,11 @@ import React from 'react'
 import OrdersItem from './OrdersItem'
 import axios from 'axios';
 
+
 class OrderList extends React.Component{
     constructor(props) {
         super(props);
+        this.state={allData:[]}
     }
 
     componentDidMount(){
@@ -21,15 +23,22 @@ class OrderList extends React.Component{
             }
 
         }).then((response) => {
-            console.log(response)
-            /*this.setState({allData: response.data[0]});*/
+            console.log(response.data)
+            this.setState({allData: response.data});
         });
     }
     render(){
         return(
             <div className="list-status">
-               <OrdersItem/>
-                <OrdersItem/>
+                {
+                    this.state.allData.map((item) => {
+                        if(this.props.state === "all"){
+                            return (<OrdersItem data={item} key={item.gbsingleorder_id.toString() }/>)
+                        }else if(item.gbsingleorder_state === this.props.state){
+                        return (<OrdersItem data={item} key={item.gbsingleorder_id.toString() }/>)}
+                    })
+                }
+
 
             </div>
 

@@ -241,7 +241,7 @@
 }
 
 .orders-button .again:before {
-    content: "再次购买"
+    content: "正在处理中"
 }
 
 .orders-button .delete:before {
@@ -289,9 +289,7 @@
     content: "取消订单"
 }
 
-.orders-button .btn-lucky-draw-result:before {
-    content: "中奖详情"
-}
+
 
 
 
