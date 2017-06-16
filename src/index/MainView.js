@@ -24,8 +24,24 @@ class MainView extends React.Component{
         }).then((response) => {
             this.setState({allData: response.data});
         });
+
+        /*目前写死，在微信环境里，获取微信钥匙，发给后台，得到userId等信息*/
         let storage=window.localStorage;
         storage.setItem("userId", 1059);
+        let userId = storage.getItem("userId");
+        axios({
+            method:'GET',
+            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/getuserdata?userId='+userId,
+            headers: {
+                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+            }
+
+        }).then((response) => {
+            storage.setItem("userId", response.data[0].userId);
+            storage.setItem("image", response.data[0].image);
+            storage.setItem("nickname", response.data[0].nickname);
+        });
+
     }
 
     render(){

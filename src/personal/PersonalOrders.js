@@ -2,15 +2,28 @@
  * Created by wmm on 2017/5/23.
  */
 import React from 'react'
-import { Link } from 'react-router-dom'
+import createBrowserHistory  from 'history/createBrowserHistory'
 
 class PersonalOrders extends React.Component{
     constructor(props) {
         super(props);
-
+        this.jump = this.jump.bind(this);
     }
 
     componentDidMount() {
+
+    }
+
+    jump(){
+        const history = createBrowserHistory({
+            forceRefresh: true
+        })
+        history.push({
+            pathname: '/orders',
+            forceRefresh: true,
+        })
+
+
 
     }
 
@@ -19,10 +32,10 @@ class PersonalOrders extends React.Component{
           <div className="personal-orders">
               <div className="p-orders">
                   <span className="p-all-orders">我的订单</span>
-              <Link to={`/orders`}>
+              <div onClick={this.jump}>
                   <span className="p-all-orders-look">查看全部</span>
                   <i className="iconfont icon-jiantouyou"></i>
-              </Link>
+              </div>
               </div>
               <div className="personal-wrapper">
                   <div className="p-wrapper-item">
@@ -39,7 +52,7 @@ class PersonalOrders extends React.Component{
                   </div>
                   <div className="p-wrapper-item">
                       <i className="iconfont icon-daiqueren"></i>
-                      <p className="p-wrap-title">待收货</p>
+                      <p className="p-wrap-title">待完成</p>
                   </div>
                   <div className="p-wrapper-item">
                       <i className="iconfont icon-daipingjia7"></i>

@@ -64,21 +64,9 @@ class OrderContainer extends React.Component{
         axios.post('http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputfdata',qs.stringify(data), {headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },}).then(data => {
-           // console.log(data);
 
         });
 
-      /*       axios({
-                method:'POST',
-                data: {userId: userId,gbgoods_id:gbgoods_id,gbsku_id:sku_id,gbsingleorder_price:price,gbsingleorder_num:num},
-                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputfdata',
-                headers: {
-                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-                }
-
-            }).then((response) => {
-               console.log(response)
-        })*/
         }
     }
 

@@ -14,20 +14,6 @@ class PersonalContainer extends React.Component{
     }
 
     componentDidMount() {
-        let storage=window.localStorage;
-        let userId = storage.getItem("userId");
-        console.log(userId)
-        axios({
-            method:'GET',
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/getuserdata?userId='+userId,
-            headers: {
-                'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-            }
-
-        }).then((response) => {
-            this.setState({userInfo: response.data[0]});
-            console.log(this.state.userInfo)
-        });
 
     }
 

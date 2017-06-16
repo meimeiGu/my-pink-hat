@@ -12,14 +12,15 @@ class PersonalHead extends React.Component{
 
     componentDidMount() {
 
+
     }
 
     render(){
         return(
            <div className="personal-head head-bg-img">
-               <img src={this.props.userInfo.image}/>
+               <img src={window.localStorage.getItem("image")}/>
                <div className="p-head-info">
-                   <p className="p-name">{this.props.userInfo.nickname}</p>
+                   <p className="p-name">{window.localStorage.getItem("nickname")}</p>
                </div>
            </div>
 
