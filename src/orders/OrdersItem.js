@@ -1,11 +1,16 @@
 /**
  * Created by wmm on 2017/5/27.
  */
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+const qs = require('qs');
+import createBrowserHistory  from 'history/createBrowserHistory'
 
 class OrdersItem extends React.Component{
     constructor(props) {
         super(props);
+        this.preHandle = this.preHandle.bind(this);
+        this.nextHandle = this.nextHandle.bind(this);
         this.state={state:this.props.data.gbsingleorder_state,preCss:'',nextCss:'',text:''};
     }
 
@@ -21,6 +26,54 @@ class OrdersItem extends React.Component{
         }else if(this.state.state === '4'){
             this.setState({preCss:'comment',nextCss:'additional-comment',text:'待评价'})
         }
+
+    }
+
+    preHandle(){
+
+        let nowState = this.state.state;
+        if(nowState === '0'){
+
+            let gbsingleorder_id= this.props.data.gbsingleorder_id;
+
+            let data =  {gbsingleorder_id: gbsingleorder_id};
+            axios.post('http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputfdata',qs.stringify(data), {headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },}).then(data => {
+            });
+        }
+
+        if(nowState === '1'){
+            const history = createBrowserHistory({
+                forceRefresh: true
+            })
+            history.push({
+                pathname: '/goods',
+                forceRefresh: true,
+                search: '?id='+this.props.data.gbgoods_id,
+            })
+        }
+
+
+    }
+
+    nextHandle(){
+
+        let nowState = this.state.state;
+        if(nowState === '0'){
+            axios({
+                method:'GET',
+                params:{gbsingleorder_id:this.props.data.gbsingleorder_id},
+                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/cancleorder',
+                headers: {
+                    'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+                }
+
+            }).then(() => {
+                window.location.reload();
+            });
+        }
+
 
     }
 
@@ -53,8 +106,8 @@ class OrdersItem extends React.Component{
                     <div className="button-block">
 
                         <div className="orders-button">
-                            <a className={this.state.preCss}></a>
-                            <a className={this.state.nextCss}></a>
+                            <span className={this.state.preCss} onClick={()=>{this.preHandle()}}></span>
+                            <span className={this.state.nextCss} onClick={()=>{this.nextHandle()}}></span>
                         </div>
 
                     </div>:null}

@@ -200,7 +200,7 @@
     font-size: .13rem
 }
 
-.orders-button a {
+.orders-button span {
     width: .75rem;
     height: .3rem;
     line-height: .3rem;
@@ -217,7 +217,7 @@
     background-color: #e02e24
 }
 
-.orders-button a:before {
+.orders-button span:before {
     text-align: center;
     line-height: .6rem;
     font-size: .28rem;

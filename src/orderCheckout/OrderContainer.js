@@ -9,7 +9,7 @@ import OcBottom from './OcBottom'
 import EditAddress from './EditAddress'
 import parseQueryString from '../common/parseQueryString'
 import axios from 'axios';
-var qs = require('qs');
+const qs = require('qs');
 class OrderContainer extends React.Component{
     constructor(props) {
         super(props);
