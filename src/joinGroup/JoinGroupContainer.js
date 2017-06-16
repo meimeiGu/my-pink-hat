@@ -68,7 +68,7 @@ class JoinGroupContainer extends React.Component{
                     <GroupNotice/>
                     <GoodsServer/>
                     <GroupUser image={this.state.allData.image}/>
-                    <GropuBuy userJoin={this.userJoin} />
+                    <GropuBuy userJoin={this.userJoin} gbsingleorder_time={this.state.allData.gbsingleorder_time}/>
 
                 </section>
             </div>
