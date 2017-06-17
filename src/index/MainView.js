@@ -39,10 +39,9 @@ class MainView extends React.Component{
             }
 
         }).then((response) => {
-            this.setState({ceshi:response.data})
+            this.setState({ceshi:response.data[0]})
             let storage=window.localStorage;
             storage.setItem("userId", response.data[0].userId);
-            alert(response.data[0].userId);
             storage.setItem("image", response.data[0].image);
             storage.setItem("nickname", response.data[0].nickname);
         });
@@ -57,7 +56,7 @@ class MainView extends React.Component{
                         return(<ListItem data={item} key={item.gbgoods_id.toString()}/>)
                 })}
                 </div>
-                <div className="list-bottom">{this.state.ceshi}</div>
+                <div className="list-bottom">{this.state.ceshi+'hh'}</div>
             </section>
         )
     }
