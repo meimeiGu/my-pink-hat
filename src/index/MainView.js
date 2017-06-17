@@ -39,7 +39,7 @@ class MainView extends React.Component{
             }
 
         }).then((response) => {
-            this.setState({ceshi:response.data[0]})
+            this.setState({ceshi:response})
             let storage=window.localStorage;
             storage.setItem("userId", response.data[0].userId);
             alert(response.data[0].userId);
@@ -57,7 +57,7 @@ class MainView extends React.Component{
                         return(<ListItem data={item} key={item.gbgoods_id.toString() }/>)
                 })}
                 </div>
-                <div className="list-bottom">{/*请注意，我是底部！*/}{location.href}{this.state.ceshi}</div>
+                <div className="list-bottom">{parseQueryString(location.href).code}+{this.state.ceshi}</div>
             </section>
         )
     }
