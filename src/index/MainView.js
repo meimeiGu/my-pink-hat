@@ -57,7 +57,7 @@ class MainView extends React.Component{
                         return(<ListItem data={item} key={item.gbgoods_id.toString() }/>)
                 })}
                 </div>
-                <div className="list-bottom">请注意，我是底部！{this.state.ceshi}</div>
+                <div className="list-bottom">{/*请注意，我是底部！*/}{location.href}{this.state.ceshi}</div>
             </section>
         )
     }
