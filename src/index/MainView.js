@@ -39,7 +39,7 @@ class MainView extends React.Component{
             }
 
         }).then((response) => {
-            this.setState({ceshi:response})
+            this.setState({ceshi:response.data})
             let storage=window.localStorage;
             storage.setItem("userId", response.data[0].userId);
             alert(response.data[0].userId);
@@ -54,7 +54,7 @@ class MainView extends React.Component{
             <section id="goods_list" className="main-view index-section">
                 <div className="list-wrapper">
                     {this.state.allData.map((item) => {
-                        return(<ListItem data={item} key={item.gbgoods_id.toString() }/>)
+                        return(<ListItem data={item} key={item.gbgoods_id.toString()}/>)
                 })}
                 </div>
                 <div className="list-bottom">{this.state.ceshi}</div>
