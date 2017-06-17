@@ -39,7 +39,7 @@ class MainView extends React.Component{
             }
 
         }).then((response) => {
-            this.setState({ceshi:response.data[0]})
+            this.setState({ceshi:response})
             let storage=window.localStorage;
             storage.setItem("userId", response.data[0].userId);
             storage.setItem("image", response.data[0].image);
