@@ -28,7 +28,7 @@ class MainView extends React.Component{
 
         /*目前写死，在微信环境里，获取微信钥匙，发给后台，得到userId等信息*/
         let code = parseQueryString(location.href).code
-        let storage=window.localStorage;
+
        /* storage.setItem("userId", 1059);
         let userId = storage.getItem("userId");*/
         axios({
@@ -39,7 +39,9 @@ class MainView extends React.Component{
             }
 
         }).then((response) => {
+            let storage=window.localStorage;
             storage.setItem("userId", response.data[0].userId);
+            alert(response.data[0].userId);
             storage.setItem("image", response.data[0].image);
             storage.setItem("nickname", response.data[0].nickname);
         });
