@@ -81,7 +81,7 @@ class Container extends React.Component{
         axios({
             method:'GET',
             params:{userId:userId,gbgoods_id:id},
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/gbdatadetail',
+            url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/gbdatadetail',
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

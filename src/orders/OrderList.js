@@ -17,7 +17,7 @@ class OrderList extends React.Component{
         let userId = storage.getItem("userId");
         axios({
             method:'GET',
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/myorderdata?userId='+userId,
+            url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/myorderdata?userId='+userId,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

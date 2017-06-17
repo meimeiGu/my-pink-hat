@@ -32,7 +32,7 @@ class OrderContainer extends React.Component{
         axios({
             method:'GET',
             params:{gborder_name:name,gborder_phone:tel},
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputaddress?userId='+userId,
+            url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/inputaddress?userId='+userId,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }
@@ -61,7 +61,7 @@ class OrderContainer extends React.Component{
         let storage=window.localStorage;
         let userId = storage.getItem("userId");
         let data =  {userId: userId,gbgoods_id:gbgoods_id,gbsku_id:sku_id,gbsingleorder_price:price,gbsingleorder_num:num,gborder_id: this.state.orderId};
-        axios.post('http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputfdata',qs.stringify(data), {headers: {
+        axios.post('http://qhnaminal.com/my-pink-hat/admin/index.php/Index/inputfdata',qs.stringify(data), {headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },}).then(data => {
 
@@ -79,7 +79,7 @@ class OrderContainer extends React.Component{
         document.getElementsByTagName('body')[0].style.backgroundColor="#f2f2f2";
         axios({
             method:'GET',
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/groupdata?sku_id='+sku_id,
+            url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/groupdata?sku_id='+sku_id,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }
@@ -89,7 +89,7 @@ class OrderContainer extends React.Component{
         });
         axios({
             method:'GET',
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/getaddress?userId='+userId,
+            url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/getaddress?userId='+userId,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

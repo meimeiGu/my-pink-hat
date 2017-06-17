@@ -4,6 +4,7 @@
 import React from 'react'
 import ListItem from './ListItem'
 import axios from 'axios';
+import parseQueryString from '../common/parseQueryString'
 class MainView extends React.Component{
     constructor(props) {
         super(props);
@@ -16,7 +17,7 @@ class MainView extends React.Component{
     componentDidMount () {
         axios({
             method:'GET',
-            url:'http://www.xyhelp.cn/my-pink-hat/admin/index.php/Index/allgbdata',
+            url:'http://www.qhnaminal.com/my-pink-hat/admin/index.php/Index/allgbdata',
             headers: {
              'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
              }
@@ -26,12 +27,13 @@ class MainView extends React.Component{
         });
 
         /*目前写死，在微信环境里，获取微信钥匙，发给后台，得到userId等信息*/
+        let code = parseQueryString(location.href).code
         let storage=window.localStorage;
-        storage.setItem("userId", 1059);
-        let userId = storage.getItem("userId");
+       /* storage.setItem("userId", 1059);
+        let userId = storage.getItem("userId");*/
         axios({
             method:'GET',
-            url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/getuserdata?userId='+userId,
+            url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/getuserdata?code='+code,
             headers: {
                 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
             }

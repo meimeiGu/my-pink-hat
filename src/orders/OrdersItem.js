@@ -37,7 +37,7 @@ class OrdersItem extends React.Component{
             let gbsingleorder_id= this.props.data.gbsingleorder_id;
 
             let data =  {gbsingleorder_id: gbsingleorder_id};
-            axios.post('http://xyhelp.cn/my-pink-hat/admin/index.php/Index/inputfdata',qs.stringify(data), {headers: {
+            axios.post('http://qhnaminal.com/my-pink-hat/admin/index.php/Index/inputfdata',qs.stringify(data), {headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },}).then(data => {
             });
@@ -64,7 +64,7 @@ class OrdersItem extends React.Component{
             axios({
                 method:'GET',
                 params:{gbsingleorder_id:this.props.data.gbsingleorder_id},
-                url:'http://xyhelp.cn/my-pink-hat/admin/index.php/Index/cancleorder',
+                url:'http://qhnaminal.com/my-pink-hat/admin/index.php/Index/cancleorder',
                 headers: {
                     'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
                 }
