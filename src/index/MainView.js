@@ -57,7 +57,7 @@ class MainView extends React.Component{
                         return(<ListItem data={item} key={item.gbgoods_id.toString() }/>)
                 })}
                 </div>
-                <div className="list-bottom">{parseQueryString(location.href).code}+{this.state.ceshi}</div>
+                <div className="list-bottom">{this.state.ceshi}</div>
             </section>
         )
     }
