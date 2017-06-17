@@ -29,16 +29,12 @@ class JoinGroupContainer extends React.Component{
                 pathname: '/goods',
                 search: '?id='+gbgoods_id+'&num='+num+'&buyType='+'joinGroup',
             })
-
         }else {
             history.push({
                 pathname: '/orderCheckout',
                 search: 'gbsku_id='+sku_id+'&buyType='+'joinGroup',
             })
         }
-
-
-
     }
 
     componentDidMount(){

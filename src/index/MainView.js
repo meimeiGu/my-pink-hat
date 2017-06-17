@@ -9,7 +9,7 @@ class MainView extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            allData : [],ceshi:[]
+            allData : []
         };
 
     }
@@ -39,7 +39,6 @@ class MainView extends React.Component{
             }
 
         }).then((response) => {
-            this.setState({ceshi:response.data[0].userId+response.data[0].nickname})
             let storage=window.localStorage;
             storage.setItem("userId", response.data[0].userId);
             storage.setItem("image", response.data[0].image);
@@ -56,7 +55,7 @@ class MainView extends React.Component{
                         return(<ListItem data={item} key={item.gbgoods_id.toString()}/>)
                 })}
                 </div>
-                <div className="list-bottom">{this.state.ceshi+'hh'}</div>
+                <div className="list-bottom">请注意我是底部</div>
             </section>
         )
     }

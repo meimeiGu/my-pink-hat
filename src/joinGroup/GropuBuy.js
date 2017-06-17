@@ -16,7 +16,6 @@ class GroupBuy extends React.Component{
         let data = new Date(this.props.gbsingleorder_time).getTime();
         /*团购订单的期限*/
         let endPeriod = 48*60*60*1000;
-
         let a = endPeriod-(nowTime-data);
         var nD = Math.floor(a/(1000 * 60 * 60 * 24))+'天'
         var nH = Math.floor(a/(1000*60*60)) % 24+":";
@@ -25,7 +24,7 @@ class GroupBuy extends React.Component{
         this.setState({nowTime:nD+nH+nM+nS})
         if(a === 0){
             clearTimeout(this.interval);
-            this.setState({ok:false})
+            this.setState({ok:false})/*时间已到期*/
         }
     }
 

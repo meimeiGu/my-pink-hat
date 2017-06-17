@@ -26,7 +26,6 @@ class OrdersItem extends React.Component{
         }else if(this.state.state === '4'){
             this.setState({preCss:'comment',nextCss:'additional-comment',text:'待评价'})
         }
-
     }
 
     preHandle(){

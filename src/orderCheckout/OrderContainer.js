@@ -51,9 +51,7 @@ class OrderContainer extends React.Component{
     userPay(){
         if(!this.state.name){
             this.setState({editAddress:true})
-
         }else{
-
         let num = this.state.num?this.state.num:1;
         let price = this.state.type === "signal"?this.state.allData.gbsku_oldprice:this.state.allData.gbsku_price;
         let gbgoods_id = parseQueryString(location.href).gbgoods_id

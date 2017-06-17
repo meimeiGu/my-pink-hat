@@ -50,11 +50,9 @@ class Container extends React.Component{
                 pathname: '/joinGroup',
                 search: '?gbgoods_id='+this.state.detailData.gbgoods_id+'&gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'joinGroup&gbsingleorder_id='+gbsingleorder_id,
             })
-
     }
 
     groupBuy(params) {
-
             if(this.state.detailData.gbgoods_skunum > 1)
             {
                 this.setState({group:params})
@@ -67,8 +65,6 @@ class Container extends React.Component{
                     search: '?gbgoods_id='+this.state.detailData.gbgoods_id+'&gbsku_id='+this.state.detailData.skus[0].gbsku_id+'&buyType='+'group',
                 })
             }
-
-
     }
 
     componentDidMount() {
