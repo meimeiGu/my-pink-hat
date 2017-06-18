@@ -70,7 +70,6 @@ class BuySelector extends React.Component{
 
     userChoiceInfo(id){
         if(id){
-            console.log('111')
             this.props.skus.map((item) => {
                 if(item.gbsku_id === id){
                     if(this.props.type === "signal")
